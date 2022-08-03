@@ -48,6 +48,7 @@ namespace Hotel.Cliente
             this.mnCheckOut = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnSobre = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabForms = new System.Windows.Forms.TabControl();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -197,11 +198,21 @@ namespace Hotel.Cliente
             this.mnSobre.Text = "&Sobre";
             this.mnSobre.Click += new System.EventHandler(this.mnSobre_Click);
             // 
+            // tabForms
+            // 
+            this.tabForms.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabForms.Location = new System.Drawing.Point(0, 24);
+            this.tabForms.Name = "tabForms";
+            this.tabForms.SelectedIndex = 0;
+            this.tabForms.Size = new System.Drawing.Size(777, 388);
+            this.tabForms.TabIndex = 1;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(777, 412);
+            this.Controls.Add(this.tabForms);
             this.Controls.Add(this.menuStrip1);
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -235,5 +246,6 @@ namespace Hotel.Cliente
         private System.Windows.Forms.ToolStripMenuItem mnCheckOut;
         private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnSobre;
+        private System.Windows.Forms.TabControl tabForms;
     }
 }

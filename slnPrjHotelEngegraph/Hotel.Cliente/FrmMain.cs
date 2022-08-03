@@ -27,19 +27,40 @@ namespace Hotel.Cliente
 
         private void mnSobre_Click(object sender, EventArgs e)
         {
-            new FrmSobre().ShowDialog();
+            new FrmSobre().ShowDialog(); 
         }
 
         private void mnTipoUh_Click(object sender, EventArgs e)
         {
-            var frm = new FrmCadTipoUh();
-            frm.Show();
+            AddFormInTabPage(new FrmCadTipoUh());
+        }
+
+        private void AddFormInTabPage(Form pForm)
+        {
+            if (tabForms.TabPages.Count > 5)
+            {
+                MessageBox.Show("Máximo de 6 formulários abertos atingidos", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            pForm.FormBorderStyle = FormBorderStyle.None;
+            pForm.WindowState = FormWindowState.Maximized;
+            pForm.TopLevel = false;
+            var page = new TabPage();
+            page.Controls.Add(pForm);
+            page.Text = pForm.Text;
+            tabForms.Controls.Add(page);
+            pForm.Parent = page;
+            pForm.Show();
         }
 
         private void mnUh_Click(object sender, EventArgs e)
         {
-            var frm = new FrmCadUh();
-            frm.ShowDialog();
+            AddFormInTabPage(new FrmCadUh());
+        }
+
+        private void fecharGuiaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
