@@ -33,7 +33,6 @@ namespace Hotel.Cliente
         private void mnTipoUh_Click(object sender, EventArgs e)
         {
             var frm = new FrmCadTipoUh();
-            frm.Parent = pnlPai;
             frm.Show();
         }
 
