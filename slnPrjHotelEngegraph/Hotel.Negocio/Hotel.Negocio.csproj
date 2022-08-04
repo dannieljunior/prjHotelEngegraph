@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{24312432-043D-4A53-BE95-B2CC1AC81929}</ProjectGuid>
+    <ProjectGuid>{AD655A6C-E71E-4F6A-85F5-22B5B1BE2092}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Hotel.Comum</RootNamespace>
-    <AssemblyName>Hotel.Comum</AssemblyName>
+    <RootNamespace>Hotel.Negocio</RootNamespace>
+    <AssemblyName>Hotel.Negocio</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -17,10 +17,10 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\Binarios\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>3</WarningLevel>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -41,23 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dto\ObjValidacao.cs" />
-    <Compile Include="Enumerados\EnGenero.cs" />
-    <Compile Include="Enumerados\EnSituacaoOcupacao.cs" />
-    <Compile Include="Enumerados\EnSituacaoReserva.cs" />
-    <Compile Include="Enumerados\EnSituacaoUh.cs" />
-    <Compile Include="Modelos\CheckOut.cs" />
-    <Compile Include="Modelos\Configuracao.cs" />
-    <Compile Include="Modelos\Entidade.cs" />
-    <Compile Include="Modelos\Hospede.cs" />
-    <Compile Include="Modelos\HospedeOcupacao.cs" />
-    <Compile Include="Modelos\Ocupacao.cs" />
-    <Compile Include="Modelos\Reserva.cs" />
-    <Compile Include="Modelos\TipoPagto.cs" />
-    <Compile Include="Modelos\TipoUh.cs" />
-    <Compile Include="Modelos\Uh.cs" />
+    <Compile Include="Classes\BllBase.cs" />
+    <Compile Include="Classes\TipoUhBll.cs" />
+    <Compile Include="Contratos\IBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Hotel.Comum\Hotel.Comum.csproj">
+      <Project>{24312432-043D-4A53-BE95-B2CC1AC81929}</Project>
+      <Name>Hotel.Comum</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

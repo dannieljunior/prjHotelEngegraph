@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consultas\frmBaseConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\frmBaseConsulta.Designer.cs">
+      <DependentUpon>frmBaseConsulta.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCadFormaPagamento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,15 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SistemaInfo.cs" />
+    <Compile Include="UserControls\ucMoneyTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucMoneyTextBox.Designer.cs">
+      <DependentUpon>ucMoneyTextBox.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Consultas\frmBaseConsulta.resx">
+      <DependentUpon>frmBaseConsulta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCadTipoUh.resx">
       <DependentUpon>FrmCadTipoUh.cs</DependentUpon>
     </EmbeddedResource>
@@ -136,6 +151,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\ucMoneyTextBox.resx">
+      <DependentUpon>ucMoneyTextBox.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -148,6 +166,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hotel.Comum\Hotel.Comum.csproj">
+      <Project>{24312432-043D-4A53-BE95-B2CC1AC81929}</Project>
+      <Name>Hotel.Comum</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hotel.Negocio\Hotel.Negocio.csproj">
+      <Project>{AD655A6C-E71E-4F6A-85F5-22B5B1BE2092}</Project>
+      <Name>Hotel.Negocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
