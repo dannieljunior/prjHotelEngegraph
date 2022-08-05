@@ -32,10 +32,10 @@ namespace Hotel.Cliente
 
         private void mnTipoUh_Click(object sender, EventArgs e)
         {
-            AddFormInTabPage(new FrmCadTipoUh());
+            AdicionarFormularioNaTabControl(new FrmCadTipoUh());
         }
 
-        private void AddFormInTabPage(Form pForm)
+        private void AdicionarFormularioNaTabControl(Form pForm)
         {
             if (tabForms.TabPages.Count > 5)
             {
@@ -55,7 +55,7 @@ namespace Hotel.Cliente
 
         private void mnUh_Click(object sender, EventArgs e)
         {
-            AddFormInTabPage(new FrmCadUh());
+            AdicionarFormularioNaTabControl(new FrmCadUh());
         }
 
         private void fecharGuiaToolStripMenuItem_Click(object sender, EventArgs e)

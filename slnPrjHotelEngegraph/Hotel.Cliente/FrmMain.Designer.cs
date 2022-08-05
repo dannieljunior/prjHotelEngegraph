@@ -82,20 +82,20 @@ namespace Hotel.Cliente
             this.mnTipoUh,
             this.mnUh});
             this.hotelToolStripMenuItem.Name = "hotelToolStripMenuItem";
-            this.hotelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hotelToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.hotelToolStripMenuItem.Text = "&Hotel";
             // 
             // mnTipoUh
             // 
             this.mnTipoUh.Name = "mnTipoUh";
-            this.mnTipoUh.Size = new System.Drawing.Size(180, 22);
+            this.mnTipoUh.Size = new System.Drawing.Size(133, 22);
             this.mnTipoUh.Text = "&Tipo de UH";
             this.mnTipoUh.Click += new System.EventHandler(this.mnTipoUh_Click);
             // 
             // mnUh
             // 
             this.mnUh.Name = "mnUh";
-            this.mnUh.Size = new System.Drawing.Size(180, 22);
+            this.mnUh.Size = new System.Drawing.Size(133, 22);
             this.mnUh.Text = "&UH";
             this.mnUh.Click += new System.EventHandler(this.mnUh_Click);
             // 
@@ -104,7 +104,7 @@ namespace Hotel.Cliente
             this.financeiroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.formasDePagamentoToolStripMenuItem});
             this.financeiroToolStripMenuItem.Name = "financeiroToolStripMenuItem";
-            this.financeiroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.financeiroToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.financeiroToolStripMenuItem.Text = "&Financeiro";
             // 
             // formasDePagamentoToolStripMenuItem
@@ -125,13 +125,13 @@ namespace Hotel.Cliente
             // mnConsultaReserva
             // 
             this.mnConsultaReserva.Name = "mnConsultaReserva";
-            this.mnConsultaReserva.Size = new System.Drawing.Size(180, 22);
+            this.mnConsultaReserva.Size = new System.Drawing.Size(145, 22);
             this.mnConsultaReserva.Text = "&Consulta";
             // 
             // mnNovaReserva
             // 
             this.mnNovaReserva.Name = "mnNovaReserva";
-            this.mnNovaReserva.Size = new System.Drawing.Size(180, 22);
+            this.mnNovaReserva.Size = new System.Drawing.Size(145, 22);
             this.mnNovaReserva.Text = "&Nova Reserva";
             // 
             // checkInToolStripMenuItem
@@ -146,13 +146,13 @@ namespace Hotel.Cliente
             // mnCheckIn
             // 
             this.mnCheckIn.Name = "mnCheckIn";
-            this.mnCheckIn.Size = new System.Drawing.Size(180, 22);
+            this.mnCheckIn.Size = new System.Drawing.Size(117, 22);
             this.mnCheckIn.Text = "&CheckIn";
             // 
             // mnWalkIn
             // 
             this.mnWalkIn.Name = "mnWalkIn";
-            this.mnWalkIn.Size = new System.Drawing.Size(180, 22);
+            this.mnWalkIn.Size = new System.Drawing.Size(117, 22);
             this.mnWalkIn.Text = "&WalkIn";
             // 
             // consultasToolStripMenuItem
@@ -166,7 +166,7 @@ namespace Hotel.Cliente
             // mnConsultaOcupacao
             // 
             this.mnConsultaOcupacao.Name = "mnConsultaOcupacao";
-            this.mnConsultaOcupacao.Size = new System.Drawing.Size(180, 22);
+            this.mnConsultaOcupacao.Size = new System.Drawing.Size(128, 22);
             this.mnConsultaOcupacao.Text = "&Ocupação";
             // 
             // checkOutToolStripMenuItem
@@ -180,7 +180,7 @@ namespace Hotel.Cliente
             // mnCheckOut
             // 
             this.mnCheckOut.Name = "mnCheckOut";
-            this.mnCheckOut.Size = new System.Drawing.Size(180, 22);
+            this.mnCheckOut.Size = new System.Drawing.Size(127, 22);
             this.mnCheckOut.Text = "&CheckOut";
             // 
             // ajudaToolStripMenuItem
@@ -194,7 +194,7 @@ namespace Hotel.Cliente
             // mnSobre
             // 
             this.mnSobre.Name = "mnSobre";
-            this.mnSobre.Size = new System.Drawing.Size(180, 22);
+            this.mnSobre.Size = new System.Drawing.Size(104, 22);
             this.mnSobre.Text = "&Sobre";
             this.mnSobre.Click += new System.EventHandler(this.mnSobre_Click);
             // 
