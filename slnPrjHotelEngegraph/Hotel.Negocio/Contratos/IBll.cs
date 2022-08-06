@@ -10,6 +10,10 @@ namespace Hotel.Negocio.Contratos
 {
     interface IBll<T> where T : Entidade
     {
-        ObjValidacao Validar(T obj) ;
+        ObjValidacao Validar(T objeto) ;
+        T Incluir(T objeto);
+        void Atualizar(T objeto);
+        void Excluir(Guid id);
+        List<T> Listar();
     }
 }
