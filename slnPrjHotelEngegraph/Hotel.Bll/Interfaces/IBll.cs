@@ -11,5 +11,10 @@ namespace Hotel.Bll.Interfaces
     public interface IBll<T>
     {
         ObjetoDeValidacao Validar(T objeto);
+
+        void Insert(T obj);
+        void Update(T obj);
+        void Delete(Guid id);
+        List<T> List();
     }
 }

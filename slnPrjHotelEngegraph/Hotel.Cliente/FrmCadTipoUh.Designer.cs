@@ -42,6 +42,7 @@ namespace Hotel.Cliente
             this.numQtdeChd = new System.Windows.Forms.NumericUpDown();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQtdeAdt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numQtdeChd)).BeginInit();
@@ -83,7 +84,7 @@ namespace Hotel.Cliente
             this.groupBox1.Controls.Add(this.txtValorDiaria);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(27, 195);
+            this.groupBox1.Location = new System.Drawing.Point(23, 198);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
@@ -99,6 +100,7 @@ namespace Hotel.Cliente
             this.txtValorAdicional.Name = "txtValorAdicional";
             this.txtValorAdicional.Size = new System.Drawing.Size(215, 22);
             this.txtValorAdicional.TabIndex = 1;
+            this.txtValorAdicional.Text = "0";
             // 
             // txtValorDiaria
             // 
@@ -107,6 +109,7 @@ namespace Hotel.Cliente
             this.txtValorDiaria.Name = "txtValorDiaria";
             this.txtValorDiaria.Size = new System.Drawing.Size(215, 22);
             this.txtValorDiaria.TabIndex = 0;
+            this.txtValorDiaria.Text = "0";
             // 
             // label5
             // 
@@ -181,11 +184,22 @@ namespace Hotel.Cliente
             this.btnFechar.Text = "&Fechar";
             this.btnFechar.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(31, 373);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(132, 36);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Consultar...";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmCadTipoUh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(729, 420);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.numQtdeChd);
@@ -223,5 +237,6 @@ namespace Hotel.Cliente
         private System.Windows.Forms.NumericUpDown numQtdeChd;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnFechar;
+        private System.Windows.Forms.Button button1;
     }
 }

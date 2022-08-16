@@ -11,6 +11,26 @@ namespace Hotel.Bll.Classes
 {
     public class UhBll : IBll<Uh>
     {
+        public void Delete(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Insert(Uh obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Uh> List()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Uh obj)
+        {
+            throw new NotImplementedException();
+        }
+
         public ObjetoDeValidacao Validar(Uh objeto)
         {
             throw new NotImplementedException();

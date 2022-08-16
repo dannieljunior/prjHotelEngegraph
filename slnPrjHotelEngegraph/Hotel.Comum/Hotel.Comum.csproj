@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Dto\ObjetoDeValidacao.cs" />
     <Compile Include="Enumerados\EnGenero.cs" />
+    <Compile Include="Enumerados\EnOperacao.cs" />
     <Compile Include="Enumerados\EnSituacaoOcupacao.cs" />
     <Compile Include="Enumerados\EnSituacaoReserva.cs" />
     <Compile Include="Enumerados\EnSituacaoUh.cs" />
