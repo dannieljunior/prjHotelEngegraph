@@ -1,4 +1,5 @@
 ﻿using Hotel.Bll.Classes;
+using Hotel.Comum.Enumerados;
 using Hotel.Comum.Modelos;
 using System;
 using System.Collections.Generic;
@@ -15,24 +16,28 @@ namespace Hotel.Cliente
 {
     public partial class FrmCadTipoUh : Form
     {
+        EnOperacao _operacao = EnOperacao.Insert;
+
+        string _operacaoDescricao = "Inserindo dados";
+        public string DescricaoOperacao
+        {
+            get { return _operacaoDescricao; }
+            set
+            {
+                _operacaoDescricao = value;
+                lblStatusOperacao.Text = _operacaoDescricao;
+            }
+        }
+
         readonly TipoUhBll _bll = new TipoUhBll(new SqlConnection(@"Server=2K21-DELL\SQLEXPRESS;Database=HotelEngegraph;User=sa;Password=123456"));
-        
+
         TipoUh _objeto = new TipoUh();
 
         public FrmCadTipoUh()
         {
             InitializeComponent();
-            //InicializarBindings();
+            DescricaoOperacao = "Inserindo dados";
         }
-
-        //private void InicializarBindings()
-        //{
-        //    txtDescricao.DataBindings.Add(new Binding("Text", _objeto, "Descricao"));
-        //    numQtdeAdt.DataBindings.Add(new Binding("Value", _objeto, "QtdeAdt"));
-        //    numQtdeChd.DataBindings.Add(new Binding("Value", _objeto, "QtdeChd"));
-        //    txtValorDiaria.DataBindings.Add(new Binding("Text", _objeto, "ValorDiaria"));
-        //    txtValorAdicional.DataBindings.Add(new Binding("Text", _objeto, "ValorAdicional"));
-        //}
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
@@ -52,50 +57,89 @@ namespace Hotel.Cliente
                 }
                 else
                 {
-                    _bll.Insert(_objeto);
-                    MessageBox.Show("Dados inseridos com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    var msg = "";
+
+                    if(_operacao == EnOperacao.Insert)
+                    {
+                        _objeto = _bll.Insert(_objeto);
+                        msg = "inseridos";
+                        _operacao = EnOperacao.Update;
+                        DescricaoOperacao = "Alterando registro";
+                    }
+                    else
+                    {
+                        _bll.Update(_objeto);
+                        msg = "atualizados";
+                    }
+
+                    MessageBox.Show($"Dados {msg} com sucesso!", "Sucesso", 
+                                    MessageBoxButtons.OK, 
+                                    MessageBoxIcon.Information);
                 }
             }
             catch(Exception ex)
             {
-                MessageBox.Show($"Algo deu errado: {ex.Message}");
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", 
+                                  MessageBoxButtons.OK, 
+                                  MessageBoxIcon.Error);
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             var dados = _bll.ObterTabela();
-
-            //var dataTable = new DataTable();
-            //dataTable.Clear();
-            //dataTable.Columns.Add("Id");
-            //dataTable.Columns.Add("Descricao");
-
-            //dataTable.Columns.Add("QtdeAdt");
-            //dataTable.Columns.Add("QtdeChd");
-
-            //dataTable.Columns.Add("ValorDiaria");
-            //dataTable.Columns.Add("ValorAdicional");
-
-            //dataTable.Columns.Add("DataCriacao");
-            //dataTable.Columns.Add("DataModificacao");
-
-            //foreach (var item in dados)
-            //{
-            //    DataRow linha = dataTable.NewRow();
-            //    linha["Id"] = item.Id;
-            //    linha["Descricao"] = item.Descricao;
-            //    linha["QtdeAdt"] = item.QtdeAdt;
-            //    linha["QtdeChd"] = item.QtdeChd;
-            //    linha["ValorDiaria"] = item.ValorDiaria;
-            //    linha["ValorAdicional"] = item.ValorAdicional;
-            //    linha["DataCriacao"] = item.DataCriacao;
-            //    linha["DataModificacao"] = item.DataModificacao;
-            //    dataTable.Rows.Add(linha);
-            //}
-
             var formularioDeConsulta = new frmConsulta(dados);
+
+            formularioDeConsulta.OnSelectRow = (s, evt) => {
+                var idSelecionado = (Guid)evt.SelectedItem;
+
+                _objeto = _bll.GetById(idSelecionado);
+
+                txtDescricao.Text = _objeto.Descricao;
+                txtValorDiaria.Text = _objeto.ValorDiaria.ToString("0.00");
+                txtValorAdicional.Text = _objeto.ValorAdicional.ToString("0.00");
+                numQtdeAdt.Value = _objeto.QtdeAdt;
+                numQtdeChd.Value = _objeto.QtdeChd;
+
+                _operacao = EnOperacao.Update;
+                DescricaoOperacao = "Alterando registro";
+            };
+
+            formularioDeConsulta.OnDeleteRow = (s, evt) =>
+            {
+                var idSelecionado = (Guid)evt.SelectedItem;
+                _bll.Delete(idSelecionado);
+                NovoRegistro();
+            };
+
             formularioDeConsulta.ShowDialog();
+        }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            //fechar a tab control do formulário
+            var page = (TabPage)this.Parent;
+            var controlPai = (TabControl)page.Parent;
+            controlPai.Controls.Remove(page);
+            this.Close();
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            NovoRegistro();
+        }
+
+        private void NovoRegistro()
+        {
+            _objeto = new TipoUh();
+            _operacao = EnOperacao.Insert;
+            txtDescricao.Clear();
+            txtValorDiaria.Clear();
+            txtValorAdicional.Clear();
+            numQtdeAdt.Value = 0;
+            numQtdeChd.Value = 0;
+            txtDescricao.Focus();
+            DescricaoOperacao = "Inserindo registro";
         }
     }
 }

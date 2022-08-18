@@ -43,9 +43,13 @@ namespace Hotel.Cliente
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnNovo = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.lblStatusOperacao = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQtdeAdt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numQtdeChd)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -88,7 +92,7 @@ namespace Hotel.Cliente
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(664, 143);
+            this.groupBox1.Size = new System.Drawing.Size(671, 143);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Valores de Diárias";
@@ -135,6 +139,7 @@ namespace Hotel.Cliente
             // 
             this.txtDescricao.Location = new System.Drawing.Point(195, 35);
             this.txtDescricao.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDescricao.MaxLength = 40;
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(499, 22);
             this.txtDescricao.TabIndex = 0;
@@ -183,10 +188,11 @@ namespace Hotel.Cliente
             this.btnFechar.TabIndex = 5;
             this.btnFechar.Text = "&Fechar";
             this.btnFechar.UseVisualStyleBackColor = true;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(31, 373);
+            this.button1.Location = new System.Drawing.Point(133, 373);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(132, 36);
             this.button1.TabIndex = 6;
@@ -194,11 +200,39 @@ namespace Hotel.Cliente
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnNovo
+            // 
+            this.btnNovo.Location = new System.Drawing.Point(23, 373);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(104, 36);
+            this.btnNovo.TabIndex = 7;
+            this.btnNovo.Text = "&Novo";
+            this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblStatusOperacao});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 441);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(729, 22);
+            this.statusStrip1.TabIndex = 8;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // lblStatusOperacao
+            // 
+            this.lblStatusOperacao.Name = "lblStatusOperacao";
+            this.lblStatusOperacao.Size = new System.Drawing.Size(118, 17);
+            this.lblStatusOperacao.Text = "toolStripStatusLabel2";
+            // 
             // FrmCadTipoUh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(729, 420);
+            this.ClientSize = new System.Drawing.Size(729, 463);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.btnSalvar);
@@ -217,6 +251,8 @@ namespace Hotel.Cliente
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQtdeAdt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numQtdeChd)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,5 +274,8 @@ namespace Hotel.Cliente
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnNovo;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel lblStatusOperacao;
     }
 }

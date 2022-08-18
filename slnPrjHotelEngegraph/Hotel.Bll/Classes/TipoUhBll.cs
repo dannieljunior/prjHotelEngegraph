@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace Hotel.Bll.Classes
 {
@@ -25,7 +26,18 @@ namespace Hotel.Bll.Classes
             ExecutarComando(sql, new TipoUh() { Id = id }, EnOperacao.Delete);
         }
 
-        public void Insert(TipoUh obj)
+        public TipoUh GetById(Guid id)
+        {
+            var sql = $"SELECT * FROM TipoUh WHERE Id = @Id";
+
+            var comando = CriarComando(sql);
+
+            comando.Parameters.AddWithValue("Id", id);
+
+            return ObterLista(comando).FirstOrDefault();
+        }
+
+        public TipoUh Insert(TipoUh obj)
         {
             //comando sql de insert
             var sql = @"INSERT INTO TipoUh
@@ -46,6 +58,8 @@ namespace Hotel.Bll.Classes
                                ,@DataCriacao);";
 
             ExecutarComando(sql, obj);
+
+            return obj;
         }
 
         public List<TipoUh> List()
@@ -116,7 +130,7 @@ namespace Hotel.Bll.Classes
             return result;
         }
 
-        protected override void ExecutarComando(string sql, TipoUh obj, EnOperacao pOperacao = EnOperacao.Insert)
+        protected override TipoUh ExecutarComando(string sql, TipoUh obj, EnOperacao pOperacao = EnOperacao.Insert)
         {
             //instancia um novo SqlCommand
             var comando = CriarComando(sql);
@@ -139,21 +153,29 @@ namespace Hotel.Bll.Classes
 
                     var agora = DateTime.Now;
 
+                    Guid id;
+
                     if (pOperacao == EnOperacao.Insert)
                     {
-                        var novoId = Guid.NewGuid();
-                        comando.Parameters.AddWithValue("Id", novoId);
+                        id = Guid.NewGuid();
                         comando.Parameters.AddWithValue("DataCriacao", agora);
                     }
                     else
                     {
+                        id = obj.Id;
                         comando.Parameters.AddWithValue("DataModificacao", agora);
                     }
+
+                    obj.Id = id;
+
+                    comando.Parameters.AddWithValue("Id", obj.Id);
                 }
             }
 
             //Executa um comando de NÃO consulta
             comando.ExecuteNonQuery();
+
+            return obj;
         }
 
         protected override List<TipoUh> ObterLista(SqlCommand pComando)

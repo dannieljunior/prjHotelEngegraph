@@ -15,7 +15,7 @@ namespace Hotel.Bll.Classes
             _conexao.Open();
         }
 
-        protected abstract void ExecutarComando(string sql, T obj, EnOperacao pOperacao = EnOperacao.Insert);
+        protected abstract T ExecutarComando(string sql, T obj, EnOperacao pOperacao = EnOperacao.Insert);
 
         protected abstract List<T> ObterLista(SqlCommand pComando);
 

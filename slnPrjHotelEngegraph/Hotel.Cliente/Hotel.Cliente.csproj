@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Eventos\MyEventArgs.cs" />
     <Compile Include="frmCadFormaPagamento.cs">
       <SubType>Form</SubType>
     </Compile>

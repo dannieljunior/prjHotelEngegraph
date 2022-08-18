@@ -10,13 +10,13 @@ namespace Engegraph.ADO
 {
     class Program
     {
+
+        delegate void Escreva(string s);
+
         static void Main(string[] args)
         {
 
-            string stringNula = null;
 
-
-            Console.WriteLine(stringNula ?? "A string está nula");
 
 
 

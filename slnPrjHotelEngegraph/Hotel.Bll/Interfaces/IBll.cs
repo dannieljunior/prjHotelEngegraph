@@ -12,9 +12,10 @@ namespace Hotel.Bll.Interfaces
     {
         ObjetoDeValidacao Validar(T objeto);
 
-        void Insert(T obj);
+        T Insert(T obj);
         void Update(T obj);
         void Delete(Guid id);
         List<T> List();
+        T GetById(Guid id);
     }
 }

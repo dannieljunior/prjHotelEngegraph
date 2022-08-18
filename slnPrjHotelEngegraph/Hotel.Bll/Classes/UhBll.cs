@@ -16,7 +16,12 @@ namespace Hotel.Bll.Classes
             throw new NotImplementedException();
         }
 
-        public void Insert(Uh obj)
+        public Uh GetById(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Uh Insert(Uh obj)
         {
             throw new NotImplementedException();
         }
