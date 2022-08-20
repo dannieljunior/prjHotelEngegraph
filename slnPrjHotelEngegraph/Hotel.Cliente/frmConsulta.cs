@@ -33,20 +33,17 @@ namespace Hotel.Cliente
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja realmente excluir o registro selecionado?", 
-                                "Confirmação", 
-                                MessageBoxButtons.YesNo, 
-                                MessageBoxIcon.Question) == DialogResult.Yes)
+            if (Notificador.Confirmacao("Deseja realmente excluir o registro selecionado?"))
             {
                 try
                 {
                     OnDeleteRow(sender, new MyEventArgs(dataGridView1.SelectedRows[0].Cells["Id"].Value));
                     dataGridView1.Rows.Remove(dataGridView1.SelectedRows[0]);
-                    MessageBox.Show("Registro excluído com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Notificador.Sucesso("Registro excluído com sucesso!");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Ocorreu o erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Notificador.Erro($"Ocorreu o erro: {ex.Message}");
                 }              
             }
         }

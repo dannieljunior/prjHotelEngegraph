@@ -247,6 +247,7 @@ namespace Hotel.Cliente
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCadTipoUh";
             this.Text = "Cadastro de Tipo de UH";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmCadTipoUh_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQtdeAdt)).EndInit();

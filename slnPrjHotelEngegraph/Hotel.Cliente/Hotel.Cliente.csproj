@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conexao.cs" />
     <Compile Include="Eventos\MyEventArgs.cs" />
     <Compile Include="frmCadFormaPagamento.cs">
       <SubType>Form</SubType>
@@ -119,6 +121,7 @@
     <Compile Include="FrmWalkIn.Designer.cs">
       <DependentUpon>FrmWalkIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Notificador.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SistemaInfo.cs" />

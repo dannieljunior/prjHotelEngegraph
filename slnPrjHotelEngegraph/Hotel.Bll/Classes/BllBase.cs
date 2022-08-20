@@ -12,7 +12,6 @@ namespace Hotel.Bll.Classes
         public BllBase(SqlConnection pConexao)
         {
             _conexao = pConexao;
-            _conexao.Open();
         }
 
         protected abstract T ExecutarComando(string sql, T obj, EnOperacao pOperacao = EnOperacao.Insert);

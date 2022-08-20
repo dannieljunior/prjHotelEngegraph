@@ -29,7 +29,7 @@ namespace Hotel.Cliente
             }
         }
 
-        readonly TipoUhBll _bll = new TipoUhBll(new SqlConnection(@"Server=2K21-DELL\SQLEXPRESS;Database=HotelEngegraph;User=sa;Password=123456"));
+        readonly TipoUhBll _bll = new TipoUhBll(Conexao.Conectar());
 
         TipoUh _objeto = new TipoUh();
 
@@ -53,7 +53,7 @@ namespace Hotel.Cliente
                 
                 if (!validacao.Sucesso)
                 {
-                    MessageBox.Show(string.Join(Environment.NewLine, validacao.Criticas.ToArray()), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Notificador.Erro(string.Join(Environment.NewLine, validacao.Criticas.ToArray()));
                 }
                 else
                 {
@@ -72,16 +72,12 @@ namespace Hotel.Cliente
                         msg = "atualizados";
                     }
 
-                    MessageBox.Show($"Dados {msg} com sucesso!", "Sucesso", 
-                                    MessageBoxButtons.OK, 
-                                    MessageBoxIcon.Information);
+                    Notificador.Sucesso($"Dados {msg} com sucesso!");
                 }
             }
             catch(Exception ex)
             {
-                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", 
-                                  MessageBoxButtons.OK, 
-                                  MessageBoxIcon.Error);
+                Notificador.Erro($"Ocorreu um erro: {ex.Message}");
             }
         }
 
@@ -140,6 +136,11 @@ namespace Hotel.Cliente
             numQtdeChd.Value = 0;
             txtDescricao.Focus();
             DescricaoOperacao = "Inserindo registro";
+        }
+
+        private void FrmCadTipoUh_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
         }
     }
 }
