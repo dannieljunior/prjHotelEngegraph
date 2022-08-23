@@ -1,17 +1,12 @@
-﻿using Hotel.Bll.Classes;
+﻿using Hotel.Repositorio.ADO.Classes;
 using Hotel.Utils.Database;
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Hotel.Bll.Migracoes
+namespace Hotel.Repositorio.ADO.Migracoes
 {
-    public class CriaTabelaUh: MigracaoBase
+    public class M_2_CriaTabelaUh: MigracaoBase
     {
-        public CriaTabelaUh()
+        public M_2_CriaTabelaUh()
         {
             versao = 2;
         }

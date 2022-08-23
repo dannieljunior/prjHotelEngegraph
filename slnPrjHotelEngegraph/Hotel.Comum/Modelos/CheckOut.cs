@@ -6,7 +6,7 @@ namespace Hotel.Comum.Modelos
     {
         public DateTime DataCheckOut { get; set; }
         public Ocupacao Ocupacao { get; set; }
-        public double QtdeNoites => DataCheckOut.Subtract(Ocupacao.DataCheckIn).Days;
+        public int QtdeNoites => DataCheckOut.Subtract(Ocupacao.DataCheckIn).Days;
         public TipoPagto TipoPagto { get; set; }
     }
 }

@@ -25,6 +25,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engegraph.ADO", "Engegraph.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.Utils", "Hotel.Utils\Hotel.Utils.csproj", "{B64219AF-1C92-431C-B897-34A6D5BCD4DF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositorio", "Repositorio", "{42A083E0-48C1-4106-BA9C-EFEDEBF017A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.Repositorio.ADO", "Hotel.Repositorio.ADO\Hotel.Repositorio.ADO.csproj", "{4570C8C2-FAAB-41F8-9E41-780B19D6131C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,10 @@ Global
 		{B64219AF-1C92-431C-B897-34A6D5BCD4DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B64219AF-1C92-431C-B897-34A6D5BCD4DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B64219AF-1C92-431C-B897-34A6D5BCD4DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4570C8C2-FAAB-41F8-9E41-780B19D6131C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4570C8C2-FAAB-41F8-9E41-780B19D6131C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4570C8C2-FAAB-41F8-9E41-780B19D6131C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4570C8C2-FAAB-41F8-9E41-780B19D6131C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +69,7 @@ Global
 		{41D61906-3C17-4E47-9C52-E09F0064426C} = {16F35741-BDC3-443C-AF51-576B533AA807}
 		{5F4770D4-E07B-446D-AF58-597D16398375} = {6343478E-CD25-4253-BCAB-4B597EE81054}
 		{B64219AF-1C92-431C-B897-34A6D5BCD4DF} = {04F04E7A-6DF9-4A2E-B95F-346C737F3256}
+		{4570C8C2-FAAB-41F8-9E41-780B19D6131C} = {42A083E0-48C1-4106-BA9C-EFEDEBF017A4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {60D80B60-FB0C-46F7-B9E3-79F0FF7C7FDD}

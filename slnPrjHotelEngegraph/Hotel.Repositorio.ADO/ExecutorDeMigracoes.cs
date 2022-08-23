@@ -1,4 +1,5 @@
-﻿using Hotel.Bll.Migracoes;
+﻿using Hotel.Repositorio.ADO;
+using Hotel.Repositorio.ADO.Classes;
 using Hotel.Utils.Database;
 using System;
 using System.Collections.Generic;
@@ -14,28 +15,28 @@ namespace Hotel.Bll.Classes
                                                     DataExecucao DateTime not null default getdate()
                                                 )";
 
+        readonly SqlCommand _comando;
 
-        readonly SqlConnection _conexao;
-        
-        SqlCommand _comando;
-
-        public ExecutorDeMigracoes(SqlConnection conexao)
+        public ExecutorDeMigracoes()
         {
-            _conexao = conexao;
-
-            var transacao = _conexao.BeginTransaction();
+            var conexao = Conexao.Conectar();
+            _comando = conexao.CreateCommand();
+            var transacao = conexao.BeginTransaction();
 
             try
             {
-                _comando = _conexao.CreateCommand();
                 _comando.Transaction = transacao;
                 GarantirEstrutura();
-                ExecutarMigracoes(transacao);
+                ExecutarMigracoes();
                 transacao.Commit();
             }
             catch (Exception ex)
             {
                 transacao.Rollback();
+            }
+            finally
+            {
+                _comando.FreeAndNil();
             }
             
         }
@@ -50,7 +51,7 @@ namespace Hotel.Bll.Classes
             _comando.ExecuteNonQuery();
         }
 
-        private void ExecutarMigracoes(SqlTransaction transacao)
+        private void ExecutarMigracoes()
         {
             var ultimaVersao = ObterUltimaVersao();
 
@@ -88,7 +89,5 @@ namespace Hotel.Bll.Classes
             _comando.CommandText = sql;
             _comando.ExecuteNonQuery();
         }
-
-
     }
 }

@@ -47,6 +47,8 @@
     <Compile Include="Enumerados\EnSituacaoOcupacao.cs" />
     <Compile Include="Enumerados\EnSituacaoReserva.cs" />
     <Compile Include="Enumerados\EnSituacaoUh.cs" />
+    <Compile Include="Interfaces\IRepositorio.cs" />
+    <Compile Include="Interfaces\IRepositorioTipoUh.cs" />
     <Compile Include="Modelos\CheckOut.cs" />
     <Compile Include="Modelos\Configuracao.cs" />
     <Compile Include="Modelos\Entidade.cs" />

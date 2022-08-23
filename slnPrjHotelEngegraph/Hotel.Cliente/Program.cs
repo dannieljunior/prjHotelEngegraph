@@ -1,9 +1,7 @@
 ﻿using Hotel.Bll.Classes;
+using Hotel.Repositorio.ADO;
 using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Configuration;
 using System.Windows.Forms;
 
 namespace Hotel.Cliente
@@ -19,7 +17,9 @@ namespace Hotel.Cliente
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            new ExecutorDeMigracoes(Conexao.Conectar());
+            Conexao.ConnectionString = ConfigurationManager.AppSettings["StringDeConexao"];
+
+            new ExecutorDeMigracoes();
 
             /* TODO: Criar migrações de todas as tabelas do banco de dados
              * TODO: Desenhar todos os formulários

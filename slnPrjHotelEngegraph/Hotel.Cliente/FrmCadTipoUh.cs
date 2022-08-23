@@ -2,14 +2,6 @@
 using Hotel.Comum.Enumerados;
 using Hotel.Comum.Modelos;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Hotel.Cliente
@@ -29,7 +21,7 @@ namespace Hotel.Cliente
             }
         }
 
-        readonly TipoUhBll _bll = new TipoUhBll(Conexao.Conectar());
+        readonly TipoUhBll _bll = new TipoUhBll();
 
         TipoUh _objeto = new TipoUh();
 
@@ -61,14 +53,14 @@ namespace Hotel.Cliente
 
                     if(_operacao == EnOperacao.Insert)
                     {
-                        _objeto = _bll.Insert(_objeto);
+                        _objeto = _bll.Persistir(_objeto, EnOperacao.Insert);
                         msg = "inseridos";
                         _operacao = EnOperacao.Update;
                         DescricaoOperacao = "Alterando registro";
                     }
                     else
                     {
-                        _bll.Update(_objeto);
+                        _bll.Persistir(_objeto, EnOperacao.Update);
                         msg = "atualizados";
                     }
 
@@ -83,7 +75,7 @@ namespace Hotel.Cliente
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var dados = _bll.ObterTabela();
+            var dados = _bll.GetDataTable();
             var formularioDeConsulta = new frmConsulta(dados);
 
             formularioDeConsulta.OnSelectRow = (s, evt) => {
@@ -104,7 +96,7 @@ namespace Hotel.Cliente
             formularioDeConsulta.OnDeleteRow = (s, evt) =>
             {
                 var idSelecionado = (Guid)evt.SelectedItem;
-                _bll.Delete(idSelecionado);
+                _bll.Persistir(_objeto, EnOperacao.Delete);
                 NovoRegistro();
             };
 

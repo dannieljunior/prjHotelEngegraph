@@ -47,7 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Conexao.cs" />
     <Compile Include="Eventos\MyEventArgs.cs" />
     <Compile Include="frmCadFormaPagamento.cs">
       <SubType>Form</SubType>
@@ -170,6 +169,10 @@
     <ProjectReference Include="..\Hotel.Comum\Hotel.Comum.csproj">
       <Project>{24312432-043D-4A53-BE95-B2CC1AC81929}</Project>
       <Name>Hotel.Comum</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hotel.Repositorio.ADO\Hotel.Repositorio.ADO.csproj">
+      <Project>{4570C8C2-FAAB-41F8-9E41-780B19D6131C}</Project>
+      <Name>Hotel.Repositorio.ADO</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

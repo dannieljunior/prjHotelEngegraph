@@ -22,5 +22,14 @@ namespace Hotel.Utils.Database
 
             return resultado > 0;
         }
+
+        public static void FreeAndNil(this SqlCommand comando)
+        {
+            if (comando.Connection.State == System.Data.ConnectionState.Open)
+                comando.Connection.Close();
+
+            comando.Connection.Dispose();
+            comando.Dispose();
+        }
     }
 }

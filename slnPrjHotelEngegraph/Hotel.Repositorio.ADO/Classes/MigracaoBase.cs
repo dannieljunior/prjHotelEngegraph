@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hotel.Bll.Classes
+namespace Hotel.Repositorio.ADO.Classes
 {
     public abstract class MigracaoBase
     {
