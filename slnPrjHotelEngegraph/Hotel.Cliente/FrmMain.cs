@@ -51,6 +51,8 @@ namespace Hotel.Cliente
             tabForms.Controls.Add(page);
             pForm.Parent = page;
             pForm.Show();
+            //TODO: Mostrar pros alunos
+            tabForms.SelectedIndex = tabForms.TabCount - 1;
         }
 
         private void mnUh_Click(object sender, EventArgs e)

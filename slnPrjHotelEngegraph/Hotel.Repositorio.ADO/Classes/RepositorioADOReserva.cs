@@ -10,31 +10,37 @@ using System.Linq;
 
 namespace Hotel.Repositorio.ADO.Classes
 {
-    public class RepositorioADOTipoUh : RepositorioBase<TipoUh>, IRepositorioTipoUh
+    public class RepositorioADOReserva : RepositorioBase<Reserva>, IRepositorioReserva
     {
-        public RepositorioADOTipoUh()
+        public RepositorioADOReserva()
         {
-            _tabela = "TipoUh";
+            _tabela = "Reserva";
         }
 
-        public TipoUh Insert(TipoUh obj)
+        public Reserva Insert(Reserva obj)
         {
+
+
             //comando sql de insert
-            var sql = @"INSERT INTO TipoUh
+            var sql = @"INSERT INTO Reserva
                                (Id
-                               ,Descricao
+                               ,DataCheckIn
+                               ,DataCheckOut
                                ,QtdeAdt
                                ,QtdeChd
-                               ,ValorDiaria
-                               ,ValorAdicional
+                               ,TipoUhId
+                               ,Observacoes
+                               ,Situacao
                                ,DataCriacao)
                          VALUES
                                (@Id
-                               ,@Descricao
+                               ,@DataCheckIn
+                               ,@DataCheckOut
                                ,@QtdeAdt
                                ,@QtdeChd
-                               ,@ValorDiaria
-                               ,@ValorAdicional
+                               ,@TipoUhId
+                               ,@Observacoes
+                               ,@Situacao
                                ,@DataCriacao);";
 
             ExecutarComando(sql, obj);
@@ -42,15 +48,17 @@ namespace Hotel.Repositorio.ADO.Classes
             return obj;
         }
 
-        public void Update(TipoUh obj)
+        public void Update(Reserva obj)
         {
             //comando sql de update
-            var sql = @"UPDATE TipoUh SET
-                               Descricao = @Descricao
+            var sql = @"UPDATE Reserva SET
+                                DataCheckIn = @DataCheckIn
+                               ,DataCheckOut = @DataCheckOut
                                ,QtdeAdt = @QtdeAdt
                                ,QtdeChd = @QtdeChd
-                               ,ValorDiaria = @ValorDiaria
-                               ,ValorAdicional = @ValorAdicional
+                               ,TipoUhId = @TipoUhId
+                               ,Observacoes = @Observacoes
+                               ,Situacao = @Situacao
                                ,DataModificacao = @DataModificacao
                         WHERE 
                                Id = @Id";
@@ -58,7 +66,7 @@ namespace Hotel.Repositorio.ADO.Classes
             ExecutarComando(sql, obj, EnOperacao.Update);
         }
 
-        protected override TipoUh ExecutarComando(string sql, TipoUh obj, EnOperacao pOperacao = EnOperacao.Insert)
+        protected override Reserva ExecutarComando(string sql, Reserva obj, EnOperacao pOperacao = EnOperacao.Insert)
         {
             var comando = CriarComando(sql);
 
@@ -72,13 +80,16 @@ namespace Hotel.Repositorio.ADO.Classes
                 }
                 else
                 {
+
                     if (pOperacao != EnOperacao.Delete)
                     {
-                        comando.Parameters.AddWithValue("Descricao", obj.Descricao);
+                        comando.Parameters.AddWithValue("DataCheckIn", obj.DataCheckIn);
+                        comando.Parameters.AddWithValue("DataCheckOut", obj.DataCheckOut);
                         comando.Parameters.AddWithValue("QtdeAdt", obj.QtdeAdt);
                         comando.Parameters.AddWithValue("QtdeChd", obj.QtdeChd);
-                        comando.Parameters.AddWithValue("ValorDiaria", obj.ValorDiaria);
-                        comando.Parameters.AddWithValue("ValorAdicional", obj.ValorAdicional);
+                        comando.Parameters.AddWithValue("TipoUhId", obj.TipoUh.Id);
+                        comando.Parameters.AddWithValue("Observacoes", obj.Observacoes);
+                        comando.Parameters.AddWithValue("Situacao", obj.Situacao);
 
                         var agora = DateTime.Now;
 
@@ -112,32 +123,34 @@ namespace Hotel.Repositorio.ADO.Classes
             }
         }
 
-        protected override List<TipoUh> ObterLista(SqlCommand pComando)
+        protected override List<Reserva> ObterLista(SqlCommand pComando)
         {
-            var listaTiposUh = new List<TipoUh>();
+            var lista = new List<Reserva>();
 
             using (var reader = pComando.ExecuteReader())
             {
                 while (reader.Read())
                 {
-                    var tipoUh = new TipoUh();
+                    var reserva = new Reserva();
 
-                    tipoUh.Id = (Guid)reader["Id"];
-                    tipoUh.Descricao = reader["Descricao"].ToString();
-                    tipoUh.QtdeAdt = Convert.ToInt32(reader["QtdeAdt"]);
-                    tipoUh.QtdeChd = Convert.ToInt32(reader["QtdeChd"]);
-                    tipoUh.ValorDiaria = Convert.ToDouble(reader["ValorDiaria"]);
-                    tipoUh.ValorAdicional = Convert.ToDouble(reader["ValorAdicional"]);
-                    tipoUh.DataCriacao = Convert.ToDateTime(reader["DataCriacao"]);
+                    reserva.Id = (Guid)reader["Id"];
+                    reserva.DataCheckIn = Convert.ToDateTime(reader["DataCheckIn"]);
+                    reserva.DataCheckOut = Convert.ToDateTime(reader["DataCheckOut"]);
+                    reserva.QtdeAdt = Convert.ToInt32(reader["QtdeAdt"]);
+                    reserva.QtdeChd = Convert.ToInt32(reader["QtdeChd"]);
+                    reserva.TipoUh = new RepositorioADOTipoUh().GetById((Guid)reader["TipoUhId"]);
+                    reserva.Observacoes = reader["Observacoes"].ToString();
+                    reserva.Situacao = (EnSituacaoReserva)Convert.ToInt32(reader["Situacao"]);
+                    reserva.DataCriacao = Convert.ToDateTime(reader["DataCriacao"]);
 
                     if (reader["DataModificacao"] != DBNull.Value)
-                        tipoUh.DataModificacao = Convert.ToDateTime(reader["DataModificacao"]);
+                        reserva.DataModificacao = Convert.ToDateTime(reader["DataModificacao"]);
 
-                    listaTiposUh.Add(tipoUh);
+                    lista.Add(reserva);
                 }
             }
 
-            return listaTiposUh;
+            return lista;
         }
     }
 }

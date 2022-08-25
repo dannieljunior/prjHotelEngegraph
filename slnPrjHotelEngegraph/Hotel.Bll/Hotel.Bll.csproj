@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Classes\BllBase.cs" />
     <Compile Include="Classes\TipoUhBll.cs" />
+    <Compile Include="Classes\UhBll.cs" />
     <Compile Include="Interfaces\IBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

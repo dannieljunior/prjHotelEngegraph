@@ -41,11 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\RepositorioADOReserva.cs" />
+    <Compile Include="Classes\RepositorioADOOcupacao.cs" />
+    <Compile Include="Classes\RepositorioADOHospede.cs" />
+    <Compile Include="Classes\RepositorioADOHospedeOcupacao.cs" />
+    <Compile Include="Classes\RepositorioADOCheckOut.cs" />
+    <Compile Include="Classes\RepositorioADOConfiguracao.cs" />
+    <Compile Include="Classes\RepositorioADOTipoPagto.cs" />
+    <Compile Include="Classes\RepositorioADOUh.cs" />
     <Compile Include="Classes\RepositorioADOTipoUh.cs" />
     <Compile Include="Classes\RepositorioBase.cs" />
     <Compile Include="Conexao.cs" />
     <Compile Include="ExecutorDeMigracoes.cs" />
     <Compile Include="Classes\MigracaoBase.cs" />
+    <Compile Include="Migracoes\M_10_CriaColunasDataCriacao_DataModificao_Tabela_Uh.cs" />
     <Compile Include="Migracoes\M_1_CriaTabelaTipoUh.cs" />
     <Compile Include="Migracoes\M_2_CriaTabelaUh.cs" />
     <Compile Include="Migracoes\M_3_CriaTabelaTipoPagto.cs" />

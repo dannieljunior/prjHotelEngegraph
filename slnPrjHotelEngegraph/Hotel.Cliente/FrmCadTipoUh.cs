@@ -11,6 +11,11 @@ namespace Hotel.Cliente
         EnOperacao _operacao = EnOperacao.Insert;
 
         string _operacaoDescricao = "Inserindo dados";
+
+        readonly TipoUhBll _bll = new TipoUhBll();
+
+        TipoUh _objeto = new TipoUh();
+
         public string DescricaoOperacao
         {
             get { return _operacaoDescricao; }
@@ -20,10 +25,6 @@ namespace Hotel.Cliente
                 lblStatusOperacao.Text = _operacaoDescricao;
             }
         }
-
-        readonly TipoUhBll _bll = new TipoUhBll();
-
-        TipoUh _objeto = new TipoUh();
 
         public FrmCadTipoUh()
         {

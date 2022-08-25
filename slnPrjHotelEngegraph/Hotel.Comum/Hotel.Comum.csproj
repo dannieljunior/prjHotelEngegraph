@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Auxiliares\ItemDeSelecao.cs" />
     <Compile Include="Dto\ObjetoDeValidacao.cs" />
     <Compile Include="Enumerados\EnGenero.cs" />
     <Compile Include="Enumerados\EnOperacao.cs" />
@@ -48,7 +49,15 @@
     <Compile Include="Enumerados\EnSituacaoReserva.cs" />
     <Compile Include="Enumerados\EnSituacaoUh.cs" />
     <Compile Include="Interfaces\IRepositorio.cs" />
+    <Compile Include="Interfaces\IRepositorioCheckOut.cs" />
+    <Compile Include="Interfaces\IRepositorioConfiguracao.cs" />
+    <Compile Include="Interfaces\IRepositorioHospede.cs" />
+    <Compile Include="Interfaces\IRepositorioHospedeOcupacao.cs" />
+    <Compile Include="Interfaces\IRepositorioOcupacao.cs" />
+    <Compile Include="Interfaces\IRepositorioReserva.cs" />
+    <Compile Include="Interfaces\IRepositorioTipoPagto.cs" />
     <Compile Include="Interfaces\IRepositorioTipoUh.cs" />
+    <Compile Include="Interfaces\IRepositorioUh.cs" />
     <Compile Include="Modelos\CheckOut.cs" />
     <Compile Include="Modelos\Configuracao.cs" />
     <Compile Include="Modelos\Entidade.cs" />

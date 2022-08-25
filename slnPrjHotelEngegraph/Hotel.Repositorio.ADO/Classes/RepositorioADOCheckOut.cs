@@ -10,31 +10,28 @@ using System.Linq;
 
 namespace Hotel.Repositorio.ADO.Classes
 {
-    public class RepositorioADOTipoUh : RepositorioBase<TipoUh>, IRepositorioTipoUh
+    public class RepositorioADOCheckOut : RepositorioBase<CheckOut>, IRepositorioCheckOut
     {
-        public RepositorioADOTipoUh()
+
+        public RepositorioADOCheckOut()
         {
-            _tabela = "TipoUh";
+            _tabela = "CheckOut";
         }
 
-        public TipoUh Insert(TipoUh obj)
+        public CheckOut Insert(CheckOut obj)
         {
             //comando sql de insert
-            var sql = @"INSERT INTO TipoUh
+            var sql = @"INSERT INTO CheckOut
                                (Id
-                               ,Descricao
-                               ,QtdeAdt
-                               ,QtdeChd
-                               ,ValorDiaria
-                               ,ValorAdicional
+                               ,DataCheckOut
+                               ,OcupacaoId
+                               ,TipoPagtoId
                                ,DataCriacao)
                          VALUES
                                (@Id
-                               ,@Descricao
-                               ,@QtdeAdt
-                               ,@QtdeChd
-                               ,@ValorDiaria
-                               ,@ValorAdicional
+                               ,@DataCheckOut
+                               ,@OcupacaoId
+                               ,@TipoPagtoId
                                ,@DataCriacao);";
 
             ExecutarComando(sql, obj);
@@ -42,15 +39,13 @@ namespace Hotel.Repositorio.ADO.Classes
             return obj;
         }
 
-        public void Update(TipoUh obj)
+        public void Update(CheckOut obj)
         {
             //comando sql de update
-            var sql = @"UPDATE TipoUh SET
-                               Descricao = @Descricao
-                               ,QtdeAdt = @QtdeAdt
-                               ,QtdeChd = @QtdeChd
-                               ,ValorDiaria = @ValorDiaria
-                               ,ValorAdicional = @ValorAdicional
+            var sql = @"UPDATE CheckOut SET
+                                DataCheckOut = DataCheckOut
+                               ,OcupacaoId = OcupacaoId
+                               ,TipoPagtoId = TipoPagtoId
                                ,DataModificacao = @DataModificacao
                         WHERE 
                                Id = @Id";
@@ -58,7 +53,7 @@ namespace Hotel.Repositorio.ADO.Classes
             ExecutarComando(sql, obj, EnOperacao.Update);
         }
 
-        protected override TipoUh ExecutarComando(string sql, TipoUh obj, EnOperacao pOperacao = EnOperacao.Insert)
+        protected override CheckOut ExecutarComando(string sql, CheckOut obj, EnOperacao pOperacao = EnOperacao.Insert)
         {
             var comando = CriarComando(sql);
 
@@ -74,11 +69,9 @@ namespace Hotel.Repositorio.ADO.Classes
                 {
                     if (pOperacao != EnOperacao.Delete)
                     {
-                        comando.Parameters.AddWithValue("Descricao", obj.Descricao);
-                        comando.Parameters.AddWithValue("QtdeAdt", obj.QtdeAdt);
-                        comando.Parameters.AddWithValue("QtdeChd", obj.QtdeChd);
-                        comando.Parameters.AddWithValue("ValorDiaria", obj.ValorDiaria);
-                        comando.Parameters.AddWithValue("ValorAdicional", obj.ValorAdicional);
+                        comando.Parameters.AddWithValue("DataCheckOut", obj.DataCheckOut);
+                        comando.Parameters.AddWithValue("OcupacaoId", obj.Ocupacao.Id);
+                        comando.Parameters.AddWithValue("TipoPagtoId", obj.TipoPagto.Id);
 
                         var agora = DateTime.Now;
 
@@ -112,32 +105,30 @@ namespace Hotel.Repositorio.ADO.Classes
             }
         }
 
-        protected override List<TipoUh> ObterLista(SqlCommand pComando)
+        protected override List<CheckOut> ObterLista(SqlCommand pComando)
         {
-            var listaTiposUh = new List<TipoUh>();
+            var lista = new List<CheckOut>();
 
             using (var reader = pComando.ExecuteReader())
             {
                 while (reader.Read())
                 {
-                    var tipoUh = new TipoUh();
+                    var checkOut = new CheckOut();
 
-                    tipoUh.Id = (Guid)reader["Id"];
-                    tipoUh.Descricao = reader["Descricao"].ToString();
-                    tipoUh.QtdeAdt = Convert.ToInt32(reader["QtdeAdt"]);
-                    tipoUh.QtdeChd = Convert.ToInt32(reader["QtdeChd"]);
-                    tipoUh.ValorDiaria = Convert.ToDouble(reader["ValorDiaria"]);
-                    tipoUh.ValorAdicional = Convert.ToDouble(reader["ValorAdicional"]);
-                    tipoUh.DataCriacao = Convert.ToDateTime(reader["DataCriacao"]);
+                    checkOut.Id = (Guid)reader["Id"];
+                    checkOut.DataCheckOut = Convert.ToDateTime(reader["DataCheckOut"]);
+                    checkOut.Ocupacao = new RepositorioADOOcupacao().GetById((Guid)reader["OcupacaoId"]);
+                    checkOut.TipoPagto = new RepositorioADOTipoPagto().GetById((Guid)reader["OcupacaoId"]);
+                    checkOut.DataCriacao = Convert.ToDateTime(reader["DataCriacao"]);
 
                     if (reader["DataModificacao"] != DBNull.Value)
-                        tipoUh.DataModificacao = Convert.ToDateTime(reader["DataModificacao"]);
+                        checkOut.DataModificacao = Convert.ToDateTime(reader["DataModificacao"]);
 
-                    listaTiposUh.Add(tipoUh);
+                    lista.Add(checkOut);
                 }
             }
 
-            return listaTiposUh;
+            return lista;
         }
     }
 }
