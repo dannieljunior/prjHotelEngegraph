@@ -5,6 +5,8 @@ namespace Hotel.Comum.Modelos
 {
     public class Reserva: Entidade
     {
+        public string NomeSolicitante { get; set; }
+        public string TelefoneSolicitante { get; set; }
         public DateTime DataCheckIn { get; set; }
         public DateTime DataCheckOut { get; set; }
         /// <summary>

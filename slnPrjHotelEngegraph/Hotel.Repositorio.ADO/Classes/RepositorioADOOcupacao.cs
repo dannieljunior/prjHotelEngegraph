@@ -26,12 +26,14 @@ namespace Hotel.Repositorio.ADO.Classes
                                ,DataCheckIn
                                ,Situacao
                                ,ReservaId
+                               ,UhId
                                ,DataCriacao)
                          VALUES
                                (@Id
                                ,@DataCheckIn
                                ,@Situacao
                                ,@ReservaId
+                               ,@UhId
                                ,@DataCriacao);";
 
             ExecutarComando(sql, obj);
@@ -39,7 +41,7 @@ namespace Hotel.Repositorio.ADO.Classes
             return obj;
         }
 
-        public List<Ocupacao> List()
+        public override List<Ocupacao> List()
         {
             var comando = CriarComando();
 
@@ -64,6 +66,7 @@ namespace Hotel.Repositorio.ADO.Classes
                                ,DataCheckIn = @DataCheckIn
                                ,Situacao = @Situacao
                                ,ReservaId = @ReservaId
+                               ,UhId = @UhId
                                ,DataModificacao = @DataModificacao
                         WHERE 
                                Id = @Id";
@@ -90,6 +93,7 @@ namespace Hotel.Repositorio.ADO.Classes
                         comando.Parameters.AddWithValue("DataCheckIn", obj.DataCheckIn);
                         comando.Parameters.AddWithValue("Situacao", obj.Situacao);
                         comando.Parameters.AddWithValue("ReservaId", obj.Reserva.Id);
+                        comando.Parameters.AddWithValue("UhId", obj.Uh.Id);
 
                         var agora = DateTime.Now;
 
@@ -137,6 +141,7 @@ namespace Hotel.Repositorio.ADO.Classes
                     ocupacao.DataCheckIn = Convert.ToDateTime(reader["DataCheckIn"]);
                     ocupacao.Situacao = (EnSituacaoOcupacao)Convert.ToInt32(reader["Situacao"]);
                     ocupacao.Reserva = new RepositorioADOReserva().GetById((Guid)reader["ReservaId"]);
+                    ocupacao.Uh = new RepositorioADOUh().GetById((Guid)reader["UhId"]);
                     ocupacao.DataCriacao = Convert.ToDateTime(reader["DataCriacao"]);
 
                     if (reader["DataModificacao"] != DBNull.Value)

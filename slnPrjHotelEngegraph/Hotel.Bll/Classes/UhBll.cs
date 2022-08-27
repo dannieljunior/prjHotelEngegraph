@@ -9,7 +9,7 @@ using System.Data;
 
 namespace Hotel.Bll.Classes
 {
-    public class UhBll : BllBase<Uh>
+    public class UhBll : BllBase<Uh, RepositorioADOUh>
     {
         protected readonly TipoUhBll _tipoUhBll;
         public UhBll()

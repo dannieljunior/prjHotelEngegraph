@@ -55,6 +55,8 @@
     <Compile Include="ExecutorDeMigracoes.cs" />
     <Compile Include="Classes\MigracaoBase.cs" />
     <Compile Include="Migracoes\M_10_CriaColunasDataCriacao_DataModificao_Tabela_Uh.cs" />
+    <Compile Include="Migracoes\M_11_cria_campo_uh_ocupacao.cs" />
+    <Compile Include="Migracoes\M_12_cria_campos_solictante_reserva.cs" />
     <Compile Include="Migracoes\M_1_CriaTabelaTipoUh.cs" />
     <Compile Include="Migracoes\M_2_CriaTabelaUh.cs" />
     <Compile Include="Migracoes\M_3_CriaTabelaTipoPagto.cs" />

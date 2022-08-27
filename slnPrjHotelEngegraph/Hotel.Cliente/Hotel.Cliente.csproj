@@ -124,6 +124,18 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SistemaInfo.cs" />
+    <Compile Include="UserControls\ucBarraBotoesPadrao.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucBarraBotoesPadrao.Designer.cs">
+      <DependentUpon>ucBarraBotoesPadrao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucNumericEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucNumericEdit.Designer.cs">
+      <DependentUpon>ucNumericEdit.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FrmCadTipoUh.resx">
       <DependentUpon>FrmCadTipoUh.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsulta.resx">
       <DependentUpon>frmConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsultaReserva.resx">
+      <DependentUpon>FrmConsultaReserva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
@@ -148,6 +163,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\ucBarraBotoesPadrao.resx">
+      <DependentUpon>ucBarraBotoesPadrao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucNumericEdit.resx">
+      <DependentUpon>ucNumericEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

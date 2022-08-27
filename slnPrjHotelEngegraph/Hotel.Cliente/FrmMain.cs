@@ -51,7 +51,6 @@ namespace Hotel.Cliente
             tabForms.Controls.Add(page);
             pForm.Parent = page;
             pForm.Show();
-            //TODO: Mostrar pros alunos
             tabForms.SelectedIndex = tabForms.TabCount - 1;
         }
 
@@ -63,6 +62,11 @@ namespace Hotel.Cliente
         private void fecharGuiaToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void mnConsultaReserva_Click(object sender, EventArgs e)
+        {
+            AdicionarFormularioNaTabControl(new FrmConsultaReserva());
         }
     }
 }

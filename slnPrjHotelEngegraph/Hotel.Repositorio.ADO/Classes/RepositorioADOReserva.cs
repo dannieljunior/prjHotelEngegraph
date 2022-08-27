@@ -17,6 +17,27 @@ namespace Hotel.Repositorio.ADO.Classes
             _tabela = "Reserva";
         }
 
+        public List<Reserva> GetReservations(DateTime dataCheckIn, DateTime dataCheckOut, string tipoUh)
+        {
+            var sql = @"SELECT r.* FROM Reserva r
+                        WHERE CAST(r.DataCheckIn AS DATE) >= @DataCheckIn AND CAST(r.DataCheckOut AS DATE) <= @DataCheckOut ";
+
+            var comando = CriarComando();
+
+            comando.Parameters.AddWithValue("@DataCheckIn", dataCheckIn.Date);
+            comando.Parameters.AddWithValue("@DataCheckOut", dataCheckOut.Date);
+
+            if (!string.IsNullOrWhiteSpace(tipoUh))
+            {
+                sql += "AND r.TipoUhId = @TipoUhId";
+                comando.Parameters.AddWithValue("@TipoUhId", tipoUh);
+            }
+
+            comando.CommandText = sql;
+
+            return ObterLista(comando);
+        }
+
         public Reserva Insert(Reserva obj)
         {
 
@@ -142,6 +163,8 @@ namespace Hotel.Repositorio.ADO.Classes
                     reserva.Observacoes = reader["Observacoes"].ToString();
                     reserva.Situacao = (EnSituacaoReserva)Convert.ToInt32(reader["Situacao"]);
                     reserva.DataCriacao = Convert.ToDateTime(reader["DataCriacao"]);
+                    reserva.NomeSolicitante = reader["NomeSolicitante"].ToString();
+                    reserva.TelefoneSolicitante = reader["TelefoneSolicitante"].ToString();
 
                     if (reader["DataModificacao"] != DBNull.Value)
                         reserva.DataModificacao = Convert.ToDateTime(reader["DataModificacao"]);

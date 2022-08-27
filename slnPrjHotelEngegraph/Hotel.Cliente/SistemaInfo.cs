@@ -10,7 +10,7 @@ namespace Hotel.Cliente
     {
         public static string Versao => "1.0.0.0";
         public static string NomeSistema => "Sistema de Gestão Hoteleira - Engegraph Sistemas";
-        public static int LarguraDaTela => 800;
-        public static int AlturadaTela => 600;
+        public static int LarguraDaTela => 1280;
+        public static int AlturadaTela => 720;
     }
 }

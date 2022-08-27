@@ -33,19 +33,16 @@ namespace Hotel.Cliente
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtValorAdicional = new System.Windows.Forms.TextBox();
-            this.txtValorDiaria = new System.Windows.Forms.TextBox();
+            this.txtValorAdicional = new Hotel.Cliente.UserControls.ucNumericEdit();
+            this.txtValorDiaria = new Hotel.Cliente.UserControls.ucNumericEdit();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.numQtdeAdt = new System.Windows.Forms.NumericUpDown();
             this.numQtdeChd = new System.Windows.Forms.NumericUpDown();
-            this.btnSalvar = new System.Windows.Forms.Button();
-            this.btnFechar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnNovo = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatusOperacao = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ucBarraBotoesPadrao1 = new Hotel.Cliente.UserControls.ucBarraBotoesPadrao();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQtdeAdt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numQtdeChd)).BeginInit();
@@ -99,21 +96,19 @@ namespace Hotel.Cliente
             // 
             // txtValorAdicional
             // 
-            this.txtValorAdicional.Location = new System.Drawing.Point(110, 86);
-            this.txtValorAdicional.Margin = new System.Windows.Forms.Padding(4);
+            this.txtValorAdicional.Location = new System.Drawing.Point(83, 81);
+            this.txtValorAdicional.Margin = new System.Windows.Forms.Padding(5);
             this.txtValorAdicional.Name = "txtValorAdicional";
-            this.txtValorAdicional.Size = new System.Drawing.Size(215, 22);
-            this.txtValorAdicional.TabIndex = 1;
-            this.txtValorAdicional.Text = "0";
+            this.txtValorAdicional.Size = new System.Drawing.Size(270, 32);
+            this.txtValorAdicional.TabIndex = 6;
             // 
             // txtValorDiaria
             // 
-            this.txtValorDiaria.Location = new System.Drawing.Point(110, 37);
+            this.txtValorDiaria.Location = new System.Drawing.Point(84, 33);
             this.txtValorDiaria.Margin = new System.Windows.Forms.Padding(4);
             this.txtValorDiaria.Name = "txtValorDiaria";
-            this.txtValorDiaria.Size = new System.Drawing.Size(215, 22);
-            this.txtValorDiaria.TabIndex = 0;
-            this.txtValorDiaria.Text = "0";
+            this.txtValorDiaria.Size = new System.Drawing.Size(269, 26);
+            this.txtValorDiaria.TabIndex = 5;
             // 
             // label5
             // 
@@ -170,53 +165,13 @@ namespace Hotel.Cliente
             this.numQtdeChd.Size = new System.Drawing.Size(160, 22);
             this.numQtdeChd.TabIndex = 2;
             // 
-            // btnSalvar
-            // 
-            this.btnSalvar.Location = new System.Drawing.Point(419, 373);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(133, 36);
-            this.btnSalvar.TabIndex = 4;
-            this.btnSalvar.Text = "&Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
-            // 
-            // btnFechar
-            // 
-            this.btnFechar.Location = new System.Drawing.Point(558, 373);
-            this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(133, 36);
-            this.btnFechar.TabIndex = 5;
-            this.btnFechar.Text = "&Fechar";
-            this.btnFechar.UseVisualStyleBackColor = true;
-            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(133, 373);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(132, 36);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Consultar...";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnNovo
-            // 
-            this.btnNovo.Location = new System.Drawing.Point(23, 373);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(104, 36);
-            this.btnNovo.TabIndex = 7;
-            this.btnNovo.Text = "&Novo";
-            this.btnNovo.UseVisualStyleBackColor = true;
-            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
-            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblStatusOperacao});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 441);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 555);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(729, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(847, 22);
             this.statusStrip1.TabIndex = 8;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -226,16 +181,25 @@ namespace Hotel.Cliente
             this.lblStatusOperacao.Size = new System.Drawing.Size(118, 17);
             this.lblStatusOperacao.Text = "toolStripStatusLabel2";
             // 
+            // ucBarraBotoesPadrao1
+            // 
+            this.ucBarraBotoesPadrao1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucBarraBotoesPadrao1.Location = new System.Drawing.Point(23, 391);
+            this.ucBarraBotoesPadrao1.Name = "ucBarraBotoesPadrao1";
+            this.ucBarraBotoesPadrao1.Size = new System.Drawing.Size(778, 39);
+            this.ucBarraBotoesPadrao1.TabIndex = 9;
+            this.ucBarraBotoesPadrao1.OnNovoClick += new System.EventHandler(this.ucBarraBotoesPadrao1_OnNovoClick);
+            this.ucBarraBotoesPadrao1.OnSalvarClick += new System.EventHandler(this.ucBarraBotoesPadrao1_OnSalvarClick);
+            this.ucBarraBotoesPadrao1.OnConsultaClick += new System.EventHandler(this.ucBarraBotoesPadrao1_OnConsultaClick);
+            this.ucBarraBotoesPadrao1.Load += new System.EventHandler(this.ucBarraBotoesPadrao1_Load);
+            // 
             // FrmCadTipoUh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(729, 463);
+            this.ClientSize = new System.Drawing.Size(847, 577);
+            this.Controls.Add(this.ucBarraBotoesPadrao1);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.btnNovo);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnFechar);
-            this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.numQtdeChd);
             this.Controls.Add(this.numQtdeAdt);
             this.Controls.Add(this.txtDescricao);
@@ -247,7 +211,6 @@ namespace Hotel.Cliente
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCadTipoUh";
             this.Text = "Cadastro de Tipo de UH";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmCadTipoUh_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQtdeAdt)).EndInit();
@@ -265,18 +228,15 @@ namespace Hotel.Cliente
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtValorAdicional;
-        private System.Windows.Forms.TextBox txtValorDiaria;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.NumericUpDown numQtdeAdt;
         private System.Windows.Forms.NumericUpDown numQtdeChd;
-        private System.Windows.Forms.Button btnSalvar;
-        private System.Windows.Forms.Button btnFechar;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblStatusOperacao;
+        private UserControls.ucBarraBotoesPadrao ucBarraBotoesPadrao1;
+        private UserControls.ucNumericEdit txtValorAdicional;
+        private UserControls.ucNumericEdit txtValorDiaria;
     }
 }

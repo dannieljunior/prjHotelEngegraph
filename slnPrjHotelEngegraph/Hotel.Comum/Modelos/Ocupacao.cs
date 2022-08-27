@@ -8,5 +8,6 @@ namespace Hotel.Comum.Modelos
         public DateTime DataCheckIn { get; set; }
         public EnSituacaoOcupacao Situacao { get; set; }
         public Reserva Reserva { get; set; }
+        public Uh Uh { get; set; }
     }
 }

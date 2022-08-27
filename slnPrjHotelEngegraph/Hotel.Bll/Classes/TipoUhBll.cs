@@ -4,7 +4,7 @@ using Hotel.Repositorio.ADO.Classes;
 
 namespace Hotel.Bll.Classes
 {
-    public class TipoUhBll : BllBase<TipoUh>
+    public class TipoUhBll : BllBase<TipoUh, RepositorioADOTipoUh>
     {
         public TipoUhBll()
         {

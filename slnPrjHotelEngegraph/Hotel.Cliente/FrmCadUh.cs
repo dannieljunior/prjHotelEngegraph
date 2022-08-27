@@ -51,21 +51,55 @@ namespace Hotel.Cliente
             cmbSituacao.ValueMember = "Valor";
         }
 
-        private void FrmCadUh_Load(object sender, EventArgs e)
+        private void NovoRegistro()
         {
-            
+            _objeto = new Uh();
+            _operacao = EnOperacao.Insert;
+            txtNumero.Clear();
+            txtBloco.Clear();
+            txtNivel.Clear();
+            cmbTipoUh.SelectedIndex = -1;
+            cmbSituacao.SelectedIndex = -1;
+            txtNumero.Focus();
+            DescricaoOperacao = "Inserindo registro";
         }
 
-        private void btnFechar_Click(object sender, EventArgs e)
+        private void ucBarraBotoesPadrao1_OnNovoClick(object sender, EventArgs e)
         {
-            //fechar a tab control do formulário
-            var page = (TabPage)this.Parent;
-            var controlPai = (TabControl)page.Parent;
-            controlPai.Controls.Remove(page);
-            this.Close();
+            NovoRegistro();
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
+        private void ucBarraBotoesPadrao1_OnConsultaClick(object sender, EventArgs e)
+        {
+            var dados = _bll.GetDataTable();
+            var formularioDeConsulta = new frmConsulta(dados);
+
+            formularioDeConsulta.OnSelectRow = (s, evt) => {
+                var idSelecionado = (Guid)evt.SelectedItem;
+
+                _objeto = _bll.GetById(idSelecionado);
+
+                txtNumero.Text = _objeto.Numero;
+                txtBloco.Text = _objeto.Bloco;
+                txtNivel.Text = _objeto.Nivel;
+                cmbTipoUh.SelectedValue = _objeto.TipoUh.Id;
+                cmbSituacao.SelectedValue = _objeto.Situacao;
+
+                _operacao = EnOperacao.Update;
+                DescricaoOperacao = "Alterando registro";
+            };
+
+            formularioDeConsulta.OnDeleteRow = (s, evt) =>
+            {
+                var idSelecionado = (Guid)evt.SelectedItem;
+                _bll.Persistir(_objeto, EnOperacao.Delete);
+                NovoRegistro();
+            };
+
+            formularioDeConsulta.ShowDialog();
+        }
+
+        private void ucBarraBotoesPadrao1_OnSalvarClick(object sender, EventArgs e)
         {
             try
             {
@@ -105,49 +139,6 @@ namespace Hotel.Cliente
             {
                 Notificador.Erro($"Ocorreu um erro: {ex.Message}");
             }
-        }
-
-        private void btnConsulta_Click(object sender, EventArgs e)
-        {
-            var dados = _bll.GetDataTable();
-            var formularioDeConsulta = new frmConsulta(dados);
-
-            formularioDeConsulta.OnSelectRow = (s, evt) => {
-                var idSelecionado = (Guid)evt.SelectedItem;
-
-                _objeto = _bll.GetById(idSelecionado);
-
-                txtNumero.Text = _objeto.Numero;
-                txtBloco.Text = _objeto.Bloco;
-                txtNivel.Text = _objeto.Nivel;
-                cmbTipoUh.SelectedValue = _objeto.TipoUh.Id;
-                cmbSituacao.SelectedValue = _objeto.Situacao;
-
-                _operacao = EnOperacao.Update;
-                DescricaoOperacao = "Alterando registro";
-            };
-
-            formularioDeConsulta.OnDeleteRow = (s, evt) =>
-            {
-                var idSelecionado = (Guid)evt.SelectedItem;
-                _bll.Persistir(_objeto, EnOperacao.Delete);
-                NovoRegistro();
-            };
-
-            formularioDeConsulta.ShowDialog();
-        }
-
-        private void NovoRegistro()
-        {
-            _objeto = new Uh();
-            _operacao = EnOperacao.Insert;
-            txtNumero.Clear();
-            txtBloco.Clear();
-            txtNivel.Clear();
-            cmbTipoUh.SelectedIndex = -1;
-            cmbSituacao.SelectedIndex = -1;
-            txtNumero.Focus();
-            DescricaoOperacao = "Inserindo registro";
         }
     }
 }

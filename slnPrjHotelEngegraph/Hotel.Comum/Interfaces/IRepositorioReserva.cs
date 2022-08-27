@@ -9,5 +9,6 @@ namespace Hotel.Comum.Interfaces
 {
     public interface IRepositorioReserva: IRepositorio<Reserva>
     {
+        List<Reserva> GetReservations(DateTime dataCheckIn, DateTime dataCheckOut, string tipoUh);
     }
 }

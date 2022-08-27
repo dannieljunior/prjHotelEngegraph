@@ -10,9 +10,10 @@ using System.Data.SqlClient;
 
 namespace Hotel.Bll.Classes
 {
-    public abstract class BllBase<T>: IBll<T> where T: Entidade
+    public abstract class BllBase<T, R>: IBll<T> where T: Entidade 
+                                                 where R : IRepositorio<T>
     {
-        protected IRepositorio<T> _repositorio;
+        protected R _repositorio;
 
         public virtual T GetById(Guid id)
         {

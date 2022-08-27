@@ -39,143 +39,112 @@ namespace Hotel.Cliente
             this.cmbTipoUh = new System.Windows.Forms.ComboBox();
             this.cmbSituacao = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnNovo = new System.Windows.Forms.Button();
-            this.btnConsulta = new System.Windows.Forms.Button();
-            this.btnSalvar = new System.Windows.Forms.Button();
-            this.btnFechar = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatusOperacao = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ucBarraBotoesPadrao1 = new Hotel.Cliente.UserControls.ucBarraBotoesPadrao();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(101, 50);
+            this.label1.Location = new System.Drawing.Point(83, 87);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.Size = new System.Drawing.Size(59, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Número";
+            this.label1.Text = "Número:";
             // 
             // txtNumero
             // 
-            this.txtNumero.Location = new System.Drawing.Point(104, 66);
+            this.txtNumero.Location = new System.Drawing.Point(163, 79);
+            this.txtNumero.Margin = new System.Windows.Forms.Padding(4);
             this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(211, 20);
+            this.txtNumero.Size = new System.Drawing.Size(280, 22);
             this.txtNumero.TabIndex = 1;
             // 
             // txtBloco
             // 
-            this.txtBloco.Location = new System.Drawing.Point(104, 119);
+            this.txtBloco.Location = new System.Drawing.Point(163, 123);
+            this.txtBloco.Margin = new System.Windows.Forms.Padding(4);
             this.txtBloco.Name = "txtBloco";
-            this.txtBloco.Size = new System.Drawing.Size(211, 20);
+            this.txtBloco.Size = new System.Drawing.Size(280, 22);
             this.txtBloco.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(101, 103);
+            this.label2.Location = new System.Drawing.Point(96, 132);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.Size = new System.Drawing.Size(46, 16);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Bloco";
+            this.label2.Text = "Bloco:";
             // 
             // txtNivel
             // 
-            this.txtNivel.Location = new System.Drawing.Point(104, 175);
+            this.txtNivel.Location = new System.Drawing.Point(163, 170);
+            this.txtNivel.Margin = new System.Windows.Forms.Padding(4);
             this.txtNivel.Name = "txtNivel";
-            this.txtNivel.Size = new System.Drawing.Size(211, 20);
+            this.txtNivel.Size = new System.Drawing.Size(280, 22);
             this.txtNivel.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(101, 159);
+            this.label3.Location = new System.Drawing.Point(97, 178);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 13);
+            this.label3.Size = new System.Drawing.Size(42, 16);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Nível";
+            this.label3.Text = "Nível:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(101, 213);
+            this.label4.Location = new System.Drawing.Point(59, 228);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 13);
+            this.label4.Size = new System.Drawing.Size(81, 16);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Tipo de UH";
+            this.label4.Text = "Tipo de UH:";
             // 
             // cmbTipoUh
             // 
             this.cmbTipoUh.FormattingEnabled = true;
-            this.cmbTipoUh.Location = new System.Drawing.Point(104, 229);
+            this.cmbTipoUh.Location = new System.Drawing.Point(163, 218);
+            this.cmbTipoUh.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTipoUh.Name = "cmbTipoUh";
-            this.cmbTipoUh.Size = new System.Drawing.Size(211, 21);
+            this.cmbTipoUh.Size = new System.Drawing.Size(280, 24);
             this.cmbTipoUh.TabIndex = 7;
             // 
             // cmbSituacao
             // 
             this.cmbSituacao.FormattingEnabled = true;
-            this.cmbSituacao.Location = new System.Drawing.Point(104, 279);
+            this.cmbSituacao.Location = new System.Drawing.Point(163, 265);
+            this.cmbSituacao.Margin = new System.Windows.Forms.Padding(4);
             this.cmbSituacao.Name = "cmbSituacao";
-            this.cmbSituacao.Size = new System.Drawing.Size(211, 21);
+            this.cmbSituacao.Size = new System.Drawing.Size(280, 24);
             this.cmbSituacao.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(101, 263);
+            this.label5.Location = new System.Drawing.Point(78, 273);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 13);
+            this.label5.Size = new System.Drawing.Size(64, 16);
             this.label5.TabIndex = 8;
-            this.label5.Text = "Situação";
-            // 
-            // btnNovo
-            // 
-            this.btnNovo.Location = new System.Drawing.Point(87, 358);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(120, 23);
-            this.btnNovo.TabIndex = 10;
-            this.btnNovo.Text = "&Novo";
-            this.btnNovo.UseVisualStyleBackColor = true;
-            // 
-            // btnConsulta
-            // 
-            this.btnConsulta.Location = new System.Drawing.Point(213, 358);
-            this.btnConsulta.Name = "btnConsulta";
-            this.btnConsulta.Size = new System.Drawing.Size(120, 23);
-            this.btnConsulta.TabIndex = 11;
-            this.btnConsulta.Text = "&Consulta";
-            this.btnConsulta.UseVisualStyleBackColor = true;
-            this.btnConsulta.Click += new System.EventHandler(this.btnConsulta_Click);
-            // 
-            // btnSalvar
-            // 
-            this.btnSalvar.Location = new System.Drawing.Point(454, 358);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(120, 23);
-            this.btnSalvar.TabIndex = 12;
-            this.btnSalvar.Text = "&Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
-            // 
-            // btnFechar
-            // 
-            this.btnFechar.Location = new System.Drawing.Point(580, 358);
-            this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(120, 23);
-            this.btnFechar.TabIndex = 13;
-            this.btnFechar.Text = "&Fechar";
-            this.btnFechar.UseVisualStyleBackColor = true;
-            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
+            this.label5.Text = "Situação:";
             // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblStatusOperacao});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 532);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(835, 22);
             this.statusStrip1.TabIndex = 14;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -185,16 +154,24 @@ namespace Hotel.Cliente
             this.lblStatusOperacao.Size = new System.Drawing.Size(118, 17);
             this.lblStatusOperacao.Text = "toolStripStatusLabel2";
             // 
+            // ucBarraBotoesPadrao1
+            // 
+            this.ucBarraBotoesPadrao1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucBarraBotoesPadrao1.Location = new System.Drawing.Point(30, 361);
+            this.ucBarraBotoesPadrao1.Name = "ucBarraBotoesPadrao1";
+            this.ucBarraBotoesPadrao1.Size = new System.Drawing.Size(778, 39);
+            this.ucBarraBotoesPadrao1.TabIndex = 15;
+            this.ucBarraBotoesPadrao1.OnNovoClick += new System.EventHandler(this.ucBarraBotoesPadrao1_OnNovoClick);
+            this.ucBarraBotoesPadrao1.OnSalvarClick += new System.EventHandler(this.ucBarraBotoesPadrao1_OnSalvarClick);
+            this.ucBarraBotoesPadrao1.OnConsultaClick += new System.EventHandler(this.ucBarraBotoesPadrao1_OnConsultaClick);
+            // 
             // FrmCadUh
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(835, 554);
+            this.Controls.Add(this.ucBarraBotoesPadrao1);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.btnFechar);
-            this.Controls.Add(this.btnSalvar);
-            this.Controls.Add(this.btnConsulta);
-            this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.cmbSituacao);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cmbTipoUh);
@@ -205,9 +182,10 @@ namespace Hotel.Cliente
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtNumero);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCadUh";
             this.Text = "Cadstro de UH";
-            this.Load += new System.EventHandler(this.FrmCadUh_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -227,11 +205,8 @@ namespace Hotel.Cliente
         private System.Windows.Forms.ComboBox cmbTipoUh;
         private System.Windows.Forms.ComboBox cmbSituacao;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnNovo;
-        private System.Windows.Forms.Button btnConsulta;
-        private System.Windows.Forms.Button btnSalvar;
-        private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblStatusOperacao;
+        private UserControls.ucBarraBotoesPadrao ucBarraBotoesPadrao1;
     }
 }

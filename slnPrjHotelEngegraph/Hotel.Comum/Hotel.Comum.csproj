@@ -69,6 +69,7 @@
     <Compile Include="Modelos\TipoUh.cs" />
     <Compile Include="Modelos\Uh.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ReservaViewModel.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
