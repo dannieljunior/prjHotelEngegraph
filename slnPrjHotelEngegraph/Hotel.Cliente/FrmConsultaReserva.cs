@@ -1,4 +1,5 @@
 ﻿using Hotel.Bll.Classes;
+using Hotel.Comum.Enumerados;
 using Hotel.Comum.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,7 @@ namespace Hotel.Cliente
         {
             var dados = _bll.ObterReservas(dtaCheckIn.Value, dtaCheckOut.Value, cmbTipoUh.SelectedValue?.ToString());
             dataGridView1.DataSource = dados;
+            lblContRegistros.Text = dados.Count().ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -62,12 +64,20 @@ namespace Hotel.Cliente
 
         private void btnChekIn_Click(object sender, EventArgs e)
         {
-            var reservaId = (dataGridView1.DataSource as List<ReservaViewModel>)?[dataGridView1.CurrentRow.Index].Id;
-            if(reservaId != null)
+            var reserva = (dataGridView1.DataSource as List<ReservaViewModel>)?[dataGridView1.CurrentRow.Index];
+
+            if(reserva != null)
             {
-                var frm = new FrmCheckIn(reservaId ?? default);
-                frm.ShowDialog();
-                ConsultarReservas();
+                if(reserva.Situacao == EnSituacaoReserva.Pendente)
+                {
+                    var frm = new FrmCheckIn(reserva.Id);
+                    frm.ShowDialog();
+                    ConsultarReservas();
+                }
+                else
+                {
+                    Notificador.Informacao("Não é possível realizar o check-In desta reserva. A situação deve ser \"pendente\"");
+                }
             }
         }
     }

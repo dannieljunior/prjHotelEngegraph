@@ -2,6 +2,8 @@
 using Hotel.Comum.Enumerados;
 using Hotel.Comum.Modelos;
 using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 
 namespace Hotel.Cliente
@@ -12,6 +14,28 @@ namespace Hotel.Cliente
         readonly ReservaBll _bll = new ReservaBll();
         string _operacaoDescricao;
         Reserva _objeto;
+
+        public int QtdeNoites
+        {
+            get
+            {
+                var result = _objeto != null ? Convert.ToInt32(dtaCheckOut.Value.Subtract(dtaCheckIn.Value).TotalDays) : 0;
+                bdgNoites.Value = result < 0 ? "0" : result.ToString();
+                return result;
+            }
+        }
+
+        public double ValorDiaria
+        {
+            get
+            {
+                var result = (cmbTipoUh.DataSource as DataTable)?.Rows[cmbTipoUh.SelectedIndex]["ValorDiaria"];
+                bdgValorDiaria.Value = result == null ? "0,00" : Convert.ToDouble(result).ToString("0.00");
+                return Convert.ToDouble(result);
+            }
+        }
+
+        public double ValorTotal => ValorDiaria * QtdeNoites;
 
         public string DescricaoOperacao
         {
@@ -50,6 +74,7 @@ namespace Hotel.Cliente
             numQtdeChd.Value = _objeto.QtdeChd;
             cmbTipoUh.SelectedValue = _objeto.TipoUh.Id;
             mmObservacoes.Text = _objeto.Observacoes;
+            bdgLocalizador.Value = _objeto.Localizador;
 
             txtSolicitante.Focus();
         }
@@ -60,6 +85,8 @@ namespace Hotel.Cliente
             cmbTipoUh.DataSource = _bll.ObterTiposUh(false);
             cmbTipoUh.ValueMember = "Id";
             cmbTipoUh.DisplayMember = "Descricao";
+
+            bdgSituacao.Value = _objeto?.Situacao.ToString() ?? "Pendente";
         }
 
         
@@ -128,9 +155,16 @@ namespace Hotel.Cliente
                         msg = "inseridos";
                         _operacao = EnOperacao.Update;
                         DescricaoOperacao = "Alterando registro";
+                        bdgLocalizador.Value = _objeto.Localizador;
                     }
                     else
                     {
+                        if(_objeto.Situacao != EnSituacaoReserva.Pendente)
+                        {
+                            Notificador.Informacao("Não é possível alterar dados de uma reserva com situação diferente de \"pendente\"");
+                            return;
+                        }
+
                         _bll.Persistir(_objeto, EnOperacao.Update);
                         msg = "atualizados";
                     }
@@ -142,6 +176,34 @@ namespace Hotel.Cliente
             {
                 Notificador.Erro($"Ocorreu um erro: {ex.Message}");
             }
+        }
+
+        private void ucBarraBotoesPadrao1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtaCheckIn_ValueChanged(object sender, EventArgs e)
+        {
+            NotificarPropriedades();
+        }
+
+        private void dtaCheckOut_ValueChanged(object sender, EventArgs e)
+        {
+            NotificarPropriedades();
+        }
+
+        private void cmbTipoUh_SelectedValueChanged(object sender, EventArgs e)
+        {
+            NotificarPropriedades();
+        }
+
+        private void NotificarPropriedades()
+        {
+            var x = QtdeNoites;
+            var y = ValorDiaria;
+            var z = ValorTotal;
+            bdgValorTotal.Value = ValorTotal.ToString("0.00");
         }
     }
 }

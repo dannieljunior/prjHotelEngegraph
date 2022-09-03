@@ -50,11 +50,12 @@ namespace Hotel.Cliente
             this.lblStatusOperacao = new System.Windows.Forms.ToolStripStatusLabel();
             this.label8 = new System.Windows.Forms.Label();
             this.mmObservacoes = new System.Windows.Forms.TextBox();
+            this.bdgSituacao = new Hotel.Cliente.UserControls.ucBadge();
             this.ucBarraBotoesPadrao1 = new Hotel.Cliente.UserControls.ucBarraBotoesPadrao();
-            this.ucBadge4 = new Hotel.Cliente.UserControls.ucBadge();
-            this.ucBadge3 = new Hotel.Cliente.UserControls.ucBadge();
-            this.ucBadge2 = new Hotel.Cliente.UserControls.ucBadge();
-            this.ucBadge1 = new Hotel.Cliente.UserControls.ucBadge();
+            this.bdgLocalizador = new Hotel.Cliente.UserControls.ucBadge();
+            this.bdgValorDiaria = new Hotel.Cliente.UserControls.ucBadge();
+            this.bdgNoites = new Hotel.Cliente.UserControls.ucBadge();
+            this.bdgValorTotal = new Hotel.Cliente.UserControls.ucBadge();
             ((System.ComponentModel.ISupportInitialize)(this.numQtdeAdt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numQtdeChd)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -63,7 +64,7 @@ namespace Hotel.Cliente
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(82, 213);
+            this.label3.Location = new System.Drawing.Point(82, 233);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 16);
@@ -73,16 +74,17 @@ namespace Hotel.Cliente
             // cmbTipoUh
             // 
             this.cmbTipoUh.FormattingEnabled = true;
-            this.cmbTipoUh.Location = new System.Drawing.Point(194, 205);
+            this.cmbTipoUh.Location = new System.Drawing.Point(194, 225);
             this.cmbTipoUh.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTipoUh.Name = "cmbTipoUh";
             this.cmbTipoUh.Size = new System.Drawing.Size(265, 24);
             this.cmbTipoUh.TabIndex = 5;
+            this.cmbTipoUh.SelectedValueChanged += new System.EventHandler(this.cmbTipoUh_SelectedValueChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(91, 175);
+            this.label2.Location = new System.Drawing.Point(91, 195);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 16);
@@ -92,7 +94,7 @@ namespace Hotel.Cliente
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(102, 140);
+            this.label1.Location = new System.Drawing.Point(102, 160);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 16);
@@ -102,25 +104,27 @@ namespace Hotel.Cliente
             // dtaCheckOut
             // 
             this.dtaCheckOut.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtaCheckOut.Location = new System.Drawing.Point(194, 168);
+            this.dtaCheckOut.Location = new System.Drawing.Point(194, 188);
             this.dtaCheckOut.Margin = new System.Windows.Forms.Padding(4);
             this.dtaCheckOut.Name = "dtaCheckOut";
             this.dtaCheckOut.Size = new System.Drawing.Size(265, 22);
             this.dtaCheckOut.TabIndex = 4;
+            this.dtaCheckOut.ValueChanged += new System.EventHandler(this.dtaCheckOut_ValueChanged);
             // 
             // dtaCheckIn
             // 
             this.dtaCheckIn.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtaCheckIn.Location = new System.Drawing.Point(194, 132);
+            this.dtaCheckIn.Location = new System.Drawing.Point(194, 152);
             this.dtaCheckIn.Margin = new System.Windows.Forms.Padding(4);
             this.dtaCheckIn.Name = "dtaCheckIn";
             this.dtaCheckIn.Size = new System.Drawing.Size(265, 22);
             this.dtaCheckIn.TabIndex = 3;
+            this.dtaCheckIn.ValueChanged += new System.EventHandler(this.dtaCheckIn_ValueChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(98, 256);
+            this.label4.Location = new System.Drawing.Point(98, 276);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 16);
@@ -130,7 +134,7 @@ namespace Hotel.Cliente
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(96, 289);
+            this.label5.Location = new System.Drawing.Point(96, 309);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(67, 16);
@@ -139,21 +143,21 @@ namespace Hotel.Cliente
             // 
             // numQtdeAdt
             // 
-            this.numQtdeAdt.Location = new System.Drawing.Point(194, 250);
+            this.numQtdeAdt.Location = new System.Drawing.Point(194, 270);
             this.numQtdeAdt.Name = "numQtdeAdt";
             this.numQtdeAdt.Size = new System.Drawing.Size(120, 22);
             this.numQtdeAdt.TabIndex = 6;
             // 
             // numQtdeChd
             // 
-            this.numQtdeChd.Location = new System.Drawing.Point(194, 283);
+            this.numQtdeChd.Location = new System.Drawing.Point(194, 303);
             this.numQtdeChd.Name = "numQtdeChd";
             this.numQtdeChd.Size = new System.Drawing.Size(120, 22);
             this.numQtdeChd.TabIndex = 7;
             // 
             // btnConsultaDisponibilidade
             // 
-            this.btnConsultaDisponibilidade.Location = new System.Drawing.Point(477, 198);
+            this.btnConsultaDisponibilidade.Location = new System.Drawing.Point(477, 218);
             this.btnConsultaDisponibilidade.Name = "btnConsultaDisponibilidade";
             this.btnConsultaDisponibilidade.Size = new System.Drawing.Size(203, 37);
             this.btnConsultaDisponibilidade.TabIndex = 18;
@@ -164,7 +168,7 @@ namespace Hotel.Cliente
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(87, 63);
+            this.label6.Location = new System.Drawing.Point(87, 83);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 16);
@@ -173,7 +177,7 @@ namespace Hotel.Cliente
             // 
             // txtSolicitante
             // 
-            this.txtSolicitante.Location = new System.Drawing.Point(194, 57);
+            this.txtSolicitante.Location = new System.Drawing.Point(194, 77);
             this.txtSolicitante.Name = "txtSolicitante";
             this.txtSolicitante.Size = new System.Drawing.Size(265, 22);
             this.txtSolicitante.TabIndex = 0;
@@ -181,7 +185,7 @@ namespace Hotel.Cliente
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(466, 63);
+            this.label7.Location = new System.Drawing.Point(466, 83);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 16);
@@ -191,7 +195,7 @@ namespace Hotel.Cliente
             // mskTefoneSolicitante
             // 
             this.mskTefoneSolicitante.BackColor = System.Drawing.SystemColors.Window;
-            this.mskTefoneSolicitante.Location = new System.Drawing.Point(538, 57);
+            this.mskTefoneSolicitante.Location = new System.Drawing.Point(538, 77);
             this.mskTefoneSolicitante.Mask = "(99)99999-9999";
             this.mskTefoneSolicitante.Name = "mskTefoneSolicitante";
             this.mskTefoneSolicitante.Size = new System.Drawing.Size(142, 22);
@@ -199,7 +203,7 @@ namespace Hotel.Cliente
             // 
             // txtEmailSolictante
             // 
-            this.txtEmailSolictante.Location = new System.Drawing.Point(194, 96);
+            this.txtEmailSolictante.Location = new System.Drawing.Point(194, 116);
             this.txtEmailSolictante.MaxLength = 40;
             this.txtEmailSolictante.Name = "txtEmailSolictante";
             this.txtEmailSolictante.Size = new System.Drawing.Size(348, 22);
@@ -208,7 +212,7 @@ namespace Hotel.Cliente
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(46, 96);
+            this.label16.Location = new System.Drawing.Point(46, 116);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(114, 16);
@@ -221,7 +225,7 @@ namespace Hotel.Cliente
             this.lblStatusOperacao});
             this.statusStrip1.Location = new System.Drawing.Point(0, 457);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1057, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(939, 22);
             this.statusStrip1.TabIndex = 38;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -234,7 +238,7 @@ namespace Hotel.Cliente
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(70, 333);
+            this.label8.Location = new System.Drawing.Point(70, 353);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(93, 16);
             this.label8.TabIndex = 40;
@@ -242,78 +246,89 @@ namespace Hotel.Cliente
             // 
             // mmObservacoes
             // 
-            this.mmObservacoes.Location = new System.Drawing.Point(194, 327);
+            this.mmObservacoes.Location = new System.Drawing.Point(194, 347);
             this.mmObservacoes.MaxLength = 200;
             this.mmObservacoes.Multiline = true;
             this.mmObservacoes.Name = "mmObservacoes";
             this.mmObservacoes.Size = new System.Drawing.Size(486, 57);
             this.mmObservacoes.TabIndex = 8;
             // 
+            // bdgSituacao
+            // 
+            this.bdgSituacao.Display = "Situação";
+            this.bdgSituacao.Location = new System.Drawing.Point(711, 7);
+            this.bdgSituacao.Margin = new System.Windows.Forms.Padding(12, 9, 12, 9);
+            this.bdgSituacao.Name = "bdgSituacao";
+            this.bdgSituacao.Size = new System.Drawing.Size(194, 71);
+            this.bdgSituacao.TabIndex = 41;
+            this.bdgSituacao.Value = "Pendente";
+            // 
             // ucBarraBotoesPadrao1
             // 
             this.ucBarraBotoesPadrao1.ExibirConsulta = false;
             this.ucBarraBotoesPadrao1.ExibirNovo = false;
             this.ucBarraBotoesPadrao1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucBarraBotoesPadrao1.Location = new System.Drawing.Point(51, 396);
+            this.ucBarraBotoesPadrao1.Location = new System.Drawing.Point(51, 409);
             this.ucBarraBotoesPadrao1.Name = "ucBarraBotoesPadrao1";
             this.ucBarraBotoesPadrao1.Size = new System.Drawing.Size(778, 39);
             this.ucBarraBotoesPadrao1.TabIndex = 8;
             this.ucBarraBotoesPadrao1.OnSalvarClick += new System.EventHandler(this.ucBarraBotoesPadrao1_OnSalvarClick);
             this.ucBarraBotoesPadrao1.OnFecharClick += new System.EventHandler(this.ucBarraBotoesPadrao1_OnFecharClick);
+            this.ucBarraBotoesPadrao1.Load += new System.EventHandler(this.ucBarraBotoesPadrao1_Load);
             // 
-            // ucBadge4
+            // bdgLocalizador
             // 
-            this.ucBadge4.Display = "Localizador";
-            this.ucBadge4.Location = new System.Drawing.Point(792, 9);
-            this.ucBadge4.Margin = new System.Windows.Forms.Padding(9, 7, 9, 7);
-            this.ucBadge4.Name = "ucBadge4";
-            this.ucBadge4.Size = new System.Drawing.Size(208, 103);
-            this.ucBadge4.TabIndex = 37;
-            this.ucBadge4.Value = "------";
+            this.bdgLocalizador.Display = "Localizador";
+            this.bdgLocalizador.Location = new System.Drawing.Point(49, 4);
+            this.bdgLocalizador.Margin = new System.Windows.Forms.Padding(9, 7, 9, 7);
+            this.bdgLocalizador.Name = "bdgLocalizador";
+            this.bdgLocalizador.Size = new System.Drawing.Size(205, 67);
+            this.bdgLocalizador.TabIndex = 37;
+            this.bdgLocalizador.Value = "------";
             // 
-            // ucBadge3
+            // bdgValorDiaria
             // 
-            this.ucBadge3.Display = "Valor Diária";
-            this.ucBadge3.Location = new System.Drawing.Point(840, 111);
-            this.ucBadge3.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.ucBadge3.Name = "ucBadge3";
-            this.ucBadge3.Size = new System.Drawing.Size(160, 103);
-            this.ucBadge3.TabIndex = 36;
-            this.ucBadge3.Value = "0,00";
+            this.bdgValorDiaria.Display = "Valor Diária";
+            this.bdgValorDiaria.Location = new System.Drawing.Point(711, 106);
+            this.bdgValorDiaria.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.bdgValorDiaria.Name = "bdgValorDiaria";
+            this.bdgValorDiaria.Size = new System.Drawing.Size(160, 103);
+            this.bdgValorDiaria.TabIndex = 36;
+            this.bdgValorDiaria.Value = "0,00";
             // 
-            // ucBadge2
+            // bdgNoites
             // 
-            this.ucBadge2.Display = "Qtde Noites";
-            this.ucBadge2.Location = new System.Drawing.Point(827, 221);
-            this.ucBadge2.Margin = new System.Windows.Forms.Padding(5);
-            this.ucBadge2.Name = "ucBadge2";
-            this.ucBadge2.Size = new System.Drawing.Size(173, 110);
-            this.ucBadge2.TabIndex = 35;
-            this.ucBadge2.Value = "0";
+            this.bdgNoites.Display = "Qtde Noites";
+            this.bdgNoites.Location = new System.Drawing.Point(711, 220);
+            this.bdgNoites.Margin = new System.Windows.Forms.Padding(5);
+            this.bdgNoites.Name = "bdgNoites";
+            this.bdgNoites.Size = new System.Drawing.Size(173, 110);
+            this.bdgNoites.TabIndex = 35;
+            this.bdgNoites.Value = "0";
             // 
-            // ucBadge1
+            // bdgValorTotal
             // 
-            this.ucBadge1.Display = "Valor Total";
-            this.ucBadge1.Location = new System.Drawing.Point(836, 339);
-            this.ucBadge1.Margin = new System.Windows.Forms.Padding(4);
-            this.ucBadge1.Name = "ucBadge1";
-            this.ucBadge1.Size = new System.Drawing.Size(164, 96);
-            this.ucBadge1.TabIndex = 34;
-            this.ucBadge1.Value = "0,00";
+            this.bdgValorTotal.Display = "Valor Total";
+            this.bdgValorTotal.Location = new System.Drawing.Point(711, 327);
+            this.bdgValorTotal.Margin = new System.Windows.Forms.Padding(4);
+            this.bdgValorTotal.Name = "bdgValorTotal";
+            this.bdgValorTotal.Size = new System.Drawing.Size(164, 96);
+            this.bdgValorTotal.TabIndex = 34;
+            this.bdgValorTotal.Value = "0,00";
             // 
             // FrmNovaReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1057, 479);
+            this.ClientSize = new System.Drawing.Size(939, 479);
+            this.Controls.Add(this.bdgSituacao);
             this.Controls.Add(this.mmObservacoes);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.ucBarraBotoesPadrao1);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.ucBadge4);
-            this.Controls.Add(this.ucBadge3);
-            this.Controls.Add(this.ucBadge2);
-            this.Controls.Add(this.ucBadge1);
+            this.Controls.Add(this.bdgLocalizador);
+            this.Controls.Add(this.bdgValorDiaria);
+            this.Controls.Add(this.bdgNoites);
             this.Controls.Add(this.txtEmailSolictante);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.mskTefoneSolicitante);
@@ -331,6 +346,7 @@ namespace Hotel.Cliente
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtaCheckOut);
             this.Controls.Add(this.dtaCheckIn);
+            this.Controls.Add(this.bdgValorTotal);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmNovaReserva";
@@ -364,14 +380,15 @@ namespace Hotel.Cliente
         private System.Windows.Forms.MaskedTextBox mskTefoneSolicitante;
         private System.Windows.Forms.TextBox txtEmailSolictante;
         private System.Windows.Forms.Label label16;
-        private UserControls.ucBadge ucBadge1;
-        private UserControls.ucBadge ucBadge2;
-        private UserControls.ucBadge ucBadge3;
-        private UserControls.ucBadge ucBadge4;
+        private UserControls.ucBadge bdgValorTotal;
+        private UserControls.ucBadge bdgNoites;
+        private UserControls.ucBadge bdgValorDiaria;
+        private UserControls.ucBadge bdgLocalizador;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblStatusOperacao;
         private UserControls.ucBarraBotoesPadrao ucBarraBotoesPadrao1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox mmObservacoes;
+        private UserControls.ucBadge bdgSituacao;
     }
 }

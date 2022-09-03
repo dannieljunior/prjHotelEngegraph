@@ -33,9 +33,16 @@ namespace Hotel.Cliente
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConsultaReserva));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConsultaReserva));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Solicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estadia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Situacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QtdeAdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QtdeChd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoUhDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorEstadiaPrevisto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtaCheckIn = new System.Windows.Forms.DateTimePicker();
             this.dtaCheckOut = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,13 +54,6 @@ namespace Hotel.Cliente
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblContRegistros = new System.Windows.Forms.ToolStripStatusLabel();
-            this.Solicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estadia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Situacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QtdeAdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QtdeChd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoUhDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValorEstadiaPrevisto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnChekIn = new System.Windows.Forms.Button();
@@ -109,6 +109,63 @@ namespace Hotel.Cliente
             this.dataGridView1.ShowRowErrors = false;
             this.dataGridView1.Size = new System.Drawing.Size(1015, 329);
             this.dataGridView1.TabIndex = 1;
+            // 
+            // Solicitante
+            // 
+            this.Solicitante.DataPropertyName = "Solicitante";
+            this.Solicitante.HeaderText = "Solicitante";
+            this.Solicitante.Name = "Solicitante";
+            this.Solicitante.ReadOnly = true;
+            this.Solicitante.Width = 200;
+            // 
+            // Estadia
+            // 
+            this.Estadia.DataPropertyName = "Estadia";
+            this.Estadia.HeaderText = "Estadia";
+            this.Estadia.Name = "Estadia";
+            this.Estadia.ReadOnly = true;
+            this.Estadia.Width = 225;
+            // 
+            // Situacao
+            // 
+            this.Situacao.DataPropertyName = "SituacaoReservaDescricao";
+            this.Situacao.HeaderText = "Situação";
+            this.Situacao.Name = "Situacao";
+            this.Situacao.ReadOnly = true;
+            // 
+            // QtdeAdt
+            // 
+            this.QtdeAdt.DataPropertyName = "QtdeAdt";
+            this.QtdeAdt.HeaderText = "Adultos";
+            this.QtdeAdt.Name = "QtdeAdt";
+            this.QtdeAdt.ReadOnly = true;
+            this.QtdeAdt.Width = 50;
+            // 
+            // QtdeChd
+            // 
+            this.QtdeChd.DataPropertyName = "QtdeChd";
+            this.QtdeChd.HeaderText = "Crianças";
+            this.QtdeChd.Name = "QtdeChd";
+            this.QtdeChd.ReadOnly = true;
+            this.QtdeChd.Width = 50;
+            // 
+            // TipoUhDescricao
+            // 
+            this.TipoUhDescricao.DataPropertyName = "TipoUhDescricao";
+            this.TipoUhDescricao.HeaderText = "Tipo de UH";
+            this.TipoUhDescricao.Name = "TipoUhDescricao";
+            this.TipoUhDescricao.ReadOnly = true;
+            this.TipoUhDescricao.Width = 200;
+            // 
+            // ValorEstadiaPrevisto
+            // 
+            this.ValorEstadiaPrevisto.DataPropertyName = "ValorEstadiaPrevisto";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ValorEstadiaPrevisto.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ValorEstadiaPrevisto.HeaderText = "Valor Total";
+            this.ValorEstadiaPrevisto.Name = "ValorEstadiaPrevisto";
+            this.ValorEstadiaPrevisto.ReadOnly = true;
+            this.ValorEstadiaPrevisto.Width = 125;
             // 
             // dtaCheckIn
             // 
@@ -209,63 +266,6 @@ namespace Hotel.Cliente
             this.lblContRegistros.Name = "lblContRegistros";
             this.lblContRegistros.Size = new System.Drawing.Size(13, 17);
             this.lblContRegistros.Text = "0";
-            // 
-            // Solicitante
-            // 
-            this.Solicitante.DataPropertyName = "Solicitante";
-            this.Solicitante.HeaderText = "Solicitante";
-            this.Solicitante.Name = "Solicitante";
-            this.Solicitante.ReadOnly = true;
-            this.Solicitante.Width = 200;
-            // 
-            // Estadia
-            // 
-            this.Estadia.DataPropertyName = "Estadia";
-            this.Estadia.HeaderText = "Estadia";
-            this.Estadia.Name = "Estadia";
-            this.Estadia.ReadOnly = true;
-            this.Estadia.Width = 225;
-            // 
-            // Situacao
-            // 
-            this.Situacao.DataPropertyName = "SituacaoReservaDescricao";
-            this.Situacao.HeaderText = "Situação";
-            this.Situacao.Name = "Situacao";
-            this.Situacao.ReadOnly = true;
-            // 
-            // QtdeAdt
-            // 
-            this.QtdeAdt.DataPropertyName = "QtdeAdt";
-            this.QtdeAdt.HeaderText = "Adultos";
-            this.QtdeAdt.Name = "QtdeAdt";
-            this.QtdeAdt.ReadOnly = true;
-            this.QtdeAdt.Width = 50;
-            // 
-            // QtdeChd
-            // 
-            this.QtdeChd.DataPropertyName = "QtdeChd";
-            this.QtdeChd.HeaderText = "Crianças";
-            this.QtdeChd.Name = "QtdeChd";
-            this.QtdeChd.ReadOnly = true;
-            this.QtdeChd.Width = 50;
-            // 
-            // TipoUhDescricao
-            // 
-            this.TipoUhDescricao.DataPropertyName = "TipoUhDescricao";
-            this.TipoUhDescricao.HeaderText = "Tipo de UH";
-            this.TipoUhDescricao.Name = "TipoUhDescricao";
-            this.TipoUhDescricao.ReadOnly = true;
-            this.TipoUhDescricao.Width = 200;
-            // 
-            // ValorEstadiaPrevisto
-            // 
-            this.ValorEstadiaPrevisto.DataPropertyName = "ValorEstadiaPrevisto";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ValorEstadiaPrevisto.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ValorEstadiaPrevisto.HeaderText = "Valor Total";
-            this.ValorEstadiaPrevisto.Name = "ValorEstadiaPrevisto";
-            this.ValorEstadiaPrevisto.ReadOnly = true;
-            this.ValorEstadiaPrevisto.Width = 125;
             // 
             // button1
             // 

@@ -29,7 +29,7 @@ namespace Hotel.Cliente
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtgVwReserva = new System.Windows.Forms.DataGridView();
             this.Solicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +51,7 @@ namespace Hotel.Cliente
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Classe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GeneroDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ucBarraBotoesPadrao1 = new Hotel.Cliente.UserControls.ucBarraBotoesPadrao();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgVwReserva)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -147,8 +148,8 @@ namespace Hotel.Cliente
             // ValorEstadiaPrevisto
             // 
             this.ValorEstadiaPrevisto.DataPropertyName = "ValorEstadiaPrevisto";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ValorEstadiaPrevisto.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ValorEstadiaPrevisto.DefaultCellStyle = dataGridViewCellStyle9;
             this.ValorEstadiaPrevisto.HeaderText = "Valor Total";
             this.ValorEstadiaPrevisto.Name = "ValorEstadiaPrevisto";
             this.ValorEstadiaPrevisto.ReadOnly = true;
@@ -270,11 +271,24 @@ namespace Hotel.Cliente
             this.GeneroDescricao.Name = "GeneroDescricao";
             this.GeneroDescricao.Width = 150;
             // 
+            // ucBarraBotoesPadrao1
+            // 
+            this.ucBarraBotoesPadrao1.ExibirConsulta = false;
+            this.ucBarraBotoesPadrao1.ExibirNovo = false;
+            this.ucBarraBotoesPadrao1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucBarraBotoesPadrao1.Location = new System.Drawing.Point(246, 456);
+            this.ucBarraBotoesPadrao1.Name = "ucBarraBotoesPadrao1";
+            this.ucBarraBotoesPadrao1.Size = new System.Drawing.Size(778, 43);
+            this.ucBarraBotoesPadrao1.TabIndex = 18;
+            this.ucBarraBotoesPadrao1.OnSalvarClick += new System.EventHandler(this.ucBarraBotoesPadrao1_OnSalvarClick);
+            this.ucBarraBotoesPadrao1.OnFecharClick += new System.EventHandler(this.ucBarraBotoesPadrao1_OnFecharClick);
+            // 
             // FrmCheckIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1046, 486);
+            this.ClientSize = new System.Drawing.Size(1046, 508);
+            this.Controls.Add(this.ucBarraBotoesPadrao1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.cmbUhs);
             this.Controls.Add(this.label12);
@@ -316,5 +330,6 @@ namespace Hotel.Cliente
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn Classe;
         private System.Windows.Forms.DataGridViewTextBoxColumn GeneroDescricao;
+        private UserControls.ucBarraBotoesPadrao ucBarraBotoesPadrao1;
     }
 }

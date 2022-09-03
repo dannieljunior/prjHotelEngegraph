@@ -87,28 +87,67 @@ namespace Hotel.Cliente
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var hospedeParaAtualizar = (dtgVwHospedes.DataSource as BindingList<HospedeViewModel>)[dtgVwHospedes.CurrentRow.Index];
+            var datasource = (dtgVwHospedes.DataSource as BindingList<HospedeViewModel>);
 
-            if(hospedeParaAtualizar != null)
+            if (datasource.Count > 0)
             {
-                var frm = new FrmHospede(hospedeParaAtualizar);
+                var hospedeParaAtualizar = datasource?[dtgVwHospedes.CurrentRow.Index];
 
-                frm.OnSaveHospede = (s, evt) =>
+                if (hospedeParaAtualizar != null)
                 {
-                    ManipularHospedes(evt.Hospede, evt.Operacao);
-                };
+                    var frm = new FrmHospede(hospedeParaAtualizar);
 
-                frm.ShowDialog();
+                    frm.OnSaveHospede = (s, evt) =>
+                    {
+                        ManipularHospedes(evt.Hospede, evt.Operacao);
+                    };
+
+                    frm.ShowDialog();
+                }
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var hospedeParaExcluir = (dtgVwHospedes.DataSource as BindingList<HospedeViewModel>)?[dtgVwHospedes.CurrentRow.Index];
+            var datasource = (dtgVwHospedes.DataSource as BindingList<HospedeViewModel>);
 
-            if (hospedeParaExcluir != null && Notificador.Confirmacao("Deseja realmente remover o hóspede da lista?"))
+            if(datasource.Count > 0)
             {
-                _hospedes.Remove(hospedeParaExcluir);
+                var hospedeParaExcluir = datasource?[dtgVwHospedes.CurrentRow.Index];
+
+                if (hospedeParaExcluir != null && Notificador.Confirmacao("Deseja realmente remover o hóspede da lista?"))
+                {
+                    _hospedes.Remove(hospedeParaExcluir);
+                }
+            }
+        }
+
+        private void ucBarraBotoesPadrao1_OnFecharClick(object sender, EventArgs e)
+        {
+            if (Notificador.Confirmacao("Deseja cancelar o processo de Check-In desta reserva?"))
+            {
+                this.Close();
+            }
+        }
+
+        private void ucBarraBotoesPadrao1_OnSalvarClick(object sender, EventArgs e)
+        {
+            _objeto.DataCheckIn = DateTime.Now;
+            _objeto.Uh = _bll.ObterUhPorId((Guid)cmbUhs.SelectedValue);
+            _bll.Hospedes = _hospedes.ToList();
+
+            var validacao = _bll.Validar(_objeto);
+
+            if (validacao.Sucesso)
+            {
+                _bll.Persistir(_objeto, EnOperacao.Insert);
+                Notificador.Sucesso("Check-In realizado com sucesso. Dê as boas vindas ao hóspede!");
+                this.Close();
+            }
+            else
+            {
+                var criticas = string.Join(Environment.NewLine, validacao.Criticas);
+                Notificador.Erro(criticas);
             }
         }
     }

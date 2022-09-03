@@ -35,11 +35,10 @@ namespace Hotel.Cliente.UserControls
             // 
             // lblValue
             // 
-            this.lblValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblValue.AutoSize = true;
             this.lblValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lblValue.Location = new System.Drawing.Point(125, 45);
+            this.lblValue.Location = new System.Drawing.Point(2, 20);
             this.lblValue.Name = "lblValue";
             this.lblValue.Size = new System.Drawing.Size(119, 42);
             this.lblValue.TabIndex = 28;
@@ -48,10 +47,9 @@ namespace Hotel.Cliente.UserControls
             // 
             // lblDisplay
             // 
-            this.lblDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDisplay.AutoSize = true;
             this.lblDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDisplay.Location = new System.Drawing.Point(177, 0);
+            this.lblDisplay.Location = new System.Drawing.Point(5, 0);
             this.lblDisplay.Name = "lblDisplay";
             this.lblDisplay.Size = new System.Drawing.Size(67, 20);
             this.lblDisplay.TabIndex = 27;
@@ -65,7 +63,7 @@ namespace Hotel.Cliente.UserControls
             this.Controls.Add(this.lblValue);
             this.Controls.Add(this.lblDisplay);
             this.Name = "ucBadge";
-            this.Size = new System.Drawing.Size(247, 96);
+            this.Size = new System.Drawing.Size(244, 63);
             this.ResumeLayout(false);
             this.PerformLayout();
 

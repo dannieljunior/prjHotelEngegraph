@@ -44,6 +44,12 @@ namespace Hotel.Bll.Classes
             };
         }
 
+        public void AtualizarSituacaoUh(Uh uh, EnSituacaoUh situacao)
+        {
+            uh.Situacao = situacao;
+            this.Persistir(uh, EnOperacao.Update);
+        }
+
         public List<ItemDeSelecao<bool>> ObterSimOuNao()
         {
             return new List<ItemDeSelecao<bool>>() {

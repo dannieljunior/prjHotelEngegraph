@@ -83,6 +83,11 @@ namespace Hotel.Bll.Classes
             return tabela;
         }
 
+        public void AtualizarSituacaoReserva(Reserva reserva, EnSituacaoReserva situacao)
+        {
+            reserva.Situacao = situacao;
+            Persistir(reserva, EnOperacao.Update);
+        }
 
         public TipoUh GetTipoUh(Guid id)
         {
