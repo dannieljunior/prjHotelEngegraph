@@ -1,10 +1,11 @@
 ﻿using Hotel.Comum.Dto;
+using Hotel.Comum.Interfaces;
 using Hotel.Comum.Modelos;
 using Hotel.Repositorio.ADO.Classes;
 
 namespace Hotel.Bll.Classes
 {
-    public class TipoUhBll : BllBase<TipoUh, RepositorioADOTipoUh>
+    public class TipoUhBll : BllBase<TipoUh, IRepositorioTipoUh>
     {
         public TipoUhBll()
         {

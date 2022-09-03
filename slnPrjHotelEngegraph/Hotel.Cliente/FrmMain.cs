@@ -68,5 +68,11 @@ namespace Hotel.Cliente
         {
             AdicionarFormularioNaTabControl(new FrmConsultaReserva());
         }
+
+        private void mnNovaReserva_Click(object sender, EventArgs e)
+        {
+            var frm = new FrmNovaReserva();
+            frm.ShowDialog();
+        }
     }
 }

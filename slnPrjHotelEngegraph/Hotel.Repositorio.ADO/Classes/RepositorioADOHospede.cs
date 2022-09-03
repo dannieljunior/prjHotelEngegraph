@@ -90,7 +90,7 @@ namespace Hotel.Repositorio.ADO.Classes
                         comando.Parameters.AddWithValue("NumeroDocumento", obj.NumeroDocumento);
                         comando.Parameters.AddWithValue("Telefone", obj.Telefone);
                         comando.Parameters.AddWithValue("Endereco", obj.Endereco);
-                        comando.Parameters.AddWithValue("IsEstrangeiro", obj.NumeroDocumento);
+                        comando.Parameters.AddWithValue("IsEstrangeiro", obj.IsEstrangeiro);
 
                         var agora = DateTime.Now;
 

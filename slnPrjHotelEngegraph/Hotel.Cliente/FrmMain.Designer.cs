@@ -39,9 +39,6 @@ namespace Hotel.Cliente
             this.reservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnConsultaReserva = new System.Windows.Forms.ToolStripMenuItem();
             this.mnNovaReserva = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnCheckIn = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnWalkIn = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnConsultaOcupacao = new System.Windows.Forms.ToolStripMenuItem();
             this.checkOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,7 +54,6 @@ namespace Hotel.Cliente
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastrosToolStripMenuItem,
             this.reservasToolStripMenuItem,
-            this.checkInToolStripMenuItem,
             this.consultasToolStripMenuItem,
             this.checkOutToolStripMenuItem,
             this.ajudaToolStripMenuItem});
@@ -134,28 +130,7 @@ namespace Hotel.Cliente
             this.mnNovaReserva.Name = "mnNovaReserva";
             this.mnNovaReserva.Size = new System.Drawing.Size(180, 22);
             this.mnNovaReserva.Text = "&Nova Reserva";
-            // 
-            // checkInToolStripMenuItem
-            // 
-            this.checkInToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnCheckIn,
-            this.mnWalkIn});
-            this.checkInToolStripMenuItem.Name = "checkInToolStripMenuItem";
-            this.checkInToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
-            this.checkInToolStripMenuItem.Text = "Check&In";
-            // 
-            // mnCheckIn
-            // 
-            this.mnCheckIn.Name = "mnCheckIn";
-            this.mnCheckIn.Size = new System.Drawing.Size(117, 22);
-            this.mnCheckIn.Text = "&CheckIn";
-            // 
-            // mnWalkIn
-            // 
-            this.mnWalkIn.Enabled = false;
-            this.mnWalkIn.Name = "mnWalkIn";
-            this.mnWalkIn.Size = new System.Drawing.Size(117, 22);
-            this.mnWalkIn.Text = "&WalkIn";
+            this.mnNovaReserva.Click += new System.EventHandler(this.mnNovaReserva_Click);
             // 
             // consultasToolStripMenuItem
             // 
@@ -168,7 +143,7 @@ namespace Hotel.Cliente
             // mnConsultaOcupacao
             // 
             this.mnConsultaOcupacao.Name = "mnConsultaOcupacao";
-            this.mnConsultaOcupacao.Size = new System.Drawing.Size(128, 22);
+            this.mnConsultaOcupacao.Size = new System.Drawing.Size(180, 22);
             this.mnConsultaOcupacao.Text = "&Ocupação";
             // 
             // checkOutToolStripMenuItem
@@ -239,9 +214,6 @@ namespace Hotel.Cliente
         private System.Windows.Forms.ToolStripMenuItem reservasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnConsultaReserva;
         private System.Windows.Forms.ToolStripMenuItem mnNovaReserva;
-        private System.Windows.Forms.ToolStripMenuItem checkInToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mnCheckIn;
-        private System.Windows.Forms.ToolStripMenuItem mnWalkIn;
         private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnConsultaOcupacao;
         private System.Windows.Forms.ToolStripMenuItem checkOutToolStripMenuItem;

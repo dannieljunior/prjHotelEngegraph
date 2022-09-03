@@ -59,6 +59,7 @@ namespace Hotel.Cliente
             // 
             this.txtNumero.Location = new System.Drawing.Point(163, 79);
             this.txtNumero.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumero.MaxLength = 15;
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(280, 22);
             this.txtNumero.TabIndex = 1;
@@ -67,6 +68,7 @@ namespace Hotel.Cliente
             // 
             this.txtBloco.Location = new System.Drawing.Point(163, 123);
             this.txtBloco.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBloco.MaxLength = 15;
             this.txtBloco.Name = "txtBloco";
             this.txtBloco.Size = new System.Drawing.Size(280, 22);
             this.txtBloco.TabIndex = 3;
@@ -85,6 +87,7 @@ namespace Hotel.Cliente
             // 
             this.txtNivel.Location = new System.Drawing.Point(163, 170);
             this.txtNivel.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNivel.MaxLength = 15;
             this.txtNivel.Name = "txtNivel";
             this.txtNivel.Size = new System.Drawing.Size(280, 22);
             this.txtNivel.TabIndex = 5;

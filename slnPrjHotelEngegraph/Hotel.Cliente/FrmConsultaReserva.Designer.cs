@@ -49,10 +49,14 @@ namespace Hotel.Cliente
             this.lblContRegistros = new System.Windows.Forms.ToolStripStatusLabel();
             this.Solicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estadia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Situacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QtdeAdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QtdeChd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoUhDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValorEstadiaPrevisto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnChekIn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -74,6 +78,7 @@ namespace Hotel.Cliente
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Solicitante,
             this.Estadia,
+            this.Situacao,
             this.QtdeAdt,
             this.QtdeChd,
             this.TipoUhDescricao,
@@ -86,7 +91,7 @@ namespace Hotel.Cliente
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 80);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 113);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -102,29 +107,29 @@ namespace Hotel.Cliente
             this.dataGridView1.ShowCellErrors = false;
             this.dataGridView1.ShowEditingIcon = false;
             this.dataGridView1.ShowRowErrors = false;
-            this.dataGridView1.Size = new System.Drawing.Size(876, 362);
+            this.dataGridView1.Size = new System.Drawing.Size(1015, 329);
             this.dataGridView1.TabIndex = 1;
             // 
             // dtaCheckIn
             // 
             this.dtaCheckIn.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtaCheckIn.Location = new System.Drawing.Point(24, 38);
+            this.dtaCheckIn.Location = new System.Drawing.Point(22, 36);
             this.dtaCheckIn.Name = "dtaCheckIn";
-            this.dtaCheckIn.Size = new System.Drawing.Size(200, 20);
+            this.dtaCheckIn.Size = new System.Drawing.Size(156, 20);
             this.dtaCheckIn.TabIndex = 2;
             // 
             // dtaCheckOut
             // 
             this.dtaCheckOut.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtaCheckOut.Location = new System.Drawing.Point(230, 38);
+            this.dtaCheckOut.Location = new System.Drawing.Point(184, 36);
             this.dtaCheckOut.Name = "dtaCheckOut";
-            this.dtaCheckOut.Size = new System.Drawing.Size(200, 20);
+            this.dtaCheckOut.Size = new System.Drawing.Size(148, 20);
             this.dtaCheckOut.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 22);
+            this.label1.Location = new System.Drawing.Point(19, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 4;
@@ -133,7 +138,7 @@ namespace Hotel.Cliente
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(227, 22);
+            this.label2.Location = new System.Drawing.Point(181, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 5;
@@ -142,7 +147,7 @@ namespace Hotel.Cliente
             // cmbTipoUh
             // 
             this.cmbTipoUh.FormattingEnabled = true;
-            this.cmbTipoUh.Location = new System.Drawing.Point(436, 38);
+            this.cmbTipoUh.Location = new System.Drawing.Point(338, 35);
             this.cmbTipoUh.Name = "cmbTipoUh";
             this.cmbTipoUh.Size = new System.Drawing.Size(228, 21);
             this.cmbTipoUh.TabIndex = 6;
@@ -150,7 +155,7 @@ namespace Hotel.Cliente
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(433, 22);
+            this.label3.Location = new System.Drawing.Point(335, 19);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 13);
             this.label3.TabIndex = 7;
@@ -161,7 +166,7 @@ namespace Hotel.Cliente
             this.btnConsulta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsulta.ImageIndex = 1;
             this.btnConsulta.ImageList = this.imgLstButtons;
-            this.btnConsulta.Location = new System.Drawing.Point(687, 30);
+            this.btnConsulta.Location = new System.Drawing.Point(589, 27);
             this.btnConsulta.Margin = new System.Windows.Forms.Padding(5);
             this.btnConsulta.Name = "btnConsulta";
             this.btnConsulta.Size = new System.Drawing.Size(144, 34);
@@ -180,6 +185,7 @@ namespace Hotel.Cliente
             this.imgLstButtons.Images.SetKeyName(3, "icon_select.png");
             this.imgLstButtons.Images.SetKeyName(4, "icon_delete.png");
             this.imgLstButtons.Images.SetKeyName(5, "icon_close.png");
+            this.imgLstButtons.Images.SetKeyName(6, "icon_key.png");
             // 
             // statusStrip1
             // 
@@ -188,7 +194,7 @@ namespace Hotel.Cliente
             this.lblContRegistros});
             this.statusStrip1.Location = new System.Drawing.Point(0, 459);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(900, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1039, 22);
             this.statusStrip1.TabIndex = 17;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -219,6 +225,13 @@ namespace Hotel.Cliente
             this.Estadia.Name = "Estadia";
             this.Estadia.ReadOnly = true;
             this.Estadia.Width = 225;
+            // 
+            // Situacao
+            // 
+            this.Situacao.DataPropertyName = "SituacaoReservaDescricao";
+            this.Situacao.HeaderText = "Situação";
+            this.Situacao.Name = "Situacao";
+            this.Situacao.ReadOnly = true;
             // 
             // QtdeAdt
             // 
@@ -254,11 +267,54 @@ namespace Hotel.Cliente
             this.ValorEstadiaPrevisto.ReadOnly = true;
             this.ValorEstadiaPrevisto.Width = 125;
             // 
+            // button1
+            // 
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.ImageIndex = 0;
+            this.button1.ImageList = this.imgLstButtons;
+            this.button1.Location = new System.Drawing.Point(22, 73);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(189, 34);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "&Nova reserva";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.ImageIndex = 3;
+            this.button2.ImageList = this.imgLstButtons;
+            this.button2.Location = new System.Drawing.Point(217, 73);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(189, 34);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "&Selecionar reserva";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnChekIn
+            // 
+            this.btnChekIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChekIn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnChekIn.ImageIndex = 6;
+            this.btnChekIn.ImageList = this.imgLstButtons;
+            this.btnChekIn.Location = new System.Drawing.Point(544, 73);
+            this.btnChekIn.Name = "btnChekIn";
+            this.btnChekIn.Size = new System.Drawing.Size(189, 34);
+            this.btnChekIn.TabIndex = 20;
+            this.btnChekIn.Text = "&Check-In";
+            this.btnChekIn.UseVisualStyleBackColor = true;
+            this.btnChekIn.Click += new System.EventHandler(this.btnChekIn_Click);
+            // 
             // FrmConsultaReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 481);
+            this.ClientSize = new System.Drawing.Size(1039, 481);
+            this.Controls.Add(this.btnChekIn);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnConsulta);
             this.Controls.Add(this.label3);
@@ -294,9 +350,13 @@ namespace Hotel.Cliente
         private System.Windows.Forms.ToolStripStatusLabel lblContRegistros;
         private System.Windows.Forms.DataGridViewTextBoxColumn Solicitante;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estadia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Situacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn QtdeAdt;
         private System.Windows.Forms.DataGridViewTextBoxColumn QtdeChd;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoUhDescricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn ValorEstadiaPrevisto;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnChekIn;
     }
 }

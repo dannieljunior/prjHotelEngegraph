@@ -1,6 +1,7 @@
 ﻿using Hotel.Comum.Auxiliares;
 using Hotel.Comum.Dto;
 using Hotel.Comum.Enumerados;
+using Hotel.Comum.Interfaces;
 using Hotel.Comum.Modelos;
 using Hotel.Repositorio.ADO.Classes;
 using System;
@@ -9,7 +10,7 @@ using System.Data;
 
 namespace Hotel.Bll.Classes
 {
-    public class UhBll : BllBase<Uh, RepositorioADOUh>
+    public class UhBll : BllBase<Uh, IRepositorioUh>
     {
         protected readonly TipoUhBll _tipoUhBll;
         public UhBll()
@@ -26,6 +27,11 @@ namespace Hotel.Bll.Classes
         public TipoUh GetTipoUh(Guid id)
         {
             return _tipoUhBll.GetById(id);
+        }
+
+        public List<Uh> ObterUhsPorTipo(Guid id)
+        {
+            return _repositorio.ObterUhsPorTipo(id);
         }
 
         public List<ItemDeSelecao<EnSituacaoUh>> ObterSituacoes()

@@ -20,5 +20,7 @@ namespace Hotel.Comum.Modelos
         public TipoUh TipoUh { get; set; }
         public string Observacoes { get; set; }
         public EnSituacaoReserva Situacao { get; set; }
+        public string EMailSolicitante { get; set; }
+        public string Localizador { get; set; }
     }
 }

@@ -43,6 +43,15 @@ namespace Hotel.Repositorio.ADO.Classes
             return obj;
         }
 
+        public List<Uh> ObterUhsPorTipo(Guid tipoUhId)
+        {
+            var sql = $@"SELECT * FROM Uh WHERE TipoUhId = '{tipoUhId}'";
+
+            var comando = CriarComando(sql);
+
+            return ObterLista(comando);
+        }
+
         public void Update(Uh obj)
         {
             //comando sql de update

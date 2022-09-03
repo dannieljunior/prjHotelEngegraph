@@ -27,7 +27,7 @@ namespace Hotel.Repositorio.ADO.Classes
             comando.Parameters.AddWithValue("@DataCheckIn", dataCheckIn.Date);
             comando.Parameters.AddWithValue("@DataCheckOut", dataCheckOut.Date);
 
-            if (!string.IsNullOrWhiteSpace(tipoUh))
+            if (!string.IsNullOrWhiteSpace(tipoUh) && new Guid(tipoUh) != default(Guid))
             {
                 sql += "AND r.TipoUhId = @TipoUhId";
                 comando.Parameters.AddWithValue("@TipoUhId", tipoUh);
@@ -52,6 +52,10 @@ namespace Hotel.Repositorio.ADO.Classes
                                ,TipoUhId
                                ,Observacoes
                                ,Situacao
+                               ,NomeSolicitante
+                               ,TelefoneSolicitante
+                               ,EMailSolicitante
+                               ,Localizador
                                ,DataCriacao)
                          VALUES
                                (@Id
@@ -62,6 +66,10 @@ namespace Hotel.Repositorio.ADO.Classes
                                ,@TipoUhId
                                ,@Observacoes
                                ,@Situacao
+                               ,@NomeSolicitante
+                               ,@TelefoneSolicitante
+                               ,@EMailSolicitante
+                               ,@Localizador
                                ,@DataCriacao);";
 
             ExecutarComando(sql, obj);
@@ -80,6 +88,10 @@ namespace Hotel.Repositorio.ADO.Classes
                                ,TipoUhId = @TipoUhId
                                ,Observacoes = @Observacoes
                                ,Situacao = @Situacao
+                               ,NomeSolicitante = @NomeSolicitante
+                               ,TelefoneSolicitante = @TelefoneSolicitante
+                               ,EMailSolicitante = @EMailSolicitante
+                               ,Localizador = @Localizador
                                ,DataModificacao = @DataModificacao
                         WHERE 
                                Id = @Id";
@@ -111,6 +123,10 @@ namespace Hotel.Repositorio.ADO.Classes
                         comando.Parameters.AddWithValue("TipoUhId", obj.TipoUh.Id);
                         comando.Parameters.AddWithValue("Observacoes", obj.Observacoes);
                         comando.Parameters.AddWithValue("Situacao", obj.Situacao);
+                        comando.Parameters.AddWithValue("NomeSolicitante", obj.NomeSolicitante);
+                        comando.Parameters.AddWithValue("TelefoneSolicitante", obj.TelefoneSolicitante);
+                        comando.Parameters.AddWithValue("EMailSolicitante", obj.EMailSolicitante);
+                        comando.Parameters.AddWithValue("Localizador", obj.Localizador);
 
                         var agora = DateTime.Now;
 
@@ -165,6 +181,8 @@ namespace Hotel.Repositorio.ADO.Classes
                     reserva.DataCriacao = Convert.ToDateTime(reader["DataCriacao"]);
                     reserva.NomeSolicitante = reader["NomeSolicitante"].ToString();
                     reserva.TelefoneSolicitante = reader["TelefoneSolicitante"].ToString();
+                    reserva.EMailSolicitante = reader["EmailSolicitante"].ToString();
+                    reserva.Localizador = reader["Localizador"].ToString();
 
                     if (reader["DataModificacao"] != DBNull.Value)
                         reserva.DataModificacao = Convert.ToDateTime(reader["DataModificacao"]);

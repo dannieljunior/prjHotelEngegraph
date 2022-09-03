@@ -101,6 +101,7 @@ namespace Hotel.Cliente
             this.txtValorAdicional.Name = "txtValorAdicional";
             this.txtValorAdicional.Size = new System.Drawing.Size(270, 32);
             this.txtValorAdicional.TabIndex = 6;
+            this.txtValorAdicional.Value = 0D;
             // 
             // txtValorDiaria
             // 
@@ -109,6 +110,7 @@ namespace Hotel.Cliente
             this.txtValorDiaria.Name = "txtValorDiaria";
             this.txtValorDiaria.Size = new System.Drawing.Size(269, 26);
             this.txtValorDiaria.TabIndex = 5;
+            this.txtValorDiaria.Value = 0D;
             // 
             // label5
             // 
@@ -136,7 +138,7 @@ namespace Hotel.Cliente
             this.txtDescricao.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescricao.MaxLength = 40;
             this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(499, 22);
+            this.txtDescricao.Size = new System.Drawing.Size(343, 22);
             this.txtDescricao.TabIndex = 0;
             // 
             // numQtdeAdt

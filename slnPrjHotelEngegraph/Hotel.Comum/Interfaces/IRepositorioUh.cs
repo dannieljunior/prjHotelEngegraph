@@ -9,5 +9,6 @@ namespace Hotel.Comum.Interfaces
 {
     public interface IRepositorioUh: IRepositorio<Uh>
     {
+        List<Uh> ObterUhsPorTipo(Guid tipoUhId);
     }
 }

@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\BllBase.cs" />
+    <Compile Include="Classes\HospedeBll.cs" />
+    <Compile Include="Classes\OcupacaoBll.cs" />
     <Compile Include="Classes\ReservaBll.cs" />
     <Compile Include="Classes\TipoUhBll.cs" />
     <Compile Include="Classes\UhBll.cs" />

@@ -18,6 +18,29 @@ namespace Hotel.Cliente.UserControls
         public event EventHandler OnFecharClick;
         public event EventHandler OnConsultaClick;
 
+        public bool ExibirNovo
+        {
+            get
+            {
+                return btnNovo.Visible;
+            }
+            set
+            {
+                btnNovo.Visible = value;
+            }
+        }
+        public bool ExibirConsulta
+        {
+            get
+            {
+                    return btnConsulta.Visible;
+            }
+            set
+            {
+                btnConsulta.Visible = value;
+            }
+        }
+
         public ucBarraBotoesPadrao()
         {
             InitializeComponent();
