@@ -84,6 +84,8 @@ namespace Hotel.Cliente
                 txtNivel.Text = _objeto.Nivel;
                 cmbTipoUh.SelectedValue = _objeto.TipoUh.Id;
                 cmbSituacao.SelectedValue = _objeto.Situacao;
+                
+                cmbSituacao.Enabled = _objeto.Situacao == EnSituacaoUh.Livre;
 
                 _operacao = EnOperacao.Update;
                 DescricaoOperacao = "Alterando registro";
@@ -133,6 +135,8 @@ namespace Hotel.Cliente
                     }
 
                     Notificador.Sucesso($"Dados {msg} com sucesso!");
+
+                    cmbSituacao.Enabled = _objeto.Situacao == EnSituacaoUh.Livre;
                 }
             }
             catch (Exception ex)

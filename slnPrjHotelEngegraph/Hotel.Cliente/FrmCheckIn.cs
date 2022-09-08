@@ -16,7 +16,6 @@ namespace Hotel.Cliente
 {
     public partial class FrmCheckIn : Form
     {
-
         BindingList<HospedeViewModel> _hospedes = new BindingList<HospedeViewModel>();
 
         readonly OcupacaoBll _bll = new OcupacaoBll();

@@ -29,7 +29,7 @@ namespace Hotel.Cliente
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtgVwReserva = new System.Windows.Forms.DataGridView();
             this.Solicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -148,8 +148,8 @@ namespace Hotel.Cliente
             // ValorEstadiaPrevisto
             // 
             this.ValorEstadiaPrevisto.DataPropertyName = "ValorEstadiaPrevisto";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ValorEstadiaPrevisto.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ValorEstadiaPrevisto.DefaultCellStyle = dataGridViewCellStyle1;
             this.ValorEstadiaPrevisto.HeaderText = "Valor Total";
             this.ValorEstadiaPrevisto.Name = "ValorEstadiaPrevisto";
             this.ValorEstadiaPrevisto.ReadOnly = true;
@@ -255,6 +255,7 @@ namespace Hotel.Cliente
             this.Nome.DataPropertyName = "NomeCompleto";
             this.Nome.HeaderText = "Hóspede";
             this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
             this.Nome.Width = 250;
             // 
             // Classe
@@ -262,6 +263,7 @@ namespace Hotel.Cliente
             this.Classe.DataPropertyName = "ClassiFicacaoHospede";
             this.Classe.HeaderText = "Classificação";
             this.Classe.Name = "Classe";
+            this.Classe.ReadOnly = true;
             this.Classe.Width = 150;
             // 
             // GeneroDescricao
@@ -269,6 +271,7 @@ namespace Hotel.Cliente
             this.GeneroDescricao.DataPropertyName = "GeneroDescricao";
             this.GeneroDescricao.HeaderText = "Genero";
             this.GeneroDescricao.Name = "GeneroDescricao";
+            this.GeneroDescricao.ReadOnly = true;
             this.GeneroDescricao.Width = 150;
             // 
             // ucBarraBotoesPadrao1
@@ -296,6 +299,7 @@ namespace Hotel.Cliente
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCheckIn";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Check-In";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

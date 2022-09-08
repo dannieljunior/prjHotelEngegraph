@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Eventos\IdEventArgs.cs" />
     <Compile Include="Eventos\HospedeEventArgs.cs" />
     <Compile Include="Eventos\MyEventArgs.cs" />
     <Compile Include="frmCadFormaPagamento.cs">
@@ -149,6 +150,12 @@
     <Compile Include="UserControls\ucNumericEdit.Designer.cs">
       <DependentUpon>ucNumericEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ucOcupacao.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucOcupacao.Designer.cs">
+      <DependentUpon>ucOcupacao.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FrmCadTipoUh.resx">
       <DependentUpon>FrmCadTipoUh.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsulta.resx">
       <DependentUpon>frmConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsultaOcupacao.resx">
+      <DependentUpon>FrmConsultaOcupacao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConsultaReserva.resx">
       <DependentUpon>FrmConsultaReserva.cs</DependentUpon>
@@ -184,6 +194,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UserControls\ucBadge.resx">
       <DependentUpon>ucBadge.cs</DependentUpon>
@@ -193,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucNumericEdit.resx">
       <DependentUpon>ucNumericEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucOcupacao.resx">
+      <DependentUpon>ucOcupacao.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -220,6 +234,13 @@
       <Project>{4570C8C2-FAAB-41F8-9E41-780B19D6131C}</Project>
       <Name>Hotel.Repositorio.ADO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\door_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\door_open.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

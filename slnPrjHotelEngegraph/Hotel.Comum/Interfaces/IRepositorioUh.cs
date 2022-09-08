@@ -1,4 +1,5 @@
-﻿using Hotel.Comum.Modelos;
+﻿using Hotel.Comum.Enumerados;
+using Hotel.Comum.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace Hotel.Comum.Interfaces
 {
     public interface IRepositorioUh: IRepositorio<Uh>
     {
-        List<Uh> ObterUhsPorTipo(Guid tipoUhId);
+        List<Uh> ObterUhsPorTipo(Guid tipoUhId, EnSituacaoUh? situacao);
     }
 }

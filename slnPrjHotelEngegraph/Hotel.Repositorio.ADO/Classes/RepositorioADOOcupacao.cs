@@ -59,6 +59,29 @@ namespace Hotel.Repositorio.ADO.Classes
             }
         }
 
+        public DataTable ObterMapaDeOcupacao()
+        {
+            var sql = @"SELECT 
+                            u.Id, 
+                            u.Numero, 
+                            u.Bloco, 
+                            u.Nivel,
+                            o.DataCheckIn,
+                            u.Situacao,
+                            r.DataCheckOut,
+                            o.Id as OcupacaoId
+                        FROM uh u
+                        LEFT JOIN ocupacao o ON o.uhId = u.Id
+                        LEFT JOIN reserva r ON r.id = o.ReservaId
+                        ORDER BY u.Numero";
+
+            var comando = CriarComando(sql);
+            var adapter = new SqlDataAdapter(comando);
+            var dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            return dataTable;
+        }
+
         public void Update(Ocupacao obj)
         {
             //comando sql de update

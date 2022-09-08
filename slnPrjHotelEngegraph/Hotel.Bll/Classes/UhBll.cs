@@ -29,16 +29,15 @@ namespace Hotel.Bll.Classes
             return _tipoUhBll.GetById(id);
         }
 
-        public List<Uh> ObterUhsPorTipo(Guid id)
+        public List<Uh> ObterUhsPorTipo(Guid id, EnSituacaoUh? situacao = null)
         {
-            return _repositorio.ObterUhsPorTipo(id);
+            return _repositorio.ObterUhsPorTipo(id, situacao);
         }
 
         public List<ItemDeSelecao<EnSituacaoUh>> ObterSituacoes()
         {
             return new List<ItemDeSelecao<EnSituacaoUh>>() {
                 new ItemDeSelecao<EnSituacaoUh>(EnSituacaoUh.Livre, "Livre"),
-                new ItemDeSelecao<EnSituacaoUh>(EnSituacaoUh.Ocupada, "Ocupada"),
                 new ItemDeSelecao<EnSituacaoUh>(EnSituacaoUh.EmManutencao, "Manutenção"),
                 new ItemDeSelecao<EnSituacaoUh>(EnSituacaoUh.Inativa, "Inativa")
             };

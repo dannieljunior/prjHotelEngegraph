@@ -121,14 +121,14 @@ namespace Hotel.Cliente
             // mnConsultaReserva
             // 
             this.mnConsultaReserva.Name = "mnConsultaReserva";
-            this.mnConsultaReserva.Size = new System.Drawing.Size(180, 22);
+            this.mnConsultaReserva.Size = new System.Drawing.Size(145, 22);
             this.mnConsultaReserva.Text = "&Consulta";
             this.mnConsultaReserva.Click += new System.EventHandler(this.mnConsultaReserva_Click);
             // 
             // mnNovaReserva
             // 
             this.mnNovaReserva.Name = "mnNovaReserva";
-            this.mnNovaReserva.Size = new System.Drawing.Size(180, 22);
+            this.mnNovaReserva.Size = new System.Drawing.Size(145, 22);
             this.mnNovaReserva.Text = "&Nova Reserva";
             this.mnNovaReserva.Click += new System.EventHandler(this.mnNovaReserva_Click);
             // 
@@ -145,6 +145,7 @@ namespace Hotel.Cliente
             this.mnConsultaOcupacao.Name = "mnConsultaOcupacao";
             this.mnConsultaOcupacao.Size = new System.Drawing.Size(180, 22);
             this.mnConsultaOcupacao.Text = "&Ocupação";
+            this.mnConsultaOcupacao.Click += new System.EventHandler(this.mnConsultaOcupacao_Click);
             // 
             // checkOutToolStripMenuItem
             // 

@@ -43,9 +43,12 @@ namespace Hotel.Repositorio.ADO.Classes
             return obj;
         }
 
-        public List<Uh> ObterUhsPorTipo(Guid tipoUhId)
+        public List<Uh> ObterUhsPorTipo(Guid tipoUhId, EnSituacaoUh? situacao = null)
         {
-            var sql = $@"SELECT * FROM Uh WHERE TipoUhId = '{tipoUhId}'";
+            var sql = $@"SELECT * FROM Uh WHERE TipoUhId = '{tipoUhId}' ";
+
+            if (situacao != null)
+                sql += $"AND situacao = {(Int32)situacao}";
 
             var comando = CriarComando(sql);
 

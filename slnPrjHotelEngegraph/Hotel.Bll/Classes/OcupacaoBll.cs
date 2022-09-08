@@ -59,7 +59,7 @@ namespace Hotel.Bll.Classes
 
         public List<Uh> ObterUhs(Guid id)
         {
-            return _uhBll.ObterUhsPorTipo(id);
+            return _uhBll.ObterUhsPorTipo(id, EnSituacaoUh.Livre);
         }
 
         public override Ocupacao Persistir(Ocupacao obj, EnOperacao operacao)
@@ -81,6 +81,26 @@ namespace Hotel.Bll.Classes
             });
 
             return objetoRetorno;
+        }
+
+        public List<OcupacaoViewModel> ObterMapaDeOcupacao()
+        {
+            var tabela = _repositorio.ObterMapaDeOcupacao();
+
+            List<OcupacaoViewModel> listaRetorno = new List<OcupacaoViewModel>();
+
+            foreach(DataRow linha in tabela.Rows)
+            {
+                listaRetorno.Add(new OcupacaoViewModel()
+                {
+                    UhId = new Guid(linha["Id"].ToString()),
+                    Numero = linha["Numero"].ToString(),
+                    OcupacaoId = string.IsNullOrWhiteSpace(linha["OcupacaoId"].ToString()) ? default(Guid) : new Guid(linha["OcupacaoId"].ToString()),
+                    Situacao = (EnSituacaoUh)Convert.ToInt32(linha["Situacao"])
+                });                 
+            }
+
+            return listaRetorno;
         }
 
         private List<Hospede> ObterHospedes()
@@ -112,6 +132,11 @@ namespace Hotel.Bll.Classes
             if(objeto.DataCheckIn.Date != objeto.Reserva.DataCheckIn.Date)
             {
                 resultadoValidacao.Criticas.Add("Não é possível fazer check-In em data diferente da reservada");
+            }
+
+            if(objeto.Uh == null)
+            {
+                resultadoValidacao.Criticas.Add("A Uh não foi selecionada.");
             }
 
             var qtdeAdt = Hospedes.Count(x => x.ClassiFicacaoHospede.Equals("ADULTO"));
