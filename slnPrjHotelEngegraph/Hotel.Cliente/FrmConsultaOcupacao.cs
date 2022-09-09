@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -94,13 +95,7 @@ namespace Hotel.Cliente
 
         private void AtualizarInformacao()
         {
-            lblInformacao.Text = string.Format(lblInformacao.Text, DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
-
-
-            //this.Invoke(new Action(() =>
-            //{
-            //    lblInformacao.Text = string.Format(lblInformacao.Text, DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
-            //}));
+            lblInformacao.Text = $"Ocupação em {DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")}";
         }
     }
 }

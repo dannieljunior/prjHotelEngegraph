@@ -100,6 +100,7 @@ namespace Hotel.Cliente
             // 
             // tmrInformacao
             // 
+            this.tmrInformacao.Enabled = true;
             this.tmrInformacao.Interval = 1000;
             this.tmrInformacao.Tick += new System.EventHandler(this.tmrInformacao_Tick);
             // 
