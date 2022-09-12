@@ -54,23 +54,6 @@ namespace Hotel.Repositorio.ADO.Classes
             }
         }
 
-        public virtual DataTable GetDataTable()
-        {
-            var comando = CriarComando($"SELECT * FROM {_tabela}");
-
-            try
-            {
-                var adapter = new SqlDataAdapter(comando);
-                DataTable resultado = new DataTable();
-                adapter.Fill(resultado);
-                return resultado;
-            }
-            finally
-            {
-                comando.FreeAndNil();
-            }
-        }
-
         public virtual List<T> List()
         {
             var comando = CriarComando();

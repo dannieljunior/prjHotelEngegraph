@@ -2,47 +2,33 @@
 using Hotel.Comum.Enumerados;
 using Hotel.Comum.Modelos;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Hotel.Cliente
 {
-    public partial class FrmCadTipoUh : Form
+    public partial class frmCadTipoPagto : Form
     {
+        readonly TipoPagtoBll _bll = new TipoPagtoBll();
         EnOperacao _operacao = EnOperacao.Insert;
+        string _descricaoOperacao = "Inserindo novo registro";
+        TipoPagto _objeto;
 
-        string _operacaoDescricao = "Inserindo dados";
-
-        readonly TipoUhBll _bll = new TipoUhBll();
-
-        TipoUh _objeto = new TipoUh();
-
-        public string DescricaoOperacao
-        {
-            get { return _operacaoDescricao; }
-            set
-            {
-                _operacaoDescricao = value;
-                lblStatusOperacao.Text = _operacaoDescricao;
-            }
-        }
-
-        public FrmCadTipoUh()
+        public frmCadTipoPagto()
         {
             InitializeComponent();
-            DescricaoOperacao = "Inserindo dados";
+            NovoRegistro();
         }
 
-        private void NovoRegistro()
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            _objeto = new TipoUh();
-            _operacao = EnOperacao.Insert;
-            txtDescricao.Clear();
-            txtValorDiaria.Clear();
-            txtValorAdicional.Clear();
-            numQtdeAdt.Value = 0;
-            numQtdeChd.Value = 0;
-            txtDescricao.Focus();
-            DescricaoOperacao = "Inserindo registro";
+
         }
 
         private void ucBarraBotoesPadrao1_OnNovoClick(object sender, EventArgs e)
@@ -50,12 +36,22 @@ namespace Hotel.Cliente
             NovoRegistro();
         }
 
+        private void NovoRegistro()
+        {
+            _objeto = new TipoPagto();
+            _descricaoOperacao = "Inserindo novo registro";
+            _operacao = EnOperacao.Insert;
+            txtDescricao.Clear();
+            txtDescricao.Focus();
+            lblStatusOperacao.Text = _descricaoOperacao;
+        }
+
         private void ucBarraBotoesPadrao1_OnConsultaClick(object sender, EventArgs e)
         {
             var dados = _bll.List();
             var formularioDeConsulta = new frmConsulta();
 
-            formularioDeConsulta.SetList<TipoUh>(dados);
+            formularioDeConsulta.SetList<TipoPagto>(dados);
 
             formularioDeConsulta.OnSelectRow = (s, evt) => {
                 var idSelecionado = (Guid)evt.SelectedItem;
@@ -63,13 +59,11 @@ namespace Hotel.Cliente
                 _objeto = _bll.GetById(idSelecionado);
 
                 txtDescricao.Text = _objeto.Descricao;
-                txtValorDiaria.Value = _objeto.ValorDiaria;
-                txtValorAdicional.Value = _objeto.ValorAdicional;
-                numQtdeAdt.Value = _objeto.QtdeAdt;
-                numQtdeChd.Value = _objeto.QtdeChd;
 
                 _operacao = EnOperacao.Update;
-                DescricaoOperacao = "Alterando registro";
+                _descricaoOperacao = "Alterando registro";
+
+                lblStatusOperacao.Text = _descricaoOperacao;
             };
 
             formularioDeConsulta.OnDeleteRow = (s, evt) =>
@@ -87,10 +81,6 @@ namespace Hotel.Cliente
             try
             {
                 _objeto.Descricao = txtDescricao.Text;
-                _objeto.QtdeAdt = Convert.ToInt32(numQtdeAdt.Value);
-                _objeto.QtdeChd = (int)numQtdeChd.Value;
-                _objeto.ValorDiaria = txtValorDiaria.Value;
-                _objeto.ValorAdicional = txtValorAdicional.Value;
 
                 var validacao = _bll.Validar(_objeto);
 
@@ -107,7 +97,9 @@ namespace Hotel.Cliente
                         _objeto = _bll.Persistir(_objeto, EnOperacao.Insert);
                         msg = "inseridos";
                         _operacao = EnOperacao.Update;
-                        DescricaoOperacao = "Alterando registro";
+                        _descricaoOperacao = "Alterando registro";
+
+                        lblStatusOperacao.Text = _descricaoOperacao;
                     }
                     else
                     {
@@ -122,11 +114,6 @@ namespace Hotel.Cliente
             {
                 Notificador.Erro($"Ocorreu um erro: {ex.Message}");
             }
-        }
-
-        private void ucBarraBotoesPadrao1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

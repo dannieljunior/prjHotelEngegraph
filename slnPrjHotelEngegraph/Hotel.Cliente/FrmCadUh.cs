@@ -71,8 +71,10 @@ namespace Hotel.Cliente
 
         private void ucBarraBotoesPadrao1_OnConsultaClick(object sender, EventArgs e)
         {
-            var dados = _bll.GetDataTable();
-            var formularioDeConsulta = new frmConsulta(dados);
+            var dados = _bll.List();
+            var formularioDeConsulta = new frmConsulta();
+
+            formularioDeConsulta.SetList<Uh>(dados);
 
             formularioDeConsulta.OnSelectRow = (s, evt) => {
                 var idSelecionado = (Guid)evt.SelectedItem;

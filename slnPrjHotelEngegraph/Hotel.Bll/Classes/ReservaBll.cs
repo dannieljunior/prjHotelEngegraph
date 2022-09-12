@@ -68,16 +68,19 @@ namespace Hotel.Bll.Classes
             return resultadoValidacao;
         }
 
-        public DataTable ObterTiposUh(bool isConsulta = true)
+        public List<TipoUh> ObterTiposUh(bool isConsulta = true)
         {
-            var tabela = _tipoUhBll.GetDataTable();
+            var tabela = _tipoUhBll.List();
             
             if (isConsulta)
             {
-                var row = tabela.NewRow();
-                row["Id"] = default(Guid);
-                row["Descricao"] = "---TODAS---";
-                tabela.Rows.Add(row);
+                var row = new TipoUh()
+                {
+                    Id = default(Guid),
+                    Descricao = "---TODAS---"
+                };
+
+                tabela.Add(row);
             }
             
             return tabela;

@@ -15,6 +15,5 @@ namespace Hotel.Comum.Interfaces
         void Delete(Guid id);
         List<T> List();
         T GetById(Guid id);
-        DataTable GetDataTable();
     }
 }

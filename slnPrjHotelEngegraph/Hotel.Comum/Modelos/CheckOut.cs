@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Hotel.Comum.Modelos
 {
@@ -6,7 +7,6 @@ namespace Hotel.Comum.Modelos
     {
         public DateTime DataCheckOut { get; set; }
         public Ocupacao Ocupacao { get; set; }
-        public int QtdeNoites => DataCheckOut.Subtract(Ocupacao.DataCheckIn).Days;
-        public TipoPagto TipoPagto { get; set; }
+        public List<Lancamentos> Lancamentos { get; set; }
     }
 }

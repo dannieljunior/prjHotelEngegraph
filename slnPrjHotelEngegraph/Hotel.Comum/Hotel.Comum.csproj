@@ -43,12 +43,14 @@
   <ItemGroup>
     <Compile Include="Auxiliares\ItemDeSelecao.cs" />
     <Compile Include="Dto\ObjetoDeValidacao.cs" />
+    <Compile Include="Enumerados\EnContaLancamento.cs" />
     <Compile Include="Enumerados\EnGenero.cs" />
     <Compile Include="Enumerados\EnOperacao.cs" />
     <Compile Include="Enumerados\EnSituacaoOcupacao.cs" />
     <Compile Include="Enumerados\EnSituacaoReserva.cs" />
     <Compile Include="Enumerados\EnSituacaoUh.cs" />
     <Compile Include="Interfaces\IRepositorio.cs" />
+    <Compile Include="Interfaces\IRepositorioLancamentos.cs" />
     <Compile Include="Interfaces\IRepositorioCheckOut.cs" />
     <Compile Include="Interfaces\IRepositorioConfiguracao.cs" />
     <Compile Include="Interfaces\IRepositorioHospede.cs" />
@@ -63,6 +65,7 @@
     <Compile Include="Modelos\Entidade.cs" />
     <Compile Include="Modelos\Hospede.cs" />
     <Compile Include="Modelos\HospedeOcupacao.cs" />
+    <Compile Include="Modelos\Lancamentos.cs" />
     <Compile Include="Modelos\Ocupacao.cs" />
     <Compile Include="Modelos\Reserva.cs" />
     <Compile Include="Modelos\TipoPagto.cs" />

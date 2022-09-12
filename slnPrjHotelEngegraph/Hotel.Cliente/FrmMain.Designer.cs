@@ -41,8 +41,6 @@ namespace Hotel.Cliente
             this.mnNovaReserva = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnConsultaOcupacao = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnCheckOut = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnSobre = new System.Windows.Forms.ToolStripMenuItem();
             this.tabForms = new System.Windows.Forms.TabControl();
@@ -55,7 +53,6 @@ namespace Hotel.Cliente
             this.cadastrosToolStripMenuItem,
             this.reservasToolStripMenuItem,
             this.consultasToolStripMenuItem,
-            this.checkOutToolStripMenuItem,
             this.ajudaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -78,7 +75,7 @@ namespace Hotel.Cliente
             this.mnTipoUh,
             this.mnUh});
             this.hotelToolStripMenuItem.Name = "hotelToolStripMenuItem";
-            this.hotelToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.hotelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.hotelToolStripMenuItem.Text = "&Hotel";
             // 
             // mnTipoUh
@@ -100,7 +97,7 @@ namespace Hotel.Cliente
             this.financeiroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.formasDePagamentoToolStripMenuItem});
             this.financeiroToolStripMenuItem.Name = "financeiroToolStripMenuItem";
-            this.financeiroToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.financeiroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.financeiroToolStripMenuItem.Text = "&Financeiro";
             // 
             // formasDePagamentoToolStripMenuItem
@@ -108,6 +105,7 @@ namespace Hotel.Cliente
             this.formasDePagamentoToolStripMenuItem.Name = "formasDePagamentoToolStripMenuItem";
             this.formasDePagamentoToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.formasDePagamentoToolStripMenuItem.Text = "Formas de &Pagamento";
+            this.formasDePagamentoToolStripMenuItem.Click += new System.EventHandler(this.formasDePagamentoToolStripMenuItem_Click);
             // 
             // reservasToolStripMenuItem
             // 
@@ -143,23 +141,9 @@ namespace Hotel.Cliente
             // mnConsultaOcupacao
             // 
             this.mnConsultaOcupacao.Name = "mnConsultaOcupacao";
-            this.mnConsultaOcupacao.Size = new System.Drawing.Size(180, 22);
+            this.mnConsultaOcupacao.Size = new System.Drawing.Size(128, 22);
             this.mnConsultaOcupacao.Text = "&Ocupação";
             this.mnConsultaOcupacao.Click += new System.EventHandler(this.mnConsultaOcupacao_Click);
-            // 
-            // checkOutToolStripMenuItem
-            // 
-            this.checkOutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnCheckOut});
-            this.checkOutToolStripMenuItem.Name = "checkOutToolStripMenuItem";
-            this.checkOutToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
-            this.checkOutToolStripMenuItem.Text = "Check&Out";
-            // 
-            // mnCheckOut
-            // 
-            this.mnCheckOut.Name = "mnCheckOut";
-            this.mnCheckOut.Size = new System.Drawing.Size(127, 22);
-            this.mnCheckOut.Text = "&CheckOut";
             // 
             // ajudaToolStripMenuItem
             // 
@@ -217,8 +201,6 @@ namespace Hotel.Cliente
         private System.Windows.Forms.ToolStripMenuItem mnNovaReserva;
         private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnConsultaOcupacao;
-        private System.Windows.Forms.ToolStripMenuItem checkOutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mnCheckOut;
         private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnSobre;
         private System.Windows.Forms.TabControl tabForms;

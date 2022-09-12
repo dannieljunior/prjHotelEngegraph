@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace Hotel.Comum.Interfaces
 {
-    public interface IRepositorioHospedeOcupacao: IRepositorio<HospedeOcupacao>
+    public interface IRepositorioLancamentos: IRepositorio<Lancamentos>
     {
-        List<HospedeOcupacao> ObterHospedesPorOcupacao(Guid id);
     }
 }

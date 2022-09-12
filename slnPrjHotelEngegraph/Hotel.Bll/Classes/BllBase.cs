@@ -20,9 +20,9 @@ namespace Hotel.Bll.Classes
             return _repositorio.GetById(id);
         }
 
-        public virtual DataTable GetDataTable()
+        public virtual List<T> List()
         {
-            return _repositorio.GetDataTable();
+            return _repositorio.List();
         }
 
         public virtual T Persistir(T obj, EnOperacao operacao)

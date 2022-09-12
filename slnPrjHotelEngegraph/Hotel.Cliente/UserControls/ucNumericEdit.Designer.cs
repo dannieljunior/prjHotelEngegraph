@@ -34,10 +34,11 @@ namespace Hotel.Cliente.UserControls
             // 
             // txtControl
             // 
-            this.txtControl.Location = new System.Drawing.Point(3, 3);
+            this.txtControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtControl.Location = new System.Drawing.Point(0, 0);
             this.txtControl.Name = "txtControl";
             this.txtControl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtControl.Size = new System.Drawing.Size(197, 20);
+            this.txtControl.Size = new System.Drawing.Size(143, 20);
             this.txtControl.TabIndex = 0;
             this.txtControl.Text = "0,00";
             this.txtControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtControl_KeyPress);
@@ -49,7 +50,7 @@ namespace Hotel.Cliente.UserControls
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.txtControl);
             this.Name = "ucNumericEdit";
-            this.Size = new System.Drawing.Size(203, 26);
+            this.Size = new System.Drawing.Size(143, 21);
             this.ResumeLayout(false);
             this.PerformLayout();
 

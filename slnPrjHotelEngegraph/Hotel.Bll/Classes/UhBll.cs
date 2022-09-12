@@ -19,9 +19,9 @@ namespace Hotel.Bll.Classes
             _tipoUhBll = new TipoUhBll();
         }
 
-        public DataTable ObterTiposUh()
+        public List<TipoUh> ObterTiposUh()
         {
-            return _tipoUhBll.GetDataTable();
+            return _tipoUhBll.List();
         }
 
         public TipoUh GetTipoUh(Guid id)

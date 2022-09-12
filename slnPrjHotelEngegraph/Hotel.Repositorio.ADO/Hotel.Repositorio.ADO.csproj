@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\RepositorioADOLancamentos.cs" />
     <Compile Include="Classes\RepositorioADOReserva.cs" />
     <Compile Include="Classes\RepositorioADOOcupacao.cs" />
     <Compile Include="Classes\RepositorioADOHospede.cs" />
@@ -56,9 +57,11 @@
     <Compile Include="Classes\MigracaoBase.cs" />
     <Compile Include="Migracoes\M_10_CriaColunasDataCriacao_DataModificao_Tabela_Uh.cs" />
     <Compile Include="Migracoes\M_11_cria_campo_uh_ocupacao.cs" />
+    <Compile Include="Migracoes\M_15_remove_Tipo_Pagto_Checkout.cs" />
     <Compile Include="Migracoes\M_14_cria_campos_email_localizador_reserva.cs" />
     <Compile Include="Migracoes\M_13_cria_fk_tipouh_reserva.cs" />
     <Compile Include="Migracoes\M_12_cria_campos_solictante_reserva.cs" />
+    <Compile Include="Migracoes\M_16_CriaTabelaLancamentos.cs" />
     <Compile Include="Migracoes\M_1_CriaTabelaTipoUh.cs" />
     <Compile Include="Migracoes\M_2_CriaTabelaUh.cs" />
     <Compile Include="Migracoes\M_3_CriaTabelaTipoPagto.cs" />

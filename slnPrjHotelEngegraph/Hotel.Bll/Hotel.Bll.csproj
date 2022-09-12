@@ -42,10 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\BllBase.cs" />
+    <Compile Include="Classes\CheckOutBll.cs" />
     <Compile Include="Classes\HospedeBll.cs" />
     <Compile Include="Classes\HospedeOcupacaoBll.cs" />
+    <Compile Include="Classes\LancamentosBll.cs" />
     <Compile Include="Classes\OcupacaoBll.cs" />
     <Compile Include="Classes\ReservaBll.cs" />
+    <Compile Include="Classes\TipoPagtoBll.cs" />
     <Compile Include="Classes\TipoUhBll.cs" />
     <Compile Include="Classes\UhBll.cs" />
     <Compile Include="Interfaces\IBll.cs" />

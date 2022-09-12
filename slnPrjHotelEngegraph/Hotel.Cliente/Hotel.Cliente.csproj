@@ -50,11 +50,11 @@
     <Compile Include="Eventos\IdEventArgs.cs" />
     <Compile Include="Eventos\HospedeEventArgs.cs" />
     <Compile Include="Eventos\MyEventArgs.cs" />
-    <Compile Include="frmCadFormaPagamento.cs">
+    <Compile Include="frmCadTipoPagto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCadFormaPagamento.Designer.cs">
-      <DependentUpon>frmCadFormaPagamento.cs</DependentUpon>
+    <Compile Include="frmCadTipoPagto.Designer.cs">
+      <DependentUpon>frmCadTipoPagto.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCadTipoUh.cs">
       <SubType>Form</SubType>
@@ -156,6 +156,9 @@
     <Compile Include="UserControls\ucOcupacao.Designer.cs">
       <DependentUpon>ucOcupacao.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmCadTipoPagto.resx">
+      <DependentUpon>frmCadTipoPagto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCadTipoUh.resx">
       <DependentUpon>FrmCadTipoUh.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCheckIn.resx">
       <DependentUpon>FrmCheckIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCheckOut.resx">
+      <DependentUpon>FrmCheckOut.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsulta.resx">
       <DependentUpon>frmConsulta.cs</DependentUpon>

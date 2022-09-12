@@ -39,6 +39,13 @@ namespace Hotel.Bll.Classes
             return _reservaBll.GetById(id);
         }
 
+        public void AtualizarSituacaoUh(EnSituacaoUh situacao, Guid uhId)
+        {
+            var uh = ObterUhPorId(uhId);
+            uh.Situacao = situacao;
+            _uhBll.Persistir(uh, EnOperacao.Update);
+        }
+
         public ReservaViewModel ObterDadosDaReserva(Guid id)
         {
             var reserva = _reservaBll.GetById(id);
@@ -62,9 +69,15 @@ namespace Hotel.Bll.Classes
             return _uhBll.ObterUhsPorTipo(id, EnSituacaoUh.Livre);
         }
 
+        public void AtualizarSituacaoOcupacao(Ocupacao obj, EnSituacaoOcupacao situacao)
+        {
+            obj.Situacao = situacao;
+            base.Persistir(obj, EnOperacao.Update);
+        }
+
         public override Ocupacao Persistir(Ocupacao obj, EnOperacao operacao)
         {
-            obj.Situacao = EnSituacaoOcupacao.Ocupada;
+            obj.Situacao = EnSituacaoOcupacao.Ativa;
             var objetoRetorno = base.Persistir(obj, operacao);
             _reservaBll.AtualizarSituacaoReserva(obj.Reserva, EnSituacaoReserva.Concluida);
             _uhBll.AtualizarSituacaoUh(obj.Uh, EnSituacaoUh.Ocupada);

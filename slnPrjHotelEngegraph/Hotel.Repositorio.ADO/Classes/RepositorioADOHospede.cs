@@ -139,10 +139,10 @@ namespace Hotel.Repositorio.ADO.Classes
                     hospede.SobreNome = reader["SobreNome"].ToString();
                     hospede.DataNascimento = Convert.ToDateTime(reader["DataNascimento"]);
                     hospede.Genero = (EnGenero)Convert.ToInt32(reader["Genero"]);
-                    hospede.Telefone = reader["NumeroTelefone"].ToString();
+                    hospede.NumeroDocumento = reader["NumeroDocumento"].ToString();
                     hospede.Telefone = reader["Telefone"].ToString();
                     hospede.Endereco = reader["Endereco"].ToString();
-                    hospede.IsEstrangeiro = (bool)reader["IsEstrangeiro"];
+                    hospede.IsEstrangeiro = Convert.ToInt32(reader["IsEstrangeiro"]) == 0 ? false : true;
                     hospede.DataCriacao = Convert.ToDateTime(reader["DataCriacao"]);
 
                     if (reader["DataModificacao"] != DBNull.Value)

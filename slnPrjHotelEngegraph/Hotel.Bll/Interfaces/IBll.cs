@@ -15,7 +15,7 @@ namespace Hotel.Bll.Interfaces
     {
         ObjetoDeValidacao Validar(T objeto);
         T Persistir(T obj, EnOperacao operacao);
-        DataTable GetDataTable();
+        List<T> List();
         T GetById(Guid id);
     }
 }

@@ -1,5 +1,7 @@
 ﻿using Hotel.Cliente.Eventos;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
 
@@ -15,10 +17,9 @@ namespace Hotel.Cliente
             InitializeComponent();
         }
 
-        public frmConsulta(DataTable pTabela)
+        public void SetList<T>(List<T> pList)
         {
-            InitializeComponent();
-            dataGridView1.DataSource = pTabela;
+            dataGridView1.DataSource = new BindingList<T>(pList);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -55,9 +56,12 @@ namespace Hotel.Cliente
 
         private void btnSelecionar_Click_1(object sender, EventArgs e)
         {
-            var selectedRow = dataGridView1.SelectedRows[0].Cells["Id"].Value;
-            OnSelectRow(sender, new MyEventArgs(selectedRow));
-            this.Close();
+            if(dataGridView1.Rows.Count > 0)
+            {
+                var selectedRow = dataGridView1.SelectedRows[0].Cells["Id"].Value;
+                OnSelectRow(sender, new MyEventArgs(selectedRow));
+                this.Close();
+            }
         }
     }
 }

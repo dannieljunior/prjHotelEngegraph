@@ -27,6 +27,8 @@ namespace Hotel.Cliente
         {
             AtualizarInformacao();
 
+            flwOcupacoes.Controls.Clear();
+
             var ocupacoes = _Bll.ObterMapaDeOcupacao();
 
             ocupacoes.ForEach(ocupacao =>
@@ -70,17 +72,27 @@ namespace Hotel.Cliente
 
         private void ShowCheckOut(Guid id)
         {
-            Notificador.Informacao($"Check-Out do Id {id.ToString()}");
+            var frm = new FrmCheckOut(id);
+            frm.ShowDialog();
+            ExibirMapaDeOcupacao();
         }
 
         private void ReativarUh(Guid id)
         {
-            Notificador.Informacao($"Reativar UH:  {id.ToString()}");
+            if(Notificador.Confirmacao("Deseja realmente reativar a UH?"))
+            {
+                _Bll.AtualizarSituacaoUh(EnSituacaoUh.Livre, id);
+                ExibirMapaDeOcupacao();
+            }
         }
 
         private void LiberarManutencaoUh(Guid id)
         {
-            Notificador.Informacao($"Liberando UH: {id.ToString()}");
+            if (Notificador.Confirmacao("Deseja realmente finalizar a manutenção da UH?"))
+            {
+                _Bll.AtualizarSituacaoUh(EnSituacaoUh.Livre, id);
+                ExibirMapaDeOcupacao();
+            }
         }
 
         private void btnFechar_Click(object sender, EventArgs e)

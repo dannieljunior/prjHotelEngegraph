@@ -132,7 +132,15 @@ namespace Hotel.Cliente
         private void ucBarraBotoesPadrao1_OnSalvarClick(object sender, EventArgs e)
         {
             _objeto.DataCheckIn = DateTime.Now;
+
+            if(cmbUhs.SelectedIndex < 0)
+            {
+                Notificador.Erro("Selecione um UH para o Check-In");
+                return;
+            }
+
             _objeto.Uh = _bll.ObterUhPorId((Guid)cmbUhs.SelectedValue);
+
             _bll.Hospedes = _hospedes.ToList();
 
             var validacao = _bll.Validar(_objeto);

@@ -29,8 +29,8 @@ namespace Hotel.Cliente
         {
             get
             {
-                var result = (cmbTipoUh.DataSource as DataTable)?.Rows[cmbTipoUh.SelectedIndex]["ValorDiaria"];
-                bdgValorDiaria.Value = result == null ? "0,00" : Convert.ToDouble(result).ToString("0.00");
+                var result = (cmbTipoUh.DataSource as List<TipoUh>)[cmbTipoUh.SelectedIndex].ValorDiaria;
+                bdgValorDiaria.Value = Convert.ToDouble(result).ToString("0.00");
                 return Convert.ToDouble(result);
             }
         }

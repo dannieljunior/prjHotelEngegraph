@@ -36,6 +36,13 @@ namespace Hotel.Repositorio.ADO.Classes
             return obj;
         }
 
+        public List<HospedeOcupacao> ObterHospedesPorOcupacao(Guid id)
+        {
+            var sql = $"SELECT * FROM HospedeOcupacao WHERE OcupacaoId = '{id}'";
+            var comando = CriarComando(sql);
+            return ObterLista(comando);
+        }
+
         public void Update(HospedeOcupacao obj)
         {
             //comando sql de update

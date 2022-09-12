@@ -86,7 +86,7 @@ namespace Hotel.Repositorio.ADO.Classes
         {
             //comando sql de update
             var sql = @"UPDATE Ocupacao SET
-                               ,DataCheckIn = @DataCheckIn
+                               DataCheckIn = @DataCheckIn
                                ,Situacao = @Situacao
                                ,ReservaId = @ReservaId
                                ,UhId = @UhId

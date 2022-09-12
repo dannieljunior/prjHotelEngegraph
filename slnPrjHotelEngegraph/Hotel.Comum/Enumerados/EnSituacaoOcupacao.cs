@@ -2,8 +2,8 @@
 {
     public enum EnSituacaoOcupacao
     {
-        Ocupada = 1,
-        Livre = 2,
+        Ativa = 1,
+        Inativa = 2,
         EarlyCheckOut = 3
     }
 }

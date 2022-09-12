@@ -79,5 +79,10 @@ namespace Hotel.Cliente
         {
             AdicionarFormularioNaTabControl(new FrmConsultaOcupacao());
         }
+
+        private void formasDePagamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AdicionarFormularioNaTabControl(new frmCadTipoPagto());
+        }
     }
 }
