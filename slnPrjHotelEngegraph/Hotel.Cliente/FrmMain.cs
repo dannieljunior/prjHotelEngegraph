@@ -84,5 +84,15 @@ namespace Hotel.Cliente
         {
             AdicionarFormularioNaTabControl(new frmCadTipoPagto());
         }
+
+        private void usuárioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AdicionarFormularioNaTabControl(new FrmCadUsuario());
+        }
+
+        private void configuraçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AdicionarFormularioNaTabControl(new FrmConfiguracoes());
+        }
     }
 }

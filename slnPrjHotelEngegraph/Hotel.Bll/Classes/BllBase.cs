@@ -3,6 +3,7 @@ using Hotel.Comum.Dto;
 using Hotel.Comum.Enumerados;
 using Hotel.Comum.Interfaces;
 using Hotel.Comum.Modelos;
+using Hotel.Repositorio.ADO.Classes;
 using System;
 using System.Collections.Generic;
 using System.Data;

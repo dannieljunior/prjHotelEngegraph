@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Classes\BllBase.cs" />
     <Compile Include="Classes\CheckOutBll.cs" />
+    <Compile Include="Classes\ConfiguracaoBll.cs" />
     <Compile Include="Classes\HospedeBll.cs" />
     <Compile Include="Classes\HospedeOcupacaoBll.cs" />
     <Compile Include="Classes\LancamentosBll.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Classes\TipoPagtoBll.cs" />
     <Compile Include="Classes\TipoUhBll.cs" />
     <Compile Include="Classes\UhBll.cs" />
+    <Compile Include="Classes\UsuarioBll.cs" />
     <Compile Include="Interfaces\IBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

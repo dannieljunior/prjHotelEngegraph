@@ -1,4 +1,5 @@
-﻿using Hotel.Comum.Enumerados;
+﻿using Hotel.Comum.Auxiliares;
+using Hotel.Comum.Enumerados;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,12 +18,12 @@ namespace Hotel.Comum.ViewModels
         public string NomeCompleto => $"{SobreNome}, {Nome}";
         public DateTime DataNascimento { get; set; }
         public EnGenero Genero { get; set; }
-        public string GeneroDescricao => Genero == EnGenero.Masculino ? "MASCULINO" : "FEMININO";
+        public string GeneroDescricao => Genero == EnGenero.Masculino ? Constantes.MASCULINO : Constantes.FEMININO;
         public string NumeroDocumento { get; set; }
         public string Telefone { get; set; }
         public string Endereco { get; set; }
         public bool IsEstrangeiro { get; set; }
-        public string Nacionalidade => IsEstrangeiro ? "Estrangeiro" : "Brasileiro";
-        public string ClassiFicacaoHospede => DateTime.Now.Subtract(DataNascimento).TotalDays / 365 > IDADE_CHD ? "ADULTO" : "CRIANCA";
+        public string Nacionalidade => IsEstrangeiro ? Constantes.ESTRANGEIRO : Constantes.BRASILEIRO;
+        public string ClassiFicacaoHospede => DateTime.Now.Subtract(DataNascimento).TotalDays / 365 > IDADE_CHD ? Constantes.ADULTO : Constantes.CRIANCA;
     }
 }

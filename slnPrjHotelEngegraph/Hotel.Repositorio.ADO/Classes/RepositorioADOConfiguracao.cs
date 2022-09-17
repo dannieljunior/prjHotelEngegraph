@@ -25,12 +25,14 @@ namespace Hotel.Repositorio.ADO.Classes
                                ,Codigo
                                ,Descricao
                                ,Valor
+                               ,Tipo
                                ,DataCriacao)
                          VALUES
                                (@Id
                                ,@Codigo
                                ,@Descricao
                                ,@Valor
+                               ,@Tipo
                                ,@DataCriacao);";
 
             ExecutarComando(sql, obj);
@@ -42,9 +44,7 @@ namespace Hotel.Repositorio.ADO.Classes
         {
             //comando sql de update
             var sql = @"UPDATE Configuracao SET
-                                Codigo = @Codigo
-                               ,Descricao = @Descricao
-                               ,Valor = @Valor
+                               Valor = @Valor
                                ,DataModificacao = @DataModificacao
                         WHERE 
                                Id = @Id";
@@ -68,10 +68,6 @@ namespace Hotel.Repositorio.ADO.Classes
                 {
                     if (pOperacao != EnOperacao.Delete)
                     {
-                        comando.Parameters.AddWithValue("Codigo", obj.Codigo);
-                        comando.Parameters.AddWithValue("Descricao", obj.Descricao);
-                        comando.Parameters.AddWithValue("Valor", obj.Valor);
-
                         var agora = DateTime.Now;
 
                         Guid id;
@@ -79,11 +75,17 @@ namespace Hotel.Repositorio.ADO.Classes
                         if (pOperacao == EnOperacao.Insert)
                         {
                             id = Guid.NewGuid();
+                            comando.Parameters.AddWithValue("Codigo", obj.Codigo);
+                            comando.Parameters.AddWithValue("Descricao", obj.Descricao);
+                            comando.Parameters.AddWithValue("Valor", obj.Valor);
+                            comando.Parameters.AddWithValue("Tipo", obj.Tipo);
+
                             comando.Parameters.AddWithValue("DataCriacao", agora);
                         }
                         else
                         {
                             id = obj.Id;
+                            comando.Parameters.AddWithValue("Valor", obj.Valor);
                             comando.Parameters.AddWithValue("DataModificacao", agora);
                         }
 
@@ -118,6 +120,7 @@ namespace Hotel.Repositorio.ADO.Classes
                     configuracao.Codigo = Convert.ToInt32(reader["Codigo"]);
                     configuracao.Descricao = reader["Descricao"].ToString();
                     configuracao.Valor = reader["Valor"].ToString();
+                    configuracao.Tipo = (EnTipoConfiguracao)Convert.ToInt32(reader["Tipo"]);
                     configuracao.DataCriacao = Convert.ToDateTime(reader["DataCriacao"]);
 
                     if (reader["DataModificacao"] != DBNull.Value)

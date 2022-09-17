@@ -21,15 +21,18 @@ namespace Hotel.Cliente
 
             new ExecutorDeMigracoes();
 
-            /* TODO: Criar migrações de todas as tabelas do banco de dados
-             * TODO: Desenhar todos os formulários
-             * TODO: Migrar metodos de banco de dados para Repositorios
-             * TODO: Criar os Repositorios  de todas as entidades
-             * TODO: Programar o front end de todos os formularíos e seus respectivos acessos a dados
-             * TODO: Criar a injeção de dependencia para futuramente "virar a chave" do ADO para o Entity
-             * */
+            FrmLogin frm = new FrmLogin();
 
-            Application.Run(new FrmMain());
+            var result = frm.ShowDialog();
+
+            if(result == DialogResult.Cancel)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                Application.Run(new FrmMain());
+            }
         }
     }
 }
