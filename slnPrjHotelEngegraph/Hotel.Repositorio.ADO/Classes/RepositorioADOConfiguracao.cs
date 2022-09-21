@@ -40,6 +40,13 @@ namespace Hotel.Repositorio.ADO.Classes
             return obj;
         }
 
+        public string ObterConfiguracaoPeloCodigo(int codigo)
+        {
+            var sql = $"SELECT * FROM configuracao WHERE codigo = {codigo}";
+            var comando = CriarComando(sql);
+            return ObterLista(comando).FirstOrDefault()?.Valor;
+        }
+
         public void Update(Configuracao obj)
         {
             //comando sql de update
@@ -59,7 +66,7 @@ namespace Hotel.Repositorio.ADO.Classes
             try
             {
                 //Adiciona parametros com o seus respectivos valores
-
+                
                 if (pOperacao == EnOperacao.Delete)
                 {
                     comando.Parameters.AddWithValue("Id", obj.Id);

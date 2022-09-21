@@ -1,5 +1,6 @@
 ﻿using Hotel.Comum.Dto;
 using Hotel.Comum.Enumerados;
+using Hotel.Comum.Helpers;
 using Hotel.Comum.Interfaces;
 using Hotel.Comum.Modelos;
 using Hotel.Comum.ViewModels;
@@ -10,9 +11,11 @@ namespace Hotel.Bll.Classes
 {
     public class UsuarioBll : BllBase<Usuario, IRepositorioUsuario>
     {
+        readonly ConfiguracaoBll _configuracaoBll;
         public UsuarioBll()
         {
             _repositorio = new RepositorioADOUsuario();
+            _configuracaoBll = new ConfiguracaoBll();
         }
 
         public override ObjetoDeValidacao Validar(Usuario objeto)
@@ -43,10 +46,10 @@ namespace Hotel.Bll.Classes
 
             if(usuarioAntigo?.Senha != obj.Senha)
             {
-                obj.DataExpiracao = DateTime.Now.AddDays(90);
+                obj.DataExpiracao = DateTime.Now.AddDays(_configuracaoBll.ObterConfiguracaoPeloCodigo(1003).ToInt());
             }
 
-            if(obj.Tentativas >= 6 && obj.Ativo)
+            if(obj.Tentativas > _configuracaoBll.ObterConfiguracaoPeloCodigo(1002).ToInt() && obj.Ativo)
             {
                 obj.Ativo = false;
             }
@@ -70,7 +73,7 @@ namespace Hotel.Bll.Classes
             }
             else
             {
-                if (usuario.Tentativas >= 6)
+                if (usuario.Tentativas > _configuracaoBll.ObterConfiguracaoPeloCodigo(1002).ToInt())
                 {
                     resultado.Sucesso = false;
                     resultado.Mensagem = "A quantidade de tentativas de login foi excedida.";

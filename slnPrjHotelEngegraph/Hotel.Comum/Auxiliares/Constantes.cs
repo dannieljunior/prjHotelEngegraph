@@ -16,6 +16,7 @@ namespace Hotel.Comum.Auxiliares
         public const string BRASILEIRO = "BRASILEIRO";
         public const string ADULTO = "ADULTO";
         public const string CRIANCA = "CRIANÇA";
+        public const string TODAS = "--- TODAS ---";
 
     }
 }

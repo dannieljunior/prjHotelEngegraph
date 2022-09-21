@@ -1,4 +1,5 @@
-﻿using Hotel.Comum.Dto;
+﻿using Hotel.Comum.Auxiliares;
+using Hotel.Comum.Dto;
 using Hotel.Comum.Enumerados;
 using Hotel.Comum.Interfaces;
 using Hotel.Comum.Modelos;
@@ -77,7 +78,7 @@ namespace Hotel.Bll.Classes
                 var row = new TipoUh()
                 {
                     Id = default(Guid),
-                    Descricao = "---TODAS---"
+                    Descricao = Constantes.TODAS
                 };
 
                 tabela.Add(row);

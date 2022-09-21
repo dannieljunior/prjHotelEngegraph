@@ -1,4 +1,5 @@
 ﻿using Hotel.Comum.Dto;
+using Hotel.Comum.Helpers;
 using Hotel.Comum.Interfaces;
 using Hotel.Comum.Modelos;
 using Hotel.Repositorio.ADO.Classes;
@@ -7,9 +8,12 @@ namespace Hotel.Bll.Classes
 {
     public class TipoUhBll : BllBase<TipoUh, IRepositorioTipoUh>
     {
+
+        readonly ConfiguracaoBll _configuracaoBll;
         public TipoUhBll()
         {
             _repositorio = new RepositorioADOTipoUh();
+            _configuracaoBll = new ConfiguracaoBll();
         }
 
         public override ObjetoDeValidacao Validar(TipoUh objeto)
@@ -34,6 +38,13 @@ namespace Hotel.Bll.Classes
             if(objeto.ValorDiaria <= 0)
             {
                 result.Criticas.Add("Valor da diária deve ser informado");
+            }
+
+            var valorMinimoDiaria = _configuracaoBll.ObterConfiguracaoPeloCodigo(1004).ToInt();
+
+            if (objeto.ValorDiaria < valorMinimoDiaria)
+            {
+                result.Criticas.Add("(1004) O Valor das diária não segue a política do hotel de valor mínimo de diária.");
             }
 
             if (objeto.ValorAdicional < 0)

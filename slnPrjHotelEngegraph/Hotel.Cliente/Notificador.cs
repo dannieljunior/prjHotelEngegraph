@@ -24,12 +24,32 @@ namespace Hotel.Cliente
             MessageBox.Show(mensagem, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        public static bool Confirmacao(string mensagem)
+        public static bool Confirmacao(string mensagem, Action acaoSim = null, Action acaoNao = null)
         {
-            return MessageBox.Show(mensagem,
+            if(acaoSim == null && acaoNao == null)
+            {
+                return MessageBox.Show(mensagem,
                                 "Confirmação",
                                 MessageBoxButtons.YesNo,
                                 MessageBoxIcon.Question) == DialogResult.Yes;
+            }
+            else
+            {
+                var result = MessageBox.Show(mensagem,
+                                "Confirmação",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                    acaoSim();
+                else
+                {
+                    if(acaoNao != null)
+                        acaoNao();
+                }
+
+                return false;
+            }
         }
     }
 }

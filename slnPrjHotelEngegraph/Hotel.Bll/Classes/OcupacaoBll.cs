@@ -1,5 +1,6 @@
 ﻿using Hotel.Comum.Dto;
 using Hotel.Comum.Enumerados;
+using Hotel.Comum.Helpers;
 using Hotel.Comum.Interfaces;
 using Hotel.Comum.Modelos;
 using Hotel.Comum.ViewModels;
@@ -17,6 +18,7 @@ namespace Hotel.Bll.Classes
         private readonly ReservaBll _reservaBll;
         private readonly UhBll _uhBll;
         private readonly HospedeOcupacaoBll _hospedeOcupacalBll;
+        private readonly ConfiguracaoBll _configuracaoBll;
 
         public List<HospedeViewModel> Hospedes { get; set; }
 
@@ -27,6 +29,7 @@ namespace Hotel.Bll.Classes
             _hospedeBll = new HospedeBll();
             _uhBll = new UhBll();
             _hospedeOcupacalBll = new HospedeOcupacaoBll();
+            _configuracaoBll = new ConfiguracaoBll();
         }
 
         public Uh ObterUhPorId(Guid id)
@@ -160,9 +163,14 @@ namespace Hotel.Bll.Classes
                 resultadoValidacao.Criticas.Add("A quantidade de adultos para a UH selecionada ultrapassa sua capacidade.");
             }
 
-            if (qtdeChd > objeto.Uh.TipoUh.QtdeChd)
+            var validarQtdeCriancas = _configuracaoBll.ObterConfiguracaoPeloCodigo(1005).ToBoolean();
+
+            if (validarQtdeCriancas)
             {
-                resultadoValidacao.Criticas.Add("A quantidade de crianças para a UH selecionada ultrapassa sua capacidade.");
+                if (qtdeChd > objeto.Uh.TipoUh.QtdeChd)
+                {
+                    resultadoValidacao.Criticas.Add("A quantidade de crianças para a UH selecionada ultrapassa sua capacidade.");
+                }
             }
 
             return resultadoValidacao;

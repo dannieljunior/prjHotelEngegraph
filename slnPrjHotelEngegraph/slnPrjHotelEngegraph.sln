@@ -29,6 +29,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositorio", "Repositorio"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.Repositorio.ADO", "Hotel.Repositorio.ADO\Hotel.Repositorio.ADO.csproj", "{4570C8C2-FAAB-41F8-9E41-780B19D6131C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lambda", "Lambda\Lambda.csproj", "{4162D274-675A-4969-928D-F0B2FE41BC83}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{4570C8C2-FAAB-41F8-9E41-780B19D6131C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4570C8C2-FAAB-41F8-9E41-780B19D6131C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4570C8C2-FAAB-41F8-9E41-780B19D6131C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4162D274-675A-4969-928D-F0B2FE41BC83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4162D274-675A-4969-928D-F0B2FE41BC83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4162D274-675A-4969-928D-F0B2FE41BC83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4162D274-675A-4969-928D-F0B2FE41BC83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

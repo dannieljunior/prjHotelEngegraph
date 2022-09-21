@@ -21,6 +21,8 @@ namespace Hotel.Cliente
 
             new ExecutorDeMigracoes();
 
+        #if (!DEBUG)
+
             FrmLogin frm = new FrmLogin();
 
             var result = frm.ShowDialog();
@@ -33,6 +35,11 @@ namespace Hotel.Cliente
             {
                 Application.Run(new FrmMain());
             }
+        #endif
+        #if (DEBUG)
+            Application.Run(new FrmMain());
+        #endif
+
         }
     }
 }

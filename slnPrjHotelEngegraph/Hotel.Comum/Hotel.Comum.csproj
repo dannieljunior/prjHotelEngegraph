@@ -51,6 +51,7 @@
     <Compile Include="Enumerados\EnSituacaoReserva.cs" />
     <Compile Include="Enumerados\EnSituacaoUh.cs" />
     <Compile Include="Enumerados\EnTipoConfiguracao.cs" />
+    <Compile Include="Helpers\ConfiguracaoHelpers.cs" />
     <Compile Include="Interfaces\IRepositorio.cs" />
     <Compile Include="Interfaces\IRepositorioUsuario.cs" />
     <Compile Include="Interfaces\IRepositorioLancamentos.cs" />

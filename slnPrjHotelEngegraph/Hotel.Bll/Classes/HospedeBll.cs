@@ -1,4 +1,5 @@
 ﻿using Hotel.Comum.Dto;
+using Hotel.Comum.Helpers;
 using Hotel.Comum.Interfaces;
 using Hotel.Comum.Modelos;
 using Hotel.Comum.ViewModels;
@@ -9,10 +10,14 @@ namespace Hotel.Bll.Classes
 {
     public class HospedeBll : BllBase<Hospede, IRepositorioHospede>
     {
+        readonly ConfiguracaoBll _configuracaoBll;
         public HospedeBll()
         {
             _repositorio = new RepositorioADOHospede();
+            _configuracaoBll = new ConfiguracaoBll();
         }
+
+        public int IdadeMaximaCrianca => _configuracaoBll?.ObterConfiguracaoPeloCodigo(1001).ToInt() ?? 12;
 
         public override ObjetoDeValidacao Validar(Hospede objeto)
         {

@@ -21,7 +21,9 @@ namespace Hotel.Bll.Classes
             throw new NotImplementedException();
         }
 
-
-
+        public string ObterConfiguracaoPeloCodigo(int codigo)
+        {
+            return _repositorio.ObterConfiguracaoPeloCodigo(codigo);
+        }
     }
 }

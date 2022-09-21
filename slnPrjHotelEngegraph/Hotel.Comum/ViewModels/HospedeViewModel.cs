@@ -10,7 +10,12 @@ namespace Hotel.Comum.ViewModels
 {
     public class HospedeViewModel
     {
-        const int IDADE_CHD = 12; //isso depois será um parâmetro
+        private int _idade_chd = 12;
+
+        public HospedeViewModel(int idadeMaximaCrianca = 12)
+        {
+            _idade_chd = idadeMaximaCrianca;
+        }
 
         public Guid Id { get; set; }
         public string Nome { get; set; }
@@ -24,6 +29,6 @@ namespace Hotel.Comum.ViewModels
         public string Endereco { get; set; }
         public bool IsEstrangeiro { get; set; }
         public string Nacionalidade => IsEstrangeiro ? Constantes.ESTRANGEIRO : Constantes.BRASILEIRO;
-        public string ClassiFicacaoHospede => DateTime.Now.Subtract(DataNascimento).TotalDays / 365 > IDADE_CHD ? Constantes.ADULTO : Constantes.CRIANCA;
+        public string ClassiFicacaoHospede => DateTime.Now.Subtract(DataNascimento).TotalDays / 365 > _idade_chd ? Constantes.ADULTO : Constantes.CRIANCA;
     }
 }

@@ -9,5 +9,6 @@ namespace Hotel.Comum.Interfaces
 {
     public interface IRepositorioConfiguracao: IRepositorio<Configuracao>
     {
+        string ObterConfiguracaoPeloCodigo(int codigo);
     }
 }
