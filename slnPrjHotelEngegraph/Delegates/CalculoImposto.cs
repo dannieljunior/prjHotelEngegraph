@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Delegates
 {
-    public class ProdutoServico
+    public sealed class ProdutoServico
     {
         public string Descricao { get; set; }
         public double Valor { get; set; }
