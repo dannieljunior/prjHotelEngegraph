@@ -50,6 +50,7 @@ namespace Hotel.Cliente
             // txtDescricao
             // 
             this.txtDescricao.Location = new System.Drawing.Point(123, 87);
+            this.txtDescricao.MaxLength = 40;
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(383, 22);
             this.txtDescricao.TabIndex = 1;
@@ -93,7 +94,7 @@ namespace Hotel.Cliente
             this.Controls.Add(this.txtDescricao);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmCadTipoPagto";
             this.Text = "Formas de pagamento";
             this.statusStrip1.ResumeLayout(false);

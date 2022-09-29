@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lambda", "Lambda\Lambda.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delegates", "Delegates\Delegates.csproj", "{59D18CDD-A4F2-4E5B-BA3B-E52F5B4DF428}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.Repositorio.EF", "Hotel.Repositorio.EF\Hotel.Repositorio.EF.csproj", "{817181D8-CDE8-4186-8959-72E2F3A8872D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{59D18CDD-A4F2-4E5B-BA3B-E52F5B4DF428}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59D18CDD-A4F2-4E5B-BA3B-E52F5B4DF428}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59D18CDD-A4F2-4E5B-BA3B-E52F5B4DF428}.Release|Any CPU.Build.0 = Release|Any CPU
+		{817181D8-CDE8-4186-8959-72E2F3A8872D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{817181D8-CDE8-4186-8959-72E2F3A8872D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{817181D8-CDE8-4186-8959-72E2F3A8872D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{817181D8-CDE8-4186-8959-72E2F3A8872D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +88,7 @@ Global
 		{5F4770D4-E07B-446D-AF58-597D16398375} = {6343478E-CD25-4253-BCAB-4B597EE81054}
 		{B64219AF-1C92-431C-B897-34A6D5BCD4DF} = {04F04E7A-6DF9-4A2E-B95F-346C737F3256}
 		{4570C8C2-FAAB-41F8-9E41-780B19D6131C} = {42A083E0-48C1-4106-BA9C-EFEDEBF017A4}
+		{817181D8-CDE8-4186-8959-72E2F3A8872D} = {42A083E0-48C1-4106-BA9C-EFEDEBF017A4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {60D80B60-FB0C-46F7-B9E3-79F0FF7C7FDD}

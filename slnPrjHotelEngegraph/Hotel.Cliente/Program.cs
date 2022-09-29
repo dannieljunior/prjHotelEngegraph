@@ -1,5 +1,4 @@
 ﻿using Hotel.Bll.Classes;
-using Hotel.Repositorio.ADO;
 using System;
 using System.Configuration;
 using System.Windows.Forms;
@@ -17,9 +16,7 @@ namespace Hotel.Cliente
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Conexao.ConnectionString = ConfigurationManager.AppSettings["StringDeConexao"];
-
-            new ExecutorDeMigracoes();
+            new ConexaoBll(ConfigurationManager.AppSettings["StringDeConexao"]);
 
         #if (!DEBUG)
 

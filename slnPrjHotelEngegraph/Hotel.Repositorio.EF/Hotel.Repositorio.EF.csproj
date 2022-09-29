@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{41D61906-3C17-4E47-9C52-E09F0064426C}</ProjectGuid>
+    <ProjectGuid>{817181D8-CDE8-4186-8959-72E2F3A8872D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Hotel.Bll</RootNamespace>
-    <AssemblyName>Hotel.Bll</AssemblyName>
+    <RootNamespace>Hotel.Repositorio.EF</RootNamespace>
+    <AssemblyName>Hotel.Repositorio.EF</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -51,43 +51,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\BllBase.cs" />
-    <Compile Include="Classes\CheckOutBll.cs" />
-    <Compile Include="Classes\ConexaoBll.cs" />
-    <Compile Include="Classes\ConfiguracaoBll.cs" />
-    <Compile Include="Classes\HospedeBll.cs" />
-    <Compile Include="Classes\HospedeOcupacaoBll.cs" />
-    <Compile Include="Classes\LancamentosBll.cs" />
-    <Compile Include="Classes\OcupacaoBll.cs" />
-    <Compile Include="Classes\ReservaBll.cs" />
-    <Compile Include="Classes\TipoPagtoBll.cs" />
-    <Compile Include="Classes\TipoUhBll.cs" />
-    <Compile Include="Classes\UhBll.cs" />
-    <Compile Include="Classes\UsuarioBll.cs" />
-    <Compile Include="Interfaces\IBll.cs" />
+    <Compile Include="ConfiguracaoDatabase.cs" />
+    <Compile Include="HotelDbContext.cs" />
+    <Compile Include="MigrationsConfiguration.cs" />
+    <Compile Include="Migrations\202209292259360_DbCreate.cs" />
+    <Compile Include="Migrations\202209292259360_DbCreate.designer.cs">
+      <DependentUpon>202209292259360_DbCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hotel.Comum\Hotel.Comum.csproj">
       <Project>{24312432-043D-4A53-BE95-B2CC1AC81929}</Project>
       <Name>Hotel.Comum</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Hotel.Repositorio.ADO\Hotel.Repositorio.ADO.csproj">
-      <Project>{4570C8C2-FAAB-41F8-9E41-780B19D6131C}</Project>
-      <Name>Hotel.Repositorio.ADO</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Hotel.Repositorio.EF\Hotel.Repositorio.EF.csproj">
-      <Project>{817181D8-CDE8-4186-8959-72E2F3A8872D}</Project>
-      <Name>Hotel.Repositorio.EF</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Hotel.Utils\Hotel.Utils.csproj">
-      <Project>{b64219af-1c92-431c-b897-34a6d5bcd4df}</Project>
-      <Name>Hotel.Utils</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
+    <EmbeddedResource Include="Migrations\202209292259360_DbCreate.resx">
+      <DependentUpon>202209292259360_DbCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
