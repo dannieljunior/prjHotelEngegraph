@@ -1,5 +1,7 @@
-﻿using Hotel.Comum.Dto;
+﻿using Hotel.Bll.IOC;
+using Hotel.Comum.Dto;
 using Hotel.Comum.Interfaces;
+using Hotel.Comum.IOC;
 using Hotel.Comum.Modelos;
 using Hotel.Repositorio.ADO.Classes;
 using System;
@@ -14,7 +16,7 @@ namespace Hotel.Bll.Classes
     {
         public ConfiguracaoBll()
         {
-            _repositorio = new RepositorioADOConfiguracao();
+            _repositorio = Kernel.Get<IRepositorioConfiguracao>();
         }
         public override ObjetoDeValidacao Validar(Configuracao objeto)
         {

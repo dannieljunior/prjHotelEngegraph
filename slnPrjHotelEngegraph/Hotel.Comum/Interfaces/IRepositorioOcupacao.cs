@@ -11,6 +11,6 @@ namespace Hotel.Comum.Interfaces
 {
     public interface IRepositorioOcupacao: IRepositorio<Ocupacao>
     {
-        DataTable ObterMapaDeOcupacao();
+        List<MapaOcupacaoViewModel> ObterMapaDeOcupacao();
     }
 }

@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject, Version=3.3.6.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.6\lib\net45\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -65,6 +68,7 @@
     <Compile Include="Interfaces\IRepositorioTipoPagto.cs" />
     <Compile Include="Interfaces\IRepositorioTipoUh.cs" />
     <Compile Include="Interfaces\IRepositorioUh.cs" />
+    <Compile Include="IOC\Kernel.cs" />
     <Compile Include="Modelos\CheckOut.cs" />
     <Compile Include="Modelos\Configuracao.cs" />
     <Compile Include="Modelos\Entidade.cs" />
@@ -80,9 +84,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\HospedeViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MapaOcupacaoViewModel.cs" />
     <Compile Include="ViewModels\OcupacaoViewModel.cs" />
     <Compile Include="ViewModels\ReservaViewModel.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

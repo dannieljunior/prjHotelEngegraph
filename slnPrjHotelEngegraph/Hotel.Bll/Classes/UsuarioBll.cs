@@ -1,7 +1,9 @@
-﻿using Hotel.Comum.Dto;
+﻿using Hotel.Bll.IOC;
+using Hotel.Comum.Dto;
 using Hotel.Comum.Enumerados;
 using Hotel.Comum.Helpers;
 using Hotel.Comum.Interfaces;
+using Hotel.Comum.IOC;
 using Hotel.Comum.Modelos;
 using Hotel.Comum.ViewModels;
 using Hotel.Repositorio.ADO.Classes;
@@ -14,7 +16,7 @@ namespace Hotel.Bll.Classes
         readonly ConfiguracaoBll _configuracaoBll;
         public UsuarioBll()
         {
-            _repositorio = new RepositorioADOUsuario();
+            _repositorio = Kernel.Get<IRepositorioUsuario>();
             _configuracaoBll = new ConfiguracaoBll();
         }
 

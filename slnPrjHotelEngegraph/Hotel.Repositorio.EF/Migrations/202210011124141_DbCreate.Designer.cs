@@ -13,7 +13,7 @@ namespace Hotel.Repositorio.EF
         
         string IMigrationMetadata.Id
         {
-            get { return "202209292259360_DbCreate"; }
+            get { return "202210011124141_DbCreate"; }
         }
         
         string IMigrationMetadata.Source

@@ -1,5 +1,7 @@
-﻿using Hotel.Comum.Dto;
+﻿using Hotel.Bll.IOC;
+using Hotel.Comum.Dto;
 using Hotel.Comum.Interfaces;
+using Hotel.Comum.IOC;
 using Hotel.Comum.Modelos;
 using Hotel.Repositorio.ADO.Classes;
 
@@ -10,7 +12,7 @@ namespace Hotel.Bll.Classes
 
         public TipoPagtoBll()
         {
-            _repositorio = new RepositorioADOTipoPagto();
+            _repositorio = Kernel.Get<IRepositorioTipoPagto>();
         }
 
         public override ObjetoDeValidacao Validar(TipoPagto objeto)

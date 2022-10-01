@@ -75,7 +75,7 @@ namespace Hotel.Cliente
             formularioDeConsulta.OnDeleteRow = (s, evt) =>
             {
                 var idSelecionado = (Guid)evt.SelectedItem;
-                _bll.Persistir(_objeto, EnOperacao.Delete);
+                _bll.Persistir(new TipoUh { Id = idSelecionado }, EnOperacao.Delete); //analisar a refactoração
                 NovoRegistro();
             };
 

@@ -1,4 +1,7 @@
-﻿using Hotel.Repositorio.EF;
+﻿using Hotel.Bll.IOC;
+using Hotel.Comum.IOC;
+using Hotel.Repositorio.ADO;
+using Hotel.Repositorio.EF;
 using System.Linq;
 
 namespace Hotel.Bll.Classes
@@ -10,9 +13,7 @@ namespace Hotel.Bll.Classes
             //Conexao.ConnectionString = stringCOnexao;
             //new ExecutorDeMigracoes();
 
-            var c = new HotelDbContext();
-
-            var teste = c.TiposPgto.ToList();
+            Kernel.Initialize(new[] { new EFModule() });
         }
     }
 }

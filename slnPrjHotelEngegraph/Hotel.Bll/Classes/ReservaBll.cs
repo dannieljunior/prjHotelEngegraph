@@ -1,7 +1,9 @@
-﻿using Hotel.Comum.Auxiliares;
+﻿using Hotel.Bll.IOC;
+using Hotel.Comum.Auxiliares;
 using Hotel.Comum.Dto;
 using Hotel.Comum.Enumerados;
 using Hotel.Comum.Interfaces;
+using Hotel.Comum.IOC;
 using Hotel.Comum.Modelos;
 using Hotel.Comum.ViewModels;
 using Hotel.Repositorio.ADO.Classes;
@@ -17,7 +19,7 @@ namespace Hotel.Bll.Classes
 
         public ReservaBll()
         {
-            _repositorio = new RepositorioADOReserva();
+            _repositorio = Kernel.Get<IRepositorioReserva>();
             _tipoUhBll = new TipoUhBll();
         }
 

@@ -18,7 +18,7 @@
                         DataModificacao = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Ocupacao", t => t.OcupacaoId, cascadeDelete: true)
+                .ForeignKey("dbo.Ocupacao", t => t.OcupacaoId)
                 .Index(t => t.OcupacaoId);
             
             CreateTable(
@@ -35,8 +35,8 @@
                         DataModificacao = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.CheckOut", t => t.CheckOutId, cascadeDelete: true)
-                .ForeignKey("dbo.TipoPagto", t => t.TipoPagtoId, cascadeDelete: true)
+                .ForeignKey("dbo.CheckOut", t => t.CheckOutId)
+                .ForeignKey("dbo.TipoPagto", t => t.TipoPagtoId)
                 .Index(t => t.TipoPagtoId)
                 .Index(t => t.CheckOutId);
             
@@ -64,8 +64,8 @@
                         DataModificacao = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Reserva", t => t.ReservaId, cascadeDelete: true)
-                .ForeignKey("dbo.Uh", t => t.UhId, cascadeDelete: true)
+                .ForeignKey("dbo.Reserva", t => t.ReservaId)
+                .ForeignKey("dbo.Uh", t => t.UhId)
                 .Index(t => t.ReservaId)
                 .Index(t => t.UhId);
             
@@ -89,7 +89,7 @@
                         DataModificacao = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.TipoUh", t => t.TipoUhId, cascadeDelete: true)
+                .ForeignKey("dbo.TipoUh", t => t.TipoUhId)
                 .Index(t => t.TipoUhId);
             
             CreateTable(
@@ -121,7 +121,7 @@
                         DataModificacao = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.TipoUh", t => t.TipoUhId, cascadeDelete: true)
+                .ForeignKey("dbo.TipoUh", t => t.TipoUhId)
                 .Index(t => t.TipoUhId);
             
             CreateTable(
@@ -167,8 +167,8 @@
                         DataModificacao = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Hospede", t => t.HospedeId, cascadeDelete: true)
-                .ForeignKey("dbo.Ocupacao", t => t.OcupacaoId, cascadeDelete: true)
+                .ForeignKey("dbo.Hospede", t => t.HospedeId)
+                .ForeignKey("dbo.Ocupacao", t => t.OcupacaoId)
                 .Index(t => t.HospedeId)
                 .Index(t => t.OcupacaoId);
             
@@ -196,9 +196,9 @@
             DropForeignKey("dbo.HospedeOcupacao", "HospedeId", "dbo.Hospede");
             DropForeignKey("dbo.CheckOut", "OcupacaoId", "dbo.Ocupacao");
             DropForeignKey("dbo.Ocupacao", "UhId", "dbo.Uh");
-            DropForeignKey("dbo.Uh", "TipoUhId", "dbo.TipoUh");
             DropForeignKey("dbo.Ocupacao", "ReservaId", "dbo.Reserva");
             DropForeignKey("dbo.Reserva", "TipoUhId", "dbo.TipoUh");
+            DropForeignKey("dbo.Uh", "TipoUhId", "dbo.TipoUh");
             DropForeignKey("dbo.Lancamentos", "TipoPagtoId", "dbo.TipoPagto");
             DropForeignKey("dbo.Lancamentos", "CheckOutId", "dbo.CheckOut");
             DropIndex("dbo.HospedeOcupacao", new[] { "OcupacaoId" });

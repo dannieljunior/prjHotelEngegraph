@@ -1,5 +1,6 @@
 ﻿using Hotel.Comum.Modelos;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace Hotel.Repositorio.EF
 {
@@ -14,8 +15,8 @@ namespace Hotel.Repositorio.EF
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            //adicionar convenções e foreign keys
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
         }
 
         public DbSet<Usuario> Usuarios { get; set; }

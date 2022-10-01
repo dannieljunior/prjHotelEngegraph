@@ -1,7 +1,9 @@
-﻿using Hotel.Comum.Dto;
+﻿using Hotel.Bll.IOC;
+using Hotel.Comum.Dto;
 using Hotel.Comum.Enumerados;
 using Hotel.Comum.Helpers;
 using Hotel.Comum.Interfaces;
+using Hotel.Comum.IOC;
 using Hotel.Comum.Modelos;
 using Hotel.Comum.ViewModels;
 using Hotel.Repositorio.ADO.Classes;
@@ -24,7 +26,7 @@ namespace Hotel.Bll.Classes
 
         public OcupacaoBll()
         {
-            _repositorio = new RepositorioADOOcupacao();
+            _repositorio = Kernel.Get<IRepositorioOcupacao>(); 
             _reservaBll = new ReservaBll();
             _hospedeBll = new HospedeBll();
             _uhBll = new UhBll();
@@ -105,14 +107,14 @@ namespace Hotel.Bll.Classes
 
             List<OcupacaoViewModel> listaRetorno = new List<OcupacaoViewModel>();
 
-            foreach(DataRow linha in tabela.Rows)
+            foreach(var linha in tabela)
             {
                 listaRetorno.Add(new OcupacaoViewModel()
                 {
-                    UhId = new Guid(linha["Id"].ToString()),
-                    Numero = linha["Numero"].ToString(),
-                    OcupacaoId = string.IsNullOrWhiteSpace(linha["OcupacaoId"].ToString()) ? default(Guid) : new Guid(linha["OcupacaoId"].ToString()),
-                    Situacao = (EnSituacaoUh)Convert.ToInt32(linha["Situacao"])
+                    UhId = linha.Id,
+                    Numero = linha.Numero,
+                    OcupacaoId = linha.OcupacaoId,
+                    Situacao = linha.Situacao
                 });                 
             }
 

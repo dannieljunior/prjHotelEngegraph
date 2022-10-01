@@ -1,7 +1,9 @@
-﻿using Hotel.Comum.Auxiliares;
+﻿using Hotel.Bll.IOC;
+using Hotel.Comum.Auxiliares;
 using Hotel.Comum.Dto;
 using Hotel.Comum.Enumerados;
 using Hotel.Comum.Interfaces;
+using Hotel.Comum.IOC;
 using Hotel.Comum.Modelos;
 using Hotel.Repositorio.ADO.Classes;
 using System;
@@ -15,7 +17,7 @@ namespace Hotel.Bll.Classes
         protected readonly TipoUhBll _tipoUhBll;
         public UhBll()
         {
-            _repositorio = new RepositorioADOUh();
+            _repositorio = Kernel.Get<IRepositorioUh>();
             _tipoUhBll = new TipoUhBll();
         }
 

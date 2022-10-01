@@ -1,6 +1,7 @@
 ﻿using Hotel.Comum.Enumerados;
 using Hotel.Comum.Interfaces;
 using Hotel.Comum.Modelos;
+using Hotel.Comum.ViewModels;
 using Hotel.Utils.Database;
 using System;
 using System.Collections.Generic;
@@ -59,7 +60,7 @@ namespace Hotel.Repositorio.ADO.Classes
             }
         }
 
-        public DataTable ObterMapaDeOcupacao()
+        public List<MapaOcupacaoViewModel> ObterMapaDeOcupacao()
         {
             var sql = @"SELECT 
                             u.Id, 
@@ -76,10 +77,28 @@ namespace Hotel.Repositorio.ADO.Classes
                         ORDER BY u.Numero";
 
             var comando = CriarComando(sql);
-            var adapter = new SqlDataAdapter(comando);
-            var dataTable = new DataTable();
-            adapter.Fill(dataTable);
-            return dataTable;
+
+            List<MapaOcupacaoViewModel> result = new List<MapaOcupacaoViewModel>();
+
+            using(var reader = comando.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    result.Add(new MapaOcupacaoViewModel()
+                    {
+                        Id = (Guid)reader["Id"],
+                        Numero = reader["Numero"].ToString(),
+                        Bloco = reader["Bloco"].ToString(),
+                        Nivel = reader["Nivel"].ToString(),
+                        DataCheckIn = Convert.ToDateTime(reader["DataCheckIn"]),
+                        Situacao = (EnSituacaoUh)Convert.ToInt32(reader["Situacao"]),
+                        DataCheckOut = Convert.ToDateTime(reader["DataCheckOut"]),
+                        OcupacaoId = (Guid)reader["OcupacaoId"]
+                    });
+                }
+            }
+
+            return result;
         }
 
         public void Update(Ocupacao obj)
