@@ -25,5 +25,6 @@ namespace Hotel.Comum.Modelos
         public string Endereco { get; set; }
         [Required]
         public bool IsEstrangeiro { get; set; }
+        public DateTime? DataCasamento { get; set; }
     }
 }

@@ -75,6 +75,10 @@
     <Compile Include="Migrations\202210011124141_DbCreate.designer.cs">
       <DependentUpon>202210011124141_DbCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202210042200547_cria_coluna_data_casamento.cs" />
+    <Compile Include="Migrations\202210042200547_cria_coluna_data_casamento.designer.cs">
+      <DependentUpon>202210042200547_cria_coluna_data_casamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -90,6 +94,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202210011124141_DbCreate.resx">
       <DependentUpon>202210011124141_DbCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210042200547_cria_coluna_data_casamento.resx">
+      <DependentUpon>202210042200547_cria_coluna_data_casamento.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -18,7 +18,7 @@ namespace Hotel.Cliente
 
             new ConexaoBll(ConfigurationManager.AppSettings["StringDeConexao"]);
 
-        #if (!DEBUG)
+        #if (DEBUG)
 
             FrmLogin frm = new FrmLogin();
 
@@ -33,7 +33,7 @@ namespace Hotel.Cliente
                 Application.Run(new FrmMain());
             }
         #endif
-        #if (DEBUG)
+        #if (!DEBUG)
             Application.Run(new FrmMain());
         #endif
 

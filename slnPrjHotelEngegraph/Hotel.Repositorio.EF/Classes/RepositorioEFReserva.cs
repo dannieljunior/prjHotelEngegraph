@@ -10,6 +10,10 @@ namespace Hotel.Repositorio.EF.Classes
 {
     public class RepositorioEFReserva : RepositorioBase<Reserva>, IRepositorioReserva
     {
+        public RepositorioEFReserva()
+        {
+            dbset = context.Reservas;
+        }
         public override List<Reserva> List()
         {
             return dbset.Include("TipoUh").ToList();

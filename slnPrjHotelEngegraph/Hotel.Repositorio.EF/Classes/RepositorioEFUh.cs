@@ -11,6 +11,16 @@ namespace Hotel.Repositorio.EF.Classes
 {
     public class RepositorioEFUh : RepositorioBase<Uh>, IRepositorioUh
     {
+        public RepositorioEFUh()
+        {
+            dbset = context.Uhs;
+        }
+
+        public override Uh GetById(Guid id)
+        {
+            return dbset.Include("TipoUh").FirstOrDefault(x => x.Id == id);
+        }
+
         public override List<Uh> List()
         {
             return dbset.Include("TipoUh").ToList();

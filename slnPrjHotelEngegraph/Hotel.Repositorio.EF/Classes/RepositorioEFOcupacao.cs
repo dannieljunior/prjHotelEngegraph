@@ -13,6 +13,10 @@ namespace Hotel.Repositorio.EF.Classes
 {
     public class RepositorioEFOcupacao : RepositorioBase<Ocupacao>, IRepositorioOcupacao
     {
+        public RepositorioEFOcupacao()
+        {
+            dbset = context.Ocupacoes;
+        }
         public override List<Ocupacao> List()
         {
             return dbset.Include("Uh").Include("Reserva").ToList();
@@ -29,7 +33,7 @@ namespace Hotel.Repositorio.EF.Classes
                     DataCheckIn = y.DataCheckIn,
                     DataCheckOut = y.Reserva.DataCheckOut,
                     OcupacaoId = y.Id,
-                    Situacao = (EnSituacaoUh)y.Situacao
+                    Situacao = (EnSituacaoUh)y.Uh.Situacao
                 }).ToList();
         }
     }

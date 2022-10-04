@@ -16,8 +16,7 @@ namespace Hotel.Repositorio.EF.Classes
         }
         public string ObterConfiguracaoPeloCodigo(int codigo)
         {
-            var teste =  dbset.FirstOrDefault(x => x.Codigo == codigo)?.Valor;
-            return teste;
+            return dbset.FirstOrDefault(x => x.Codigo == codigo)?.Valor;
         }
     }
 }

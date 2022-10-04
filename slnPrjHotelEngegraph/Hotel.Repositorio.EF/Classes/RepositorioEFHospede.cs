@@ -10,5 +10,9 @@ namespace Hotel.Repositorio.EF.Classes
 {
     public class RepositorioEFHospede: RepositorioBase<Hospede>, IRepositorioHospede
     {
+        public RepositorioEFHospede()
+        {
+            dbset = context.Hospedes;
+        }
     }
 }

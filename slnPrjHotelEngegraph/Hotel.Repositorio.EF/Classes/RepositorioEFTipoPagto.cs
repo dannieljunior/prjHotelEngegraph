@@ -10,5 +10,9 @@ namespace Hotel.Repositorio.EF.Classes
 {
     public class RepositorioEFTipoPagto: RepositorioBase<TipoPagto>, IRepositorioTipoPagto
     {
+        public RepositorioEFTipoPagto(): base()
+        {
+            dbset = context.TiposPgto;
+        }
     }
 }

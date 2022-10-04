@@ -44,7 +44,15 @@ namespace Hotel.Bll.Classes
 
         public override CheckOut Persistir(CheckOut obj, EnOperacao operacao)
         {
-            var objetoDeRetorno =  base.Persistir(obj, operacao);
+            var objAPersistir = new CheckOut()
+            {
+                Id = obj.Id,
+                DataCheckOut = obj.DataCheckOut,
+                OcupacaoId = obj.Ocupacao.Id,
+                Ocupacao = obj.Ocupacao
+            };
+
+            var objetoDeRetorno =  base.Persistir(objAPersistir, operacao);
 
             obj.Lancamentos.ForEach(lancamento =>
             {

@@ -10,6 +10,10 @@ namespace Hotel.Repositorio.EF.Classes
 {
     public class RepositorioEFCheckOut: RepositorioBase<CheckOut>, IRepositorioCheckOut
     {
+        public RepositorioEFCheckOut()
+        {
+            dbset = context.CheckOuts;
+        }
         public override List<CheckOut> List()
         {
             return dbset.Include("Ocupacao").ToList();

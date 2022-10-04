@@ -19,7 +19,28 @@ namespace Hotel.Repositorio.EF
 
         protected override void Seed(HotelDbContext context)
         {
-            var configuracoes = new List<Configuracao>()
+            if (!context.Usuarios.Any())
+            {
+                var usuario = new Usuario()
+                {
+                    Id = Guid.NewGuid(),
+                    Ativo = true,
+                    DataCriacao = DateTime.Now,
+                    DataExpiracao = DateTime.Now.AddDays(90),
+                    EMail = "admin@hotel.com.br",
+                    Login = "sa",
+                    Senha = "987654",
+                    Tentativas = 0
+                };
+
+                context.Usuarios.Add(usuario);
+
+                context.SaveChanges();
+            }
+
+            if (!context.Configuracoes.Any())
+            {
+                var configuracoes = new List<Configuracao>()
                 {
                     new Configuracao()
                     {
@@ -43,13 +64,14 @@ namespace Hotel.Repositorio.EF
                     }
                 };
 
-            configuracoes.ForEach(configuracao =>
-            {
-                //configuracao.Id = Guid.NewGuid();
-                //configuracao.DataCriacao = DateTime.Now;
-                //context.Configuracoes.Add(configuracao);
-                //context.SaveChanges();
-            });            
+                configuracoes.ForEach(configuracao =>
+                {
+                    configuracao.Id = Guid.NewGuid();
+                    configuracao.DataCriacao = DateTime.Now;
+                    context.Configuracoes.Add(configuracao);
+                    context.SaveChanges();
+                });
+            }
         }
     }
 }

@@ -19,19 +19,19 @@ namespace Hotel.Repositorio.EF.Classes
             context = Kernel.Get<HotelDbContext>();
         }  
 
-        public void Delete(Guid id)
+        public virtual void Delete(Guid id)
         {
             var obj = GetById(id);
             dbset.Remove(obj);
             context.SaveChanges();
         }
 
-        public T GetById(Guid id)
+        public virtual T GetById(Guid id)
         {
             return dbset.Find(id);
         }
 
-        public T Insert(T obj)
+        public virtual T Insert(T obj)
         {
             obj.Id = Guid.NewGuid();
             obj.DataCriacao = DateTime.Now;
@@ -50,7 +50,7 @@ namespace Hotel.Repositorio.EF.Classes
             return dbset.Where(query).ToList();
         }
 
-        public void Update(T obj)
+        public virtual void Update(T obj)
         {
             if (obj.Id == null || obj.Id == default(Guid))
                 throw new Exception("Id não defindido para atualizar o registro");
