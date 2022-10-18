@@ -35,6 +35,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delegates", "Delegates\Dele
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.Repositorio.EF", "Hotel.Repositorio.EF\Hotel.Repositorio.EF.csproj", "{817181D8-CDE8-4186-8959-72E2F3A8872D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{92C64DA7-45D5-4728-B45F-066C038793E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AulaHtmlCss", "AulaHtmlCss", "{431052F7-E91E-4521-A260-E7E920A67F7D}"
+	ProjectSection(SolutionItems) = preProject
+		AulaHtmlCss\engegraph.html = AulaHtmlCss\engegraph.html
+		AulaHtmlCss\engegraph2.html = AulaHtmlCss\engegraph2.html
+		AulaHtmlCss\engegraph3.html = AulaHtmlCss\engegraph3.html
+		AulaHtmlCss\engegraphMenu.html = AulaHtmlCss\engegraphMenu.html
+		AulaHtmlCss\layout.css = AulaHtmlCss\layout.css
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
