@@ -46,6 +46,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AulaHtmlCss", "AulaHtmlCss"
 		AulaHtmlCss\layout.css = AulaHtmlCss\layout.css
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.Web", "Hotel.Web\Hotel.Web.csproj", "{46291F79-A47C-476E-BC39-0D9136C60F5E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -88,6 +90,10 @@ Global
 		{817181D8-CDE8-4186-8959-72E2F3A8872D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{817181D8-CDE8-4186-8959-72E2F3A8872D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{817181D8-CDE8-4186-8959-72E2F3A8872D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46291F79-A47C-476E-BC39-0D9136C60F5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46291F79-A47C-476E-BC39-0D9136C60F5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46291F79-A47C-476E-BC39-0D9136C60F5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46291F79-A47C-476E-BC39-0D9136C60F5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,6 +106,7 @@ Global
 		{B64219AF-1C92-431C-B897-34A6D5BCD4DF} = {04F04E7A-6DF9-4A2E-B95F-346C737F3256}
 		{4570C8C2-FAAB-41F8-9E41-780B19D6131C} = {42A083E0-48C1-4106-BA9C-EFEDEBF017A4}
 		{817181D8-CDE8-4186-8959-72E2F3A8872D} = {42A083E0-48C1-4106-BA9C-EFEDEBF017A4}
+		{46291F79-A47C-476E-BC39-0D9136C60F5E} = {92C64DA7-45D5-4728-B45F-066C038793E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {60D80B60-FB0C-46F7-B9E3-79F0FF7C7FDD}
