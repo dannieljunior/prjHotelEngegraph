@@ -34,7 +34,7 @@ namespace Hotel.Bll.Classes
                 case EnOperacao.Update:
                     {
                         _repositorio.Update(obj);
-                        return null;
+                        return obj;
                     }
                 case EnOperacao.Delete:
                     {

@@ -21,3 +21,8 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+.colored-badge {
+    color: #6C5490;
+}

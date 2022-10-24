@@ -1,0 +1,116 @@
+﻿@model Hotel.Comum.Modelos.Reserva
+
+@{
+    ViewBag.Title = "Manutenção de reserva";
+    ViewBag.FormTitle = "Reserva";
+}
+
+
+@using (Html.BeginForm("Edit", "Reserva", FormMethod.Post, new { @class = "form-horizontal", @style = "padding: 16px;" }))
+{
+
+        @Html.Hidden("Id", Model.Id)
+        @Html.Hidden("DataCriacao", Model.DataCriacao)
+        @Html.Hidden("DataModificacao", Model.DataModificacao)
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Localizador</label>
+                    <h3 class="colored-badge">@Model.Localizador</h3>
+                    @Html.Hidden("Localizador", Model.Localizador)
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Situação</label>
+                    <h3 class="colored-badge">@Model.Situacao</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Vlr. Diária</label>
+                    <h3 class="colored-badge">0,00</h3>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Qtde Noites</label>
+                    <h3 class="colored-badge">0</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Vlr. Total</label>
+                    <h3 class="colored-badge">0,00</h3>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="NomeSolicitante">Solicitante</label>
+                    @Html.TextBox("NomeSolicitante", Model.NomeSolicitante, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="TelefoneSolicitante">Telefone</label>
+                    @Html.TextBox("TelefoneSolicitante", Model.TelefoneSolicitante, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="EMailSolicitante">E-mail</label>
+                    @Html.TextBox("EMailSolicitante", Model.EMailSolicitante, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="TipoUhId">Tipo UH</label>
+                    @Html.DropDownList("TipoUhId", new SelectList(ViewBag.TiposUh, "Value", "Text"), new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="DataCheckIn">Data Check-In</label>
+                    @Html.TextBox("DataCheckIn", Model.DataCheckIn, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="DataCheckOut">Data Check-Out</label>
+                    @Html.TextBox("DataCheckOut", Model.DataCheckOut, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4" style="padding-left: 0;">
+                <label for="QtdeAdt">Adultos</label>
+                @Html.TextBox("QtdeAdt", Model.QtdeAdt, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4" style="padding-left: 0;">
+                <label for="QtdeChd">Crianças</label>
+                @Html.TextBox("QtdeAdt", Model.QtdeChd, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="Observacoes">Observações</label>
+                    @Html.TextArea("Observacoes", new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <input class="btn btn-primary" type="submit" value="Salvar" />
+            @Html.ActionLink("Voltar", "Index", new { @class = "btn btn-default" })
+        </div>
+
+}

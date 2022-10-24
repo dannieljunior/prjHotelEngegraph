@@ -1,54 +1,55 @@
 ﻿@model List<Hotel.Comum.ViewModels.ReservaViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Consulta Reserva";
+    ViewBag.FormTitle = ViewBag.Title;
 }
 
-<div class="jumbotron">
-    <h2>Consulta Reservas</h2>
-</div>
 
-<form class="form-inline" action="index" method="get" style="padding: 8px;">
-    <div class="form-group">
-        <label for="dtaCheckIn">Data Check-In:</label>
-        <input type="date" class="form-control" name="dtaCheckIn" id="dtaCheckIn" value="@ViewBag.dtaCheckOut" />
-    </div>
-    <div class="form-group">
-        <label for="dtaCheckOut">Data Check-Out:</label>
-        <input type="date" name="dtaCheckOut" id="dtaCheckOut" value="@ViewBag.dtaCheckOut" />
-    </div>
+@using (Html.BeginForm("index", "Reserva", FormMethod.Get, new { @class = "form-inline", @style = "padding: 16px;" }))
+{
+        <div class="form-group">
+            <label for="dtaCheckIn">Data Check-In:</label>
+            <input type="text" class="form-control" name="dtaCheckIn" id="dtaCheckIn" value="@ViewBag.dtaCheckIn" />
+        </div>
+        <div class="form-group">
+            <label for="dtaCheckOut">Data Check-Out:</label>
+            <input type="text" class="form-control" name="dtaCheckOut" id="dtaCheckOut" value="@ViewBag.dtaCheckOut" />
+        </div>
 
-    <div class="form-group">
-        <label for="ddlTiposUh">Tipo Uh:</label>
-        <select class="form-control" id="ddlTiposUh" name="ddlTiposUh">
-            @foreach (var tipoUh in ViewBag.TiposUh)
-            {
-                <option value="@tipoUh.Id">@tipoUh.Descricao</option>
-            }
-        </select>
-    </div>
+        <div class="form-group">
+            <label for="ddlTiposUh">Tipo Uh:</label>
+            @Html.DropDownList("ddlTiposUh", new SelectList(ViewBag.TiposUh, "Value", "Text"), new { @class = "form-control" })
+        </div>
 
-    <button type="submit" class="btn btn-default">Consultar</button>
-    <a class="btn btn-primary" href="#">Nova reserva</a>
-</form>
+        <button type="submit" class="btn btn-default">Consultar</button>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Solicitante</th>
-            <th>Estadia</th>
-            <th>Situação</th>
-            <th>Adultos</th>
-            <th>Crianças</th>
-            <th>Tipo de UH</th>
-            <th>Valor total</th>
-        </tr>
-    </thead>
-    <tbody>
+        <p>
+            @Html.ActionLink("Nova reserva", "Edit", new { @class = "btn btn-success" })
+        </p>        
+} 
 
-        @foreach(var item in Model)
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Solicitante</th>
+                <th>Estadia</th>
+                <th>Situação</th>
+                <th>Adultos</th>
+                <th>Crianças</th>
+                <th>Tipo de UH</th>
+                <th>Valor total</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
             {
                 <tr>
+                    <td>
+                        @Html.ActionLink("Visualizar", "Edit", new { @id = @item.Id })
+                    </td>
                     <td>@item.Solicitante</td>
                     <td>@item.Estadia</td>
                     <td>@item.Situacao</td>
@@ -58,17 +59,17 @@
                     <td>@item.ValorEstadiaPrevisto</td>
                 </tr>
             }
-        
-    </tbody>
 
-        @if(Model.Count <= 0)
-            {
-                <tfoot>
-                    <tr>
-                        <td colspan="7">Nenhuma reserva encontrada.</td>
-                    </tr>
-                </tfoot>
-            }
-    
-</table>
+        </tbody>
+
+        @if (Model.Count <= 0)
+        {
+            <tfoot>
+                <tr>
+                    <td colspan="7">Nenhuma reserva encontrada.</td>
+                </tr>
+            </tfoot>
+        }
+
+    </table>
 

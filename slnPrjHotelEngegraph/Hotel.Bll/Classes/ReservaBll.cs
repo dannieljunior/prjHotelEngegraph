@@ -30,6 +30,10 @@ namespace Hotel.Bll.Classes
                 var txtLocalizador = Guid.NewGuid().ToString();
                 obj.Localizador = txtLocalizador.Substring(txtLocalizador.Length - 6, 6);
             }
+            else if(operacao == EnOperacao.Update)
+            {
+                obj.TipoUh = _tipoUhBll.GetById(obj.TipoUhId);
+            }
             
             return base.Persistir(obj, operacao);
         }
@@ -73,7 +77,7 @@ namespace Hotel.Bll.Classes
 
         public List<TipoUh> ObterTiposUh(bool isConsulta = true)
         {
-            var tabela = _tipoUhBll.List();
+            var tabela = new List<TipoUh>(); 
             
             if (isConsulta)
             {
@@ -85,7 +89,9 @@ namespace Hotel.Bll.Classes
 
                 tabela.Add(row);
             }
-            
+
+            tabela.AddRange(_tipoUhBll.List());
+
             return tabela;
         }
 
