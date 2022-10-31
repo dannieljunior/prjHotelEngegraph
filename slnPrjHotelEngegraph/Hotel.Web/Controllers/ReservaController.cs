@@ -41,13 +41,34 @@ namespace Hotel.Web.Controllers
         [HttpPost]
         public ActionResult Edit(Reserva obj)
         {
+            ViewBag.TiposUh = ObterTiposUh(false);
+
+            if (!ModelState.IsValid)
+                return View(obj);
+
             var operacao = (obj.Id == default(Guid) ? EnOperacao.Insert : EnOperacao.Update);
-            //adicionar codigo de validação
-            var result = bll.Persistir(obj, operacao);
-            return RedirectToAction("Edit", new { @id = result.Id.ToString() });
+
+            var resultadoValidacao = bll.Validar(obj);
+
+            Reserva result = null;
+
+            if (resultadoValidacao.Sucesso)
+            {
+                result = bll.Persistir(obj, operacao);
+                ViewBag.Sucesso = true;
+                return RedirectToAction("Edit", new { @id = result.Id.ToString() });
+            }
+            else
+            {
+                resultadoValidacao.Criticas.ForEach(critica =>
+                {
+                    ModelState.AddModelError(string.Empty, critica);
+                });
+
+                return View(obj);
+            }
         }
-
-
+     
         private List<SelectListItem> ObterTiposUh(bool isConsulta = true)
         {
             var lista = bll.ObterTiposUh(isConsulta);

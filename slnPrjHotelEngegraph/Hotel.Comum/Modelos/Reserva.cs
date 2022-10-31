@@ -9,7 +9,7 @@ namespace Hotel.Comum.Modelos
     [Table("Reserva")]
     public class Reserva: Entidade
     {
-        [Column(TypeName = "varchar"), MaxLength(40), Required]
+        [Column(TypeName = "varchar"), DisplayName("Nome do solicitante"), MaxLength(40), Required]
         public string NomeSolicitante { get; set; }
         [Column(TypeName = "varchar"), MaxLength(15), Required]
         public string TelefoneSolicitante { get; set; }

@@ -9,7 +9,7 @@ namespace Hotel.Comum.ViewModels
 {
     public class ReservaViewModel
     {
-        private int DiariasPrevistas => DataCheckOut.Subtract(DataCheckIn).Days;
+        public int DiariasPrevistas => DataCheckOut.Subtract(DataCheckIn).Days;
         
         public Guid Id { get; set; }
         public string Solicitante { get; set; }

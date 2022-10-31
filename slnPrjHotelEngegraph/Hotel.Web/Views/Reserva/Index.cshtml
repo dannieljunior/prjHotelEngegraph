@@ -5,71 +5,95 @@
     ViewBag.FormTitle = ViewBag.Title;
 }
 
-
-@using (Html.BeginForm("index", "Reserva", FormMethod.Get, new { @class = "form-inline", @style = "padding: 16px;" }))
-{
-        <div class="form-group">
-            <label for="dtaCheckIn">Data Check-In:</label>
-            <input type="text" class="form-control" name="dtaCheckIn" id="dtaCheckIn" value="@ViewBag.dtaCheckIn" />
-        </div>
-        <div class="form-group">
-            <label for="dtaCheckOut">Data Check-Out:</label>
-            <input type="text" class="form-control" name="dtaCheckOut" id="dtaCheckOut" value="@ViewBag.dtaCheckOut" />
-        </div>
-
-        <div class="form-group">
-            <label for="ddlTiposUh">Tipo Uh:</label>
-            @Html.DropDownList("ddlTiposUh", new SelectList(ViewBag.TiposUh, "Value", "Text"), new { @class = "form-control" })
-        </div>
-
-        <button type="submit" class="btn btn-default">Consultar</button>
-
-        <p>
-            @Html.ActionLink("Nova reserva", "Edit", new { @class = "btn btn-success" })
-        </p>        
-} 
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Solicitante</th>
-                <th>Estadia</th>
-                <th>Situação</th>
-                <th>Adultos</th>
-                <th>Crianças</th>
-                <th>Tipo de UH</th>
-                <th>Valor total</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.ActionLink("Visualizar", "Edit", new { @id = @item.Id })
-                    </td>
-                    <td>@item.Solicitante</td>
-                    <td>@item.Estadia</td>
-                    <td>@item.Situacao</td>
-                    <td>@item.QtdeAdt</td>
-                    <td>@item.QtdeChd</td>
-                    <td>@item.TipoUhDescricao</td>
-                    <td>@item.ValorEstadiaPrevisto</td>
-                </tr>
-            }
-
-        </tbody>
-
-        @if (Model.Count <= 0)
+<div class="panel panel-default">
+    <div class="panel-heading azul-engegraph">@ViewBag.FormTitle</div>
+    <div class="panel-body">
+        @using (Html.BeginForm("index", "Reserva", FormMethod.Get, new { @class = "form-inline", @style = "padding: 16px;" }))
         {
-            <tfoot>
-                <tr>
-                    <td colspan="7">Nenhuma reserva encontrada.</td>
-                </tr>
-            </tfoot>
+            <div class="form-group">
+                <label for="dtaCheckIn">Data Check-In:</label>
+                <input type="text" class="form-control" name="dtaCheckIn" id="dtaCheckIn" value="@ViewBag.dtaCheckIn" />
+            </div>
+            <div class="form-group">
+                <label for="dtaCheckOut">Data Check-Out:</label>
+                <input type="text" class="form-control" name="dtaCheckOut" id="dtaCheckOut" value="@ViewBag.dtaCheckOut" />
+            </div>
+
+            <div class="form-group">
+                <label for="ddlTiposUh">Tipo Uh:</label>
+                @Html.DropDownList("ddlTiposUh", new SelectList(ViewBag.TiposUh, "Value", "Text"), new { @class = "form-control" })
+            </div>
+
+            <button type="submit" class="btn btn-default">Consultar</button>
+
+            <p>
+                @Html.ActionLink("Nova reserva", "Edit", new { @class = "btn btn-success" })
+            </p>
         }
 
-    </table>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Solicitante</th>
+                    <th>Estadia</th>
+                    <th>Situação</th>
+                    <th>Adultos</th>
+                    <th>Crianças</th>
+                    <th>Tipo de UH</th>
+                    <th>Valor total</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.ActionLink("Visualizar", "Edit", new { @id = @item.Id })
+                        </td>
+                        <td>@item.Solicitante</td>
+                        <td>@item.Estadia</td>
+                        <td>@item.Situacao</td>
+                        <td>@item.QtdeAdt</td>
+                        <td>@item.QtdeChd</td>
+                        <td>@item.TipoUhDescricao</td>
+                        <td>@item.ValorEstadiaPrevisto</td>
+                    </tr>
+                }
+
+            </tbody>
+
+            @if (Model.Count <= 0)
+            {
+                <tfoot>
+                    <tr>
+                        <td colspan="7">Nenhuma reserva encontrada.</td>
+                    </tr>
+                </tfoot>
+            }
+
+        </table>
+    </div>
+</div>
+
+
+
+
+
+<script>
+    const configuracaoesDatePicker = {
+        dateFormat: 'dd/mm/yy',
+        dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+        dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
+        dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+        monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+        monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+        nextText: 'Próximo',
+        prevText: 'Anterior'
+    };
+
+    $('#dtaCheckIn').datepicker(configuracaoesDatePicker);
+    $('#dtaCheckOut').datepicker(configuracaoesDatePicker);
+</script>
 

@@ -1,33 +1,34 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Hotel Engegraph</title>
     @Styles.Render("~/Content/css")
+    <link href="~/Scripts/jquery-ui.css" rel="stylesheet" />
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    <script src="~/Scripts/jquery.mask.min.js"></script>
+    <script src="https://kit.fontawesome.com/fcd9533beb.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
-    <h1>Hotel Engegraph</h1>
 
+    <header>
+        @Html.Partial("_HeaderPage")
+    </header>
 
     <div class="container">
-
-        <div class="panel panel-primary">
-            <div class="panel-heading">@ViewBag.FormTitle</div>
-            <div class="panel-body">
-                @RenderBody()
-            </div>
-        </div>
-
-        <hr />
+        @RenderBody()
         <footer>
             <p>&copy; @DateTime.Now.Year - Engegraph Sistemas Inteligentes Ltda.</p>
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
+   
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

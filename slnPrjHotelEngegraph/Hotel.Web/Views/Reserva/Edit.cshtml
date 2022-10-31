@@ -3,114 +3,187 @@
 @{
     ViewBag.Title = "Manutenção de reserva";
     ViewBag.FormTitle = "Reserva";
+
+    if (ViewBag.Sucesso ?? false)
+    {
+        <div class="alert alert-success" role="alert">
+            Dados salvos com sucesso.
+        </div>
+    }
 }
 
+<div class="panel panel-default">
+    <div class="panel-heading azul-engegraph">@ViewBag.FormTitle</div>
+    <div class="panel-body">
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
 
-@using (Html.BeginForm("Edit", "Reserva", FormMethod.Post, new { @class = "form-horizontal", @style = "padding: 16px;" }))
-{
+        @using (Html.BeginForm("Edit", "Reserva", FormMethod.Post, new { @class = "form-horizontal", @style = "padding: 16px;" }))
+        {
 
-        @Html.Hidden("Id", Model.Id)
-        @Html.Hidden("DataCriacao", Model.DataCriacao)
-        @Html.Hidden("DataModificacao", Model.DataModificacao)
+            @Html.Hidden("Id", Model.Id)
+            @Html.Hidden("DataCriacao", Model.DataCriacao)
+            @Html.Hidden("DataModificacao", Model.DataModificacao)
 
-        <div class="row">
-            <div class="col-md-2">
-                <div class="form-group">
-                    <label>Localizador</label>
-                    <h3 class="colored-badge">@Model.Localizador</h3>
-                    @Html.Hidden("Localizador", Model.Localizador)
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="form-group">
-                    <label>Situação</label>
-                    <h3 class="colored-badge">@Model.Situacao</h3>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label>Vlr. Diária</label>
-                    <h3 class="colored-badge">0,00</h3>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="form-group">
-                    <label>Qtde Noites</label>
-                    <h3 class="colored-badge">0</h3>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label>Vlr. Total</label>
-                    <h3 class="colored-badge">0,00</h3>
-                </div>
-            </div>
-        </div>
+            <!--campos para exibir inicialmente os valores de diária-->
+
+            @Html.Hidden("noites", Model.DataCheckOut.Subtract(Model.DataCheckIn).Days)
+            @Html.Hidden("valorDiaria", Model.TipoUh?.ValorDiaria ?? 0)
+            @Html.Hidden("valorTotal", Model.DataCheckOut.Subtract(Model.DataCheckIn).Days * Model.TipoUh?.ValorDiaria ?? 0)
 
 
-        <div class="row">
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label for="NomeSolicitante">Solicitante</label>
-                    @Html.TextBox("NomeSolicitante", Model.NomeSolicitante, new { @class = "form-control" })
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Localizador</label>
+                        <h3 class="colored-badge">@Model.Localizador</h3>
+                        @Html.Hidden("Localizador", Model.Localizador)
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label for="TelefoneSolicitante">Telefone</label>
-                    @Html.TextBox("TelefoneSolicitante", Model.TelefoneSolicitante, new { @class = "form-control" })
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Situação</label>
+                        <h3 class="colored-badge">@Model.Situacao</h3>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Vlr. Diária</label>
+                        <h3 class="colored-badge"><span id="vlrDiariaSpan">0.00</span></h3>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Qtde Noites</label>
+                        <h3 class="colored-badge"><span id="qtdeNoitesSpan">0</span></h3>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Vlr. Total</label>
+                        <h3 class="colored-badge"><span id="vlrTotalDiariasSpan">0.00</span></h3>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label for="EMailSolicitante">E-mail</label>
-                    @Html.TextBox("EMailSolicitante", Model.EMailSolicitante, new { @class = "form-control" })
-                </div>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label for="TipoUhId">Tipo UH</label>
-                    @Html.DropDownList("TipoUhId", new SelectList(ViewBag.TiposUh, "Value", "Text"), new { @class = "form-control" })
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="NomeSolicitante">Solicitante</label>
+                        @Html.TextBox("NomeSolicitante", Model.NomeSolicitante, new { @class = "form-control" })
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label for="DataCheckIn">Data Check-In</label>
-                    @Html.TextBox("DataCheckIn", Model.DataCheckIn, new { @class = "form-control" })
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="TelefoneSolicitante">Telefone</label>
+                        @Html.TextBox("TelefoneSolicitante", Model.TelefoneSolicitante, new { @class = "form-control" })
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label for="DataCheckOut">Data Check-Out</label>
-                    @Html.TextBox("DataCheckOut", Model.DataCheckOut, new { @class = "form-control" })
-                </div>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-md-4" style="padding-left: 0;">
-                <label for="QtdeAdt">Adultos</label>
-                @Html.TextBox("QtdeAdt", Model.QtdeAdt, new { @class = "form-control" })
-            </div>
-            <div class="col-md-4" style="padding-left: 0;">
-                <label for="QtdeChd">Crianças</label>
-                @Html.TextBox("QtdeAdt", Model.QtdeChd, new { @class = "form-control" })
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label for="Observacoes">Observações</label>
-                    @Html.TextArea("Observacoes", new { @class = "form-control" })
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="EMailSolicitante">E-mail</label>
+                        @Html.TextBox("EMailSolicitante", Model.EMailSolicitante, new { @class = "form-control" })
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div style="text-align: center;">
-            <input class="btn btn-primary" type="submit" value="Salvar" />
-            @Html.ActionLink("Voltar", "Index", new { @class = "btn btn-default" })
-        </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="TipoUhId">Tipo UH</label>
+                        @Html.DropDownList("TipoUhId", new SelectList(ViewBag.TiposUh, "Value", "Text"), new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="DataCheckIn">Data Check-In</label>
+                        @Html.TextBox("DataCheckIn", Model.DataCheckIn, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="DataCheckOut">Data Check-Out</label>
+                        @Html.TextBox("DataCheckOut", Model.DataCheckOut, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
 
-}
+            <div class="row">
+                <div class="col-md-4" style="padding-left: 0;">
+                    <label for="QtdeAdt">Adultos</label>
+                    @Html.TextBox("QtdeAdt", Model.QtdeAdt, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4" style="padding-left: 0;">
+                    <label for="QtdeChd">Crianças</label>
+                    @Html.TextBox("QtdeChd", Model.QtdeChd, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="Observacoes">Observações</label>
+                        @Html.TextArea("Observacoes", new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <input class="btn btn-primary" type="submit" value="Salvar" />
+                @Html.ActionLink("Voltar", "Index", new { @class = "btn btn-default" })
+            </div>
+
+        }
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    atualizarValoresNaView();
+
+    const configuracaoesDatePicker = {
+        dateFormat: 'dd/mm/yy',
+        dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+        dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
+        dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+        monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+        monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+        nextText: 'Próximo',
+        prevText: 'Anterior'
+    };
+
+    $('#TelefoneSolicitante').mask('(00) 00000-0000');
+    $('#DataCheckIn').datepicker(configuracaoesDatePicker);
+    $('#DataCheckOut').datepicker(configuracaoesDatePicker);
+
+    $.datepicker.setDefaults($.datepicker.regional["fr"]);
+
+    function atualizarValoresNaView() {
+        $('#vlrDiariaSpan').text(parseFloat($("#valorDiaria").val()).toFixed(2));
+        $('#qtdeNoitesSpan').text($("#noites").val());
+        $('#vlrTotalDiariasSpan').text(parseFloat($("#valorTotal").val()).toFixed(2));
+    }
+
+    $('#TipoUhId').change(calculaValores);
+    $('#DataCheckIn').change(calculaValores);
+    $('#DataCheckOut').change(calculaValores);
+
+    function calculaValores() {
+        var id = $('#TipoUhId').val();
+        var url = 'https://localhost:44300/TipoUh/Get/' + id;
+        $.get(url, function (result) {
+            $("#valorDiaria").val(result["ValorDiaria"]);
+            var noites = DaysBetween(new Date($("#DataCheckIn").val()), new Date($("#DataCheckOut").val()));
+            $("#noites").val(noites);
+            $("#valorTotal").val(noites * result["ValorDiaria"]);
+            atualizarValoresNaView();
+        });
+    }
+
+    function DaysBetween(startDate, endDate) {
+        const _MILISECONDS_IN_DAY = 1000 * 60 * 60 * 24;
+        const utcStartDate = Date.UTC(startDate.getFullYear(), startDate.getMonth(), startDate.getDate());
+        const utcEndDate = Date.UTC(endDate.getFullYear(), endDate.getMonth(), endDate.getDate());
+        return Math.floor((utcEndDate - utcStartDate) / _MILISECONDS_IN_DAY);
+    }
+
+</script>

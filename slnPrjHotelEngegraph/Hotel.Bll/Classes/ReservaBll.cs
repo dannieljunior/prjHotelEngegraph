@@ -42,6 +42,11 @@ namespace Hotel.Bll.Classes
         {
             var resultadoValidacao = new ObjetoDeValidacao();
 
+            if(objeto.TipoUh == null)
+            {
+                objeto.TipoUh = _tipoUhBll.GetById(objeto.TipoUhId);
+            }
+
             if(objeto.DataCheckIn.Date >= objeto.DataCheckOut)
             {
                 resultadoValidacao.Criticas.Add("Data Chek-In deve ser anterior a data de check-Out");
